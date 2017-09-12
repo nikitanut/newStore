@@ -6,14 +6,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
-<link href="template/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/template/css/style.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="template/js/jquery.min.js"></script>	
-<link href="template/css/slider.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/template/css/slider.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 
 <body>
 <!-- start header -->
-<div class="header_bg">
+<div class="header_bg">    
 <div class="wrap">
 	<div class="header">
 		<div class="logo">
@@ -44,8 +44,8 @@
 	<div class="header_sub">
 		<div class="h_menu">
 			<ul>
-				<li class="active"><a href="#">Главная</a></li> |
-                                <li><a href="#">Каталог</a></li> |
+				<li><a href="/">Главная</a></li> |
+                                <li><a href="/catalog" class="<?php if ($_SERVER['REQUEST_URI'] == '/catalog') echo 'active';?>">Каталог</a></li> |
                                 <li><a href="#">Контакты</a></li>
 				<!--
                                 <li><a href="#">Игровые комплексы, горки, качели</a></li> |
@@ -78,15 +78,7 @@
 		<div class="top-nav">
 	          <nav class="nav">	        	
 	    	    <a href="#" id="w3-menu-trigger"> </a>
-	                  <ul class="nav-list" style="">
-	            	        <li class="nav-item"><a class="active" href="index.php">Home</a></li>
-							<li class="nav-item"><a href="new/sale.html">Sale</a></li>
-							<li class="nav-item"><a href="new/handbags.html">Handbags</a></li>
-							<li class="nav-item"><a href="new/accessories.html">Accessories</a></li>
-							<li class="nav-item"><a href="new/shoes.html">Shoes</a></li>
-							<li class="nav-item"><a href="new/service.html">Services</a></li>
-							<li class="nav-item"><a href="new/contact.html">Contact</a></li>
-	                 </ul>
+	                  
 	           </nav>
 	             <div class="search_box">
 				<form>
@@ -94,7 +86,7 @@
 			    </form>
 			</div>
 	          <div class="clear"> </div>
-	          <script src="template/js/responsive.menu.js"></script>
+	          <script src="/template/js/responsive.menu.js"></script>
          </div>		  
 	<div class="clear"></div>
 </div>

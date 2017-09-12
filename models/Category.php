@@ -16,7 +16,7 @@ class Category
         $db = Db::getConnection();
 
         // Запрос к БД
-        $result = $db->query('SELECT id, name FROM categories WHERE status = "1" ORDER BY name ASC');
+        $result = $db->query('SELECT id, name FROM categories WHERE status = "1" ORDER BY name'); 
 
         // Получение и возврат результатов
         $i = 0;
