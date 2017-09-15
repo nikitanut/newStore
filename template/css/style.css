@@ -30,15 +30,15 @@ img{max-width:100%;}
 /*end reset*/
 @font-face {
     font-family: 'bebas_neueregular';
-    src:url(../fonts/bicubik.ttf) format('truetype');
+    src:url(../fonts/10771.ttf) format('truetype');
 }
 body {
 	font-family: 'bebas_neueregular';
 	background:#ffffff;
-	font-size: 100%;
+	font-size: 100%;        
 }
 .active {
-    color: blue !important;
+    color: black !important;
 }
 h3{
     color: black !important;
@@ -438,7 +438,7 @@ h3{
 	padding: 2%;
 }
 .main1 h2{
-	font-size: 1.4em;
+	font-size: 2.2em;
 	color:#ffffff;
 	text-shadow: 0 1px 0 rgb(24, 141, 118);
 }
@@ -495,7 +495,7 @@ h3{
 }
 .price{
 	display: block;
-	margin-bottom: 40px;
+	margin-bottom: 30px;
 }
 .price h4{
 	font-size: 1.5em;
@@ -507,7 +507,7 @@ h3{
 	background: #3CC395;
 	color: #ffffff;
 	padding: 8px 20px;
-	margin-left: 30px;
+	/*margin-left: 30px; - если слева цена*/ 
 	-webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
@@ -1083,7 +1083,7 @@ p.para{
 	color: #fff;
 }
 .banner-wrap.bottom_banner .main_link h5 {
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 	margin: -5px 0 0 0;
 	display: inline-block;
 	text-align: left;

@@ -20,17 +20,19 @@
 		<!-- start grids_of_3 -->
                 <?php if (count($categoryProducts) == 0): ?>
                 <div class="grids_of_3"></div>
+                <!-- TODO. Если нет товаров, то чё-нибудь вывести -->
                 <div class="clear"></div>
                 <?php endif;?>
                     <?php for ($i=0; $i < count($categoryProducts); $i++):  // Перебор массива с товарами для вывода
                         if ($i%3 == 0): // Если новая строка, то вставить grids_of_3 (позиции для 3х товаров)?> 
                             <div class="grids_of_3"> 
                         <?php endif;?>
-                    <div class="grid1_of_3">
-                        <img src="<?php echo Product::getImage($categoryProducts[$i]['id']); ?>" alt=""/>
+                    <div class="grid1_of_3">                        
                         <a href="/product/<?php echo $categoryProducts[$i]['id']; ?>">
+                            <img src="<?php echo Product::getImage($categoryProducts[$i]['id']); ?>" alt=""/>
                             <div class="price"><h3><?php echo $categoryProducts[$i]['name'];?> </h3></div>
-                            <div class="price"><h4>$300<span>Арендовать</span></h4></div>
+                            <div class="price"><h4>200р. - 1 день<br>1000р. - 1 неделя<br>2000р. - 3 недели<br></h4></div>
+                            <div class="price"><h4><span>Арендовать</span></h4></div>
                             <span class="b_btm"></span>
 			</a>
                     </div>  
