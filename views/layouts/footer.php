@@ -61,11 +61,23 @@
 	</div>
 </div>
 </div>	
+<script>
+                    $(document).ready(function() {
+                        $(".add-to-cart").click(function () {
+                            var id = $(this).attr("data-id");
+                            $.post("/cart/addAjax/"+id, {}, function (data) {
+                                $("#cart-count").html(data);
+                            });
+                            return false;
+                        });
+                    });
+                </script>
 <!-- start footer -->
 <div class="footer_bg1">
 <div class="wrap">
 	<div class="footer">
-		<!-- scroll_top_btn -->
+		
+                <!-- scroll_top_btn -->
 	    <script type="text/javascript">
 			$(document).ready(function() {
 			
@@ -81,6 +93,8 @@
 				
 			});
 		</script>
+                
+                
 		 <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
 		<!--end scroll_top_btn -->
 		<div class="copy">

@@ -7,23 +7,23 @@
 <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
 <link href="/template/css/style.css" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="template/js/jquery.min.js"></script>	
+<script type="text/javascript" src="/template/js/jquery.min.js"></script>	
 <link href="/template/css/slider.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 
 <body>
-<!-- start header -->
+    <!-- start header -->
 <div class="header_bg">    
 <div class="wrap">
 	<div class="header">
 		<div class="logo">
-			<a href="index.php"><img src="template/images/logo.png" alt=""/> </a>
+			<a href="index.php"><img src="/template/images/logo.png" alt=""/> </a>
 		</div>
 		<div class="h_icon">
 		<ul class="icon1 sub-icon1">
 			<li><a class="active-icon c1" href="#"><i>$300</i></a>
 				<ul class="sub-icon1 list">
-					<li><h3>shopping cart empty</h3><a href=""></a></li>
+                                    <li><h3 id="cart-count">(<?php echo Cart::countItems(); ?>)</h3><a href=""></a></li>
 					<li><p>if items in your wishlit are missing, <a href="new/contact.html">contact us</a> to view them</p></li>
 				</ul>
 			</li>
@@ -87,6 +87,7 @@
 			</div>
 	          <div class="clear"> </div>
 	          <script src="/template/js/responsive.menu.js"></script>
+                 
          </div>		  
 	<div class="clear"></div>
 </div>
