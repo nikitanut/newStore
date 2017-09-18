@@ -155,7 +155,7 @@ class Product
      * @param array $idsArray <p>Массив с идентификаторами</p>
      * @return array <p>Массив со списком товаров</p>
      */
-    public static function getProdustsByIds($idsArray)
+    public static function getProductsByIds($idsArray)
     {
         // Соединение с БД
         $db = Db::getConnection();

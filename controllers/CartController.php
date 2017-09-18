@@ -63,14 +63,14 @@ class CartController
             $productsIds = array_keys($productsInCart);
 
             // Получаем массив с полной информацией о необходимых товарах
-            $products = Product::getProdustsByIds($productsIds);
+            $products = Product::getProductsByIds($productsIds);
 
             // Получаем общую стоимость товаров
             //$totalPrice = Cart::getTotalPrice($products);
         }
 
         // Подключаем вид
-        //require_once(ROOT . '/views/cart/index.php');
+        require_once(ROOT . '/views/cart/index.php');
         return true;
     }
 
@@ -92,7 +92,7 @@ class CartController
 
         // Находим общую стоимость
         $productsIds = array_keys($productsInCart);
-        $products = Product::getProdustsByIds($productsIds);
+        $products = Product::getProductsByIds($productsIds);
         $totalPrice = Cart::getTotalPrice($products);
 
         // Количество товаров
