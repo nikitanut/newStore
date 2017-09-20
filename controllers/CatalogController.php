@@ -34,7 +34,10 @@ class CatalogController
         // Список товаров в категории
         $categoryProducts = Product::getProductsListByCategory($categoryId, $page);
 
-        // Общее количетсво товаров (необходимо для постраничной навигации)
+        // Список цен товаров
+        $prices = Product::getPriceListByProduct($categoryProducts);
+        
+        // Общее количеcтсво товаров (необходимо для постраничной навигации)
         $total = Product::getTotalProductsInCategory($categoryId);
 
         // Создаем объект Pagination - постраничная навигация

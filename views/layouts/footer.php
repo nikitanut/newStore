@@ -66,20 +66,9 @@
         $(".add-to-cart").click(function () { 
             // Если нажали "В корзину":
             var id = $(this).attr("data-id");
-            $('#basket-add').css({"visibility": "visible", "opacity": "1"});
-            $("input[type='radio']").prop('checked', false); // Очистить radioButton
-            $(".buy").click(function () { 
-                // Если нажали "Добавить в корзину":
                 $.post("/cart/addAjax/" + id, {}, function (data) {
                     $(".c1").html(data);
-                });
-                $('#basket-add').css({"visibility": "hidden", "opacity": "0"}); // Скрыть форму с выбором срока аренды
-                return false;
-            })
-            $(".b-popup__close").click(function () { // Кнопка "Закрыть"
-                $('#basket-add').css({"visibility": "hidden", "opacity": "0"}); // Скрыть форму с выбором срока аренды
-                return false;
-            });
+                });         
             return false;
         });
     });

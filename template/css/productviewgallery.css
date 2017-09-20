@@ -148,9 +148,9 @@
 .product-options .options-list li:after,
 .product-options-bottom:after,
 .product-review:after,
-.cart:after,
-.cart-collaterals:after,
-.cart .crosssell li.item:after,
+/*.cart:after,
+/.cart-collaterals:after,
+.cart .crosssell li.item:after,*/
 .opc .step-title:after,
 .checkout-progress:after,
 .multiple-checkout .place-order:after,

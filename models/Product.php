@@ -39,7 +39,7 @@ class Product
         // Указываем, что хотим получить данные в виде массива
         $result->setFetchMode(PDO::FETCH_ASSOC);
         
-        // Выполнение коменды
+        // Выполнение команды
         $result->execute();
         
         // Получение и возврат результатов
@@ -81,7 +81,7 @@ class Product
         $result->bindParam(':limit', $limit, PDO::PARAM_INT);
         $result->bindParam(':offset', $offset, PDO::PARAM_INT);
 
-        // Выполнение коменды
+        // Выполнение команды
         $result->execute();
 
         // Получение и возврат результатов
@@ -96,7 +96,49 @@ class Product
         return $products;
     }
     
+    /**
+     * Возвращает список цен указанных товаров
+     * @param type $products <p>Массив с товарами</p>
+     * @return type <p>Массив с ценами</p>
+     */
+    public static function getPriceListByProduct($products)
+    {
+        // Соединение с БД
+        $db = Db::getConnection();
+
+        
+        $where = ""; // Строка с WHERE
+        for ($i = 0; $i <count($products); $i++)
+        {
+            $where .= "prod_id = :prod_id".$i;
+            if ($i+1 != count($products)) // Если последний товар, то не добавлять OR в запрос
+                $where .= " OR ";
+        }
+        // Текст запроса к БД
+        $sql = 'SELECT prod_id, time, price FROM price WHERE '. $where . ' ORDER BY price';
+        // Используется подготовленный запрос
+        $result = $db->prepare($sql);
+        for ($i=0; $i <count($products); $i++)
+        {
+            $result->bindParam(':prod_id'.$i, $products[$i]['id'], PDO::PARAM_INT);
+        }
+        // Выполнение команды
+        $result->execute();
+        
+        // Получение и возврат результатов
+        $i = 0;
+        $prices = array();
+        while ($row = $result->fetch()) {
+            $prices[$i]['prod_id'] = $row['prod_id'];
+            $prices[$i]['time'] = $row['time'];
+            $prices[$i]['price'] = $row['price'];
+            $i++;
+        }
+        return $prices;
+    }
+
     
+
     /**
      * Возвращает продукт с указанным id
      * @param integer $id <p>id товара</p>
@@ -117,7 +159,7 @@ class Product
         // Указываем, что хотим получить данные в виде массива
         $result->setFetchMode(PDO::FETCH_ASSOC);
 
-        // Выполнение коменды
+        // Выполнение команды
         $result->execute();
 
         // Получение и возврат результатов
@@ -142,7 +184,7 @@ class Product
         $result = $db->prepare($sql);
         $result->bindParam(':category_id', $categoryId, PDO::PARAM_INT);
 
-        // Выполнение коменды
+        // Выполнение команды
         $result->execute();
 
         // Возвращаем значение count - количество
@@ -309,7 +351,7 @@ class Product
         $result->bindParam(':is_recommended', $options['is_recommended'], PDO::PARAM_INT);
         $result->bindParam(':status', $options['status'], PDO::PARAM_INT);
         if ($result->execute()) {
-            // Если запрос выполенен успешно, возвращаем id добавленной записи
+            // Если запрос выполнен успешно, возвращаем id добавленной записи
             return $db->lastInsertId();
         }
         // Иначе возвращаем 0
