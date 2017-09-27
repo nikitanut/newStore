@@ -1,8 +1,12 @@
-<?php
+<?php include ROOT . '/views/layouts/header.php'; ?>
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+ <?php foreach ($productsInCart as &$prod):
+        $prod = '1 неделя';
+ endforeach; ?>
+<section class="cart">
+    <h3 style="text-align: center;">Заказ оформлен! Мы вам перезвоним!</h3>
+</section>
 
+<div class="back"><a href="/catalog">Вернуться к покупкам</a></div>
+
+<?php include ROOT . '/views/layouts/footer.php'; ?>

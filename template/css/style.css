@@ -40,6 +40,19 @@ body {
 ._rel {
     position: relative;
 }
+input{
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    font: 13.3333px Arial;
+}
 section{
     display: block;
     margin: 0;
@@ -48,7 +61,161 @@ section{
     background: none;
     outline: none;
 }
+.back{
+    margin-bottom: 25px;
+    width: 300px;
+    margin: 25px auto;
+    background: #30ad64;
+    height: 30px;
+    border-radius: 40px;
+    color: #fff;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: center;
+}
 
+
+
+/*Стили полей для ввода*/
+#applicationName, #applicationEmail, #applicationTelephone, #applicationVK {
+    width: 99%;
+    height: 73px;
+    background: none;
+    margin-top: 25px;
+    border: 1px solid #fff;
+    border-radius: 40px;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    outline: none;
+}
+
+#userComment{
+    resize: none;
+    width: 99%;
+    height: 150px;
+    background: none;
+    margin-top: 25px;
+    border: 1px solid #fff;
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+    outline: none;
+}
+/*Стили полей при клике по ним*/
+#applicationName:focus, #applicationEmail:focus, #applicationTelephone:focus, #applicationVK:focus {
+    border: 1px solid #30ad64;
+}
+/*Стили текста, выводящегося в placeholder*/
+::-webkit-input-placeholder {
+    color: #efefef;
+    font-family: 'PT Sans', sans-serif;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+}
+
+::-moz-placeholder  {
+    color: #fff;
+    font-family: 'PT Sans', sans-serif;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+}  /* Firefox 19+ */
+
+:-moz-placeholder {
+    color: #fff;
+    font-family: 'PT Sans', sans-serif;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+}  /* Firefox 18- */
+
+:-ms-input-placeholder {
+    color: #fff;
+    font-family: 'PT Sans', sans-serif;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+}
+
+::placeholder {
+    color: #fff;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+}
+.temp{
+    margin-top: 40px;
+    color: #3ecec1;
+    font-size: 30px;
+    text-align: center;
+}
+/*Стили для кнопки*/
+.applicationButton {
+    margin-top: 25px;
+    background: #30ad64;
+    border: none;
+    width: 100%;
+    height: 73px;
+    border-radius: 40px;
+    color: #fff;
+    font-size: 24px;
+    text-transform: uppercase;
+    font-family: 'PT Sans', sans-serif;
+    cursor: pointer;
+/*    transition: .6s;*/
+}
+    .applicationButton:hover {
+        background: #d68c18; 
+        /*    transition: .6s;*/
+    }
+    .new-contact-form{
+    width: 1100px;
+    margin: 0 auto;
+    padding: 60px 0;
+    background: #484d53;
+    font-family: 'PT Sans', sans-serif;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+    text-align: center;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    }
+    .error-message{
+    width: 1100px;
+    margin: 0 auto;
+    padding: 25px 0;
+    background: #484d53;
+    font-family: 'PT Sans', sans-serif;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+    text-align: center;
+    border-radius: 20px;
+    }
+        
+.personal-data {
+       
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
+}
+
+.personal-data title{
+    display: block;
+    font-size: 30px;
+    font-size: 1.875rem;
+    font-family: 'bebas_neueregular';
+    font-weight: 700;
+    color: #7a8499;
+}
+
+
+.personal-data input{
+    margin-right: 10px;
+    width: 305px;
+    display: inline-block;
+    height: 42px;
+    line-height: 40px;
+    border: 1px solid #eaeaea;
+    font-size: 15px;
+    font-size: .9375rem;
+    border-radius: 20px;
+    padding: 0 16px;
+    padding: 0 1rem;
+    background: #fff;
+    resize: none;
+    user-select: text;
+}
 .cart {
     width: 990px;
     margin: 0 auto;
@@ -235,6 +402,7 @@ section{
 }
 h3{
     color: black !important;
+    font-size: 30px;
 }
 
 .wrap{

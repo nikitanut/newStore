@@ -1,56 +1,128 @@
 <?php include ROOT . '/views/layouts/header.php'; ?>
-<h2>Корзина</h2>
 <?php if ($productsInCart): ?>
-    <section class="cart">
-        <table>
-            <thead>
+    <form action="/cart/checkout" method="post" onsubmit="return checkForm(this)">  
 
-                <tr>
-                    <th>&nbsp;</th>
-                    <th>Название</th>
-                    <th>Срок аренды</th>
-                    <th>Удалить</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($products as $product): ?>
+        <section class="cart">
+            <table>
+                <thead>
                     <tr>
-                        <td>
-                            Тут картинка
-                        </td>
-                        <td>
-                            <h3><a href="/product/<?php echo $product['id']; ?>">
-                                    <?php echo $product['name']; ?>
-                                </a></h3>
-                        </td>
-                        <td>
-                            <h3>
-                                <select>
-                                    <option selected disabled="Выберите срок аренды">Выберите срок аренды</option>
-                                    <?php foreach ($prices as $price):
-                                            if ($product['id'] == $price['prod_id']):?>
-                                    <option value="<?php echo $price['price'];?>"><?php echo $price['time'] . " - " . $price['price'] . "р.";?></option>
-                                        <?php endif;endforeach;?>
-                                </select>
-                            </h3>
-                        </td>
-                        <td>
-                            <h4><a href="/cart/delete/<?php echo $product['id']; ?>">
-                                    <i>×</i>
-                                </a></h4>
-                        </td>
+                        <th>&nbsp;</th>
+                        <th>Название</th>
+                        <th>Срок аренды</th>
+                        <th>Удалить</th>
                     </tr>
-                <?php endforeach; ?>
-            <h2>Общая стоимость, руб:</h2>
-            <h2><?php echo "Пока 0"; ?></h2>
-            </tbody>
-        </table>
-        <a class="btn" href="/cart/checkout"><i></i> Оформить заказ</a>
+                </thead>
+                <tbody>
+                    <?php foreach ($products as $product): ?>
+                        <tr>
+                            <td>
+                                <img src="<?php echo Product::getImage($product['id']); ?>" alt=""/>
+                            </td>
+                            <td>
+                                <h3><a href="/product/<?php echo $product['id']; ?>">
+                                        <?php echo $product['name']; ?>
+                                    </a></h3>
+                            </td>
+                            <td>
+                                <h3>
+                                    <select class="list" name="time<?php echo $product['id'] ?>" id="rentTime<?php echo $product['id']; ?>">
+                                        <option selected disabled="Выберите срок аренды">Выберите срок аренды</option>
+                                        <?php
+                                        foreach ($prices as $price):
+                                            if ($product['id'] == $price['prod_id']):
+                                                ?>
+                                                <option  value="<?php echo $price['price']; ?>"><?php echo $price['time'] . " - " . $price['price'] . "р."; ?></option>
+                                                <?php
+                                            endif;
+                                        endforeach;
+                                        ?>
+                                    </select>
+                                </h3>
+                            </td>
+                            <td>
+                                <h4><a href="/cart/delete/<?php echo $product['id']; ?>">
+                                        <i>×</i>
+                                    </a></h4>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
 
-    </section>
-<?php else: ?>
-    <p>Корзина пуста</p>
+                </tbody>
+            </table>
+            <h2 class="temp">Общая стоимость: 0р.</h2>
+        </section>
+        <br><br><br><br><br>
+        <h3 align="center">Контактные данные</h3>
+        <br>
+        <div class="new-contact-form">       
 
-    <a class="btn btn-default checkout" href="/"><i></i> Вернуться к покупкам</a>
-<?php endif; ?>
+            <input name="name" id="applicationName" maxlength="50" placeholder="Ваше имя" spellcheck="false" required />
+            <input name="telephone" type="tel" id="applicationTelephone" maxlength="20" placeholder="Ваш телефон" spellcheck="false" required />
+            <input name="email" type="email" id="applicationEmail" maxlength="20" placeholder="Ваш e-mail" spellcheck="false"/>
+            <input name="vk_link"  id="applicationVK" maxlength="20" placeholder="Ссылка на vk" spellcheck="false"/>
+            <textarea name="comment" id="userComment" rows="10" placeholder="Комментарий"></textarea>
+            <button type="submit" class="applicationButton" name="submit"> Забронировать </button>
+
+        </div>
+
+    <?php else: ?>
+        <h3 align="center">Корзина пуста</h3>
+        <div class="back"><a href="/catalog">Вернуться к покупкам</a></div>
+    <?php endif; ?>
+    <script type="text/javascript" src="/template/js/maskedinput.js"></script>
+    <script>
+    jQuery(function ($) {
+        $("#applicationTelephone").mask("8 (999) 999-99-99");
+    });
+    $("form").submit(function () { //Перед submit
+        var a = true;
+        $('.alertMes').remove();
+        $('.list').each(function (i) { // Проверка каждого выпадающего списка
+            if ($(this).val() === null) { // Если хотя бы один из списков null
+                $(this).after('<h1 class="alertMes" style="color:red; line-height:0"><br>Заполните поле</h1>');  // Вывести ошибку
+                a = false; // Отменить submit
+            }
+        });
+        if (!a) {
+            window.scrollTo(0, 0);
+            return false;
+        }
+    });
+
+    $("select").change(function (e) { // При изменении срока аренды через выпадающий список  
+        var sum = 0;
+        $(".list").each(function () {
+            if ($(this).val() !== null)
+                sum += parseInt($(this).val());
+        });
+        $(".temp").html("Общая стоимость: " + sum + "р.");
+        ;
+        //alert($("#rentTime1 :selected").text());
+        
+    });
+    </script>
+
+
+
+<!--  /* <script>
+var priceArr = [];
+$("select").change(function (e) { // При изменении срока аренды через выпадающий список
+    var ind = e.target.id; // Имя элемента (rentTime#)
+    ind = parseInt(ind.replace(/\D+/ig, '')); // получить только число из rentTime# (id товара)
+    var val = $(this).val(); // Срок аренды    
+  //  if (typeof priceArr[ind] === "undefined") 
+    priceArr[ind] = val;                        
+});
+</script> 
+<script>
+$(".applicationButton").click(function() {       
+jQuery.post("/cart/checkout", {
+   'priceArr': priceArr,
+},
+function (data) {
+   alert(data);
+});
+});
+</script> -->
+</form>
 <?php include ROOT . '/views/layouts/footer.php'; ?>

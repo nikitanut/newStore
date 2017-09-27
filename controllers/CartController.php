@@ -54,7 +54,7 @@ class CartController
         // Список категорий для левого меню
         $categories = Category::getCategoriesList();
 
-        // Получим идентификаторы и количество товаров в корзине
+        // Получим товары в корзине
         $productsInCart = Cart::getProducts();
         
         if ($productsInCart) {
@@ -96,57 +96,52 @@ class CartController
         // Находим общую стоимость
         $productsIds = array_keys($productsInCart);
         $products = Product::getProductsByIds($productsIds);
-        $totalPrice = Cart::getTotalPrice($products);
+        //$totalPrice = Cart::getTotalPrice($products);
 
         // Количество товаров
-        $totalQuantity = Cart::countItems();
+        // $totalQuantity = Cart::countItems();
 
         // Поля для формы
         $userName = false;
         $userPhone = false;
+        $userEmail = false;
         $userComment = false;
 
         // Статус успешного оформления заказа
         $result = false;
-
-        // Проверяем является ли пользователь гостем
-        if (!User::isGuest()) {
-            // Если пользователь не гость
-            // Получаем информацию о пользователе из БД
-            $userId = User::checkLogged();
-            $user = User::getUserById($userId);
-            $userName = $user['name'];
-        } else {
-            // Если гость, поля формы останутся пустыми
-            $userId = false;
-        }
+   //     $userName = $user['name'];
+        $userId = false;
+        
+        
 
         // Обработка формы
         if (isset($_POST['submit'])) {
             // Если форма отправлена
             // Получаем данные из формы
-            $userName = $_POST['userName'];
-            $userPhone = $_POST['userPhone'];
-            $userComment = $_POST['userComment'];
-
+            $userName = $_POST['name'];
+            $userPhone = preg_replace("/[^0-9]/", '', $_POST['telephone']); // Телефон в формате 89991112233
+            $userEmail=$_POST['email'];
+            $userComment = $_POST['comment'];
+            $vk_link = $_POST['vk_link'];
+            $index_price = array(); 
+            for ($i = 0; $i < count($productsIds); $i++){
+               $index_price[$productsIds[$i]] = $_POST['time'.$productsIds[$i]]; // создание массива [id] = time
+            }
+            $userId = User::checkUserData($userPhone);
+            
+            if (!$userId){            
+                User::register($userPhone, $userName, $userEmail, $vk_link);
+                $userId = User::checkUserData($userPhone);
+            }
+           
             // Флаг ошибок
             $errors = false;
-
-            // Валидация полей
-            if (!User::checkName($userName)) {
-                $errors[] = 'Неправильное имя';
-            }
-            if (!User::checkPhone($userPhone)) {
-                $errors[] = 'Неправильный телефон';
-            }
-
 
             if ($errors == false) {
                 // Если ошибок нет
                 // Сохраняем заказ в базе данных
-                $result = Order::save($userName, $userPhone, $userComment, $userId, $productsInCart);
-
-                if ($result) {
+                $result = Order::save($userName, $userPhone, $userComment, $userId, $index_price);
+                if ($result) { 
                     // Если заказ успешно сохранен
                     // Оповещаем администратора о новом заказе по почте                
                     $adminEmail = 'nikitanut@gmail.com';

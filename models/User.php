@@ -21,7 +21,7 @@ class User
 
         // Текст запроса к БД
         $sql = 'INSERT INTO users (number, name, email, vk_link) '
-                . 'VALUES (:number, :name, :email, :password)';
+                . 'VALUES (:number, :name, :email, :vk_link)';
 
         // Получение и возврат результатов. Используется подготовленный запрос
         $result = $db->prepare($sql);
@@ -61,23 +61,21 @@ class User
 
     /**
      * ПЕРЕДЕЛАТЬ!!!
-     * Проверяем существует ли пользователь с заданными $email и $password
-     * @param string $email <p>E-mail</p>
-     * @param string $password <p>Пароль</p>
+     * Проверяем существует ли пользователь с заданным $number
+     * @param string $number <p>Номер</p>
      * @return mixed : integer user id or false
      */
-    public static function checkUserData($email, $password)
+    public static function checkUserData($number)
     {
         // Соединение с БД
         $db = Db::getConnection();
 
         // Текст запроса к БД
-        $sql = 'SELECT * FROM user WHERE email = :email AND password = :password';
+        $sql = 'SELECT * FROM users WHERE number = :number';
 
         // Получение результатов. Используется подготовленный запрос
         $result = $db->prepare($sql);
-        $result->bindParam(':email', $email, PDO::PARAM_INT);
-        $result->bindParam(':password', $password, PDO::PARAM_INT);
+        $result->bindParam(':number', $number, PDO::PARAM_INT);
         $result->execute();
 
         // Обращаемся к записи
@@ -99,8 +97,6 @@ class User
         // Записываем идентификатор пользователя в сессию
         $_SESSION['user'] = $userId;
     }
-
-
 
     /**
      * Проверяет телефон: не меньше, чем 10 символов
