@@ -31,7 +31,7 @@
                                         foreach ($prices as $price):
                                             if ($product['id'] == $price['prod_id']):
                                                 ?>
-                                                <option  value="<?php echo $price['price']; ?>"><?php echo $price['time'] . " - " . $price['price'] . "р."; ?></option>
+                                                <option  value="<?php echo $price['time']; ?>"><?php echo $price['time'] . " - " . $price['price'] . "р."; ?></option>
                                                 <?php
                                             endif;
                                         endforeach;
@@ -88,17 +88,25 @@
             return false;
         }
     });
-
+    var priceArr = [];
     $("select").change(function (e) { // При изменении срока аренды через выпадающий список  
+        
+        var price = $("option:selected", this).text();
+        price = price.split('-')[1]; // Получить строку с ценой ( 100 р.) 
+        price = parseInt(price.replace(/\D+/ig, '')); // Получить цену (100)
+        
+        var ind = e.target.id; // Имя элемента (rentTime#)
+        ind = parseInt(ind.replace(/\D+/ig, '')); // получить только число из rentTime# (id товара)
+        
+        priceArr[ind] = price;      
+        
         var sum = 0;
-        $(".list").each(function () {
-            if ($(this).val() !== null)
-                sum += parseInt($(this).val());
+        priceArr.forEach(function(a) {
+           sum+=a; // Посчитать общую сумму
         });
+        
         $(".temp").html("Общая стоимость: " + sum + "р.");
         ;
-        //alert($("#rentTime1 :selected").text());
-        
     });
     </script>
 
