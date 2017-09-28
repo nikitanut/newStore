@@ -67,7 +67,7 @@
             // Если нажали "В корзину":
             var id = $(this).attr("data-id");
                 $.post("/cart/addAjax/" + id, {}, function (data) {
-                    $(".c1").html(data);
+                    $(".c1 i").html("Корзина("+data+")");
                 });         
             return false;
         });

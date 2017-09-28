@@ -51,13 +51,15 @@
             </table>
             <h2 class="temp">Общая стоимость: 0р.</h2>
         </section>
-        <br><br><br><br><br>
+        <br><br>
+        <h3 align="center">Выберите желаемую дату доставки</h3>
+        <center><input name="rent_date" type="date" id="rent_date" /></center>
         <h3 align="center">Контактные данные</h3>
         <br>
         <div class="new-contact-form">       
 
             <input name="name" id="applicationName" maxlength="50" placeholder="Ваше имя" spellcheck="false" required />
-            <input name="telephone" type="tel" id="applicationTelephone" maxlength="20" placeholder="Ваш телефон" spellcheck="false" required />
+            <input name="telephone" type="tel" id="applicationTelephone" maxlength="20" placeholder="Ваш телефон" spellcheck="false" required />            
             <input name="email" type="email" id="applicationEmail" maxlength="20" placeholder="Ваш e-mail" spellcheck="false"/>
             <input name="vk_link"  id="applicationVK" maxlength="20" placeholder="Ссылка на vk" spellcheck="false"/>
             <textarea name="comment" id="userComment" rows="10" placeholder="Комментарий"></textarea>
@@ -83,14 +85,17 @@
                 a = false; // Отменить submit
             }
         });
+        if ($("#rent_date").val() === ""){ // Если не ввели дату
+            $("#rent_date").before('<br><h1 class="alertMes" style="color:red; line-height:0"><br>Заполните поле</h1>');  // Вывести ошибку
+                a = false; // Отменить submit
+        }
         if (!a) {
             window.scrollTo(0, 0);
             return false;
         }
     });
     var priceArr = [];
-    $("select").change(function (e) { // При изменении срока аренды через выпадающий список  
-        
+    $("select").change(function (e) { // При изменении срока аренды через выпадающий список         
         var price = $("option:selected", this).text();
         price = price.split('-')[1]; // Получить строку с ценой ( 100 р.) 
         price = parseInt(price.replace(/\D+/ig, '')); // Получить цену (100)

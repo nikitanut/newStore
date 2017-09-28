@@ -17,23 +17,24 @@ class Order
      * @param array $products <p>Массив с товарами</p>
      * @return boolean <p>Результат выполнения метода</p>
      */
-    public static function save($userName, $userPhone, $userComment, $userId, $products)
+    public static function save($userName, $userPhone, $userComment, $userId, $date, $products)
     {
         // Соединение с БД
         $db = Db::getConnection();
 
         // Текст запроса к БД
-        $sql = 'INSERT INTO orders (user_name, user_phone, user_comment, user_id, products) '
-                . 'VALUES (:user_name, :user_phone, :user_comment, :user_id, :products)';
+        $sql = 'INSERT INTO orders (user_name, user_phone, user_comment, user_id, date, products) '
+                . 'VALUES (:user_name, :user_phone, :user_comment, :user_id, :date, :products)';
 
-        $products = json_encode($products);
+     //   $products = json_encode($products);
+        $products = json_encode($products, JSON_UNESCAPED_UNICODE);
 
         $result = $db->prepare($sql);
         $result->bindParam(':user_name', $userName, PDO::PARAM_STR);
         $result->bindParam(':user_phone', $userPhone, PDO::PARAM_STR);
         $result->bindParam(':user_comment', $userComment, PDO::PARAM_STR);
         $result->bindParam(':user_id', $userId, PDO::PARAM_INT);
-     //   $result->bindParam(':date', $date, PDO::PARAM_STR);
+        $result->bindParam(':date', $date, PDO::PARAM_STR);
         $result->bindParam(':products', $products, PDO::PARAM_STR);
 
         return $result->execute();

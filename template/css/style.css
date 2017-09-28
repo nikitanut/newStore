@@ -90,6 +90,15 @@ section{
     outline: none;
 }
 
+#rent_date{
+    margin-bottom: 25px;
+    margin-top: 15px;
+    font: inherit;
+    font-size: 1.6em;
+    text-align: center;
+    color: #999999;
+}
+
 #userComment{
     resize: none;
     width: 99%;

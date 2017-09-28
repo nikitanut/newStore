@@ -120,13 +120,14 @@ class CartController
             // Получаем данные из формы
             $userName = $_POST['name'];
             $userPhone = preg_replace("/[^0-9]/", '', $_POST['telephone']); // Телефон в формате 89991112233
+            $date = $_POST['rent_date'];
             $userEmail=$_POST['email'];
             $userComment = $_POST['comment'];
             $vk_link = $_POST['vk_link'];
             $index_price = array(); 
             for ($i = 0; $i < count($productsIds); $i++){
                $index_price[$productsIds[$i]] = $_POST['time'.$productsIds[$i]]; // создание массива [id] = time
-            }
+            } 
             $userId = User::checkUserData($userPhone);
             
             if (!$userId){            
@@ -140,7 +141,7 @@ class CartController
             if ($errors == false) {
                 // Если ошибок нет
                 // Сохраняем заказ в базе данных
-                $result = Order::save($userName, $userPhone, $userComment, $userId, $index_price);
+                $result = Order::save($userName, $userPhone, $userComment, $userId, $date, $index_price);
                 if ($result) { 
                     // Если заказ успешно сохранен
                     // Оповещаем администратора о новом заказе по почте                
@@ -150,7 +151,7 @@ class CartController
                     //mail($adminEmail, $subject, $message);
 
                     // Очищаем корзину
-                    Cart::clear();
+                    Cart::clear(); 
                 }
             }
         }
