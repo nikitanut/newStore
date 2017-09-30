@@ -66,7 +66,7 @@ class CartController
             $products = Product::getProductsByIds($productsIds);
 
             // Получаем массив со стоимостью
-            $prices = Product::getPriceListByProduct($products);
+            $prices = Product::getPriceListByProducts($products);
             
             // Получаем общую стоимость товаров
             //$totalPrice = Cart::getTotalPrice($products);

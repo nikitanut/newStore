@@ -74,6 +74,19 @@ section{
     text-align: center;
 }
 
+.toCart {
+    color: #fff;
+    font-size: 1.5em;
+    width: 114px;
+    display: inline-block !important;
+    text-decoration: none;
+    user-select: none;
+    background: rgb(68, 131, 225);
+    padding: 8px 20px !important;
+    outline: none;
+    margin-bottom: 25px;
+} 
+a.toCart:hover { color: rgb(32, 73, 134); } /* при наведении курсора мышки */
 
 
 /*Стили полей для ввода*/
@@ -1376,7 +1389,7 @@ p.para{
 	margin-top: 6%;
 	float: left;
 }
-.btn_form form input[type="submit"]{
+.btn_form form input{
 	font-family: 'Source Sans Pro', sans-serif;
 	cursor:pointer;
 	border:none;
@@ -1386,13 +1399,12 @@ p.para{
 	padding: 10px 34px;
 	background: #555555;
 	color:#fff;
-	text-transform: capitalize;
 	-webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
-.btn_form form input[type="submit"]:hover{
+.btn_form form input:hover{
 	background: #3CC395;
 }
 .span_right{

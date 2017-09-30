@@ -101,7 +101,7 @@ class Product
      * @param type $products <p>Массив с товарами</p>
      * @return type <p>Массив с ценами</p>
      */
-    public static function getPriceListByProduct($products)
+    public static function getPriceListByProducts($products)
     {
         // Соединение с БД
         $db = Db::getConnection();
@@ -137,6 +137,34 @@ class Product
         return $prices;
     }
 
+    /**
+     * Возвращает список цен указанных товаров
+     * @param type $products <p>Массив с товарами</p>
+     * @return type <p>Массив с ценами</p>
+     */
+    public static function getPriceListById($id)
+    {
+        // Соединение с БД
+        $db = Db::getConnection();
+        // Текст запроса к БД
+        $sql = 'SELECT prod_id, time, price FROM price WHERE prod_id = :prod_id';
+        // Используется подготовленный запрос
+        $result = $db->prepare($sql);
+        $result->bindParam(':prod_id', $id, PDO::PARAM_INT);
+        // Выполнение команды
+        $result->execute();
+        
+        // Получение и возврат результатов
+        $i = 0;
+        $prices = array();
+        while ($row = $result->fetch()) {
+            $prices[$i]['prod_id'] = $row['prod_id'];
+            $prices[$i]['time'] = $row['time'];
+            $prices[$i]['price'] = $row['price'];
+            $i++;
+        }
+        return $prices;
+    }
     
 
     /**

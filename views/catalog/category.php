@@ -45,10 +45,9 @@
                                 </td>
                                 <td valign="top">
                                     <a href="/product/<?php echo $categoryProducts[$i]['id']; ?>"><div class="price"><h4><span>Подробнее</span></h4></div></a>                                  
-                                    <a href="#" data-id="<?php echo $categoryProducts[$i]['id']; ?>" class="btn btn-default add-to-cart"><h4><span>В корзину</span></h4>
-
+                                    <a href="#" data-id="<?php echo $categoryProducts[$i]['id']; ?>" class="toCart add-to-cart">В корзину</a>
                                 </td>
-                                </a>
+                                
                             </tr>
                         </table>
                         <span class="b_btm"></span>                       
