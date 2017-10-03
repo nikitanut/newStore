@@ -58,7 +58,18 @@ class User
         $result->bindParam(':vk_link', $vk_link, PDO::PARAM_STR);
         return $result->execute();
     }
-
+    /**
+     * Проверяет имя: не меньше, чем 6 символов
+     * @param string $password <p>Пароль</p>
+     * @return boolean <p>Результат выполнения метода</p>
+     */
+    public static function checkPassword($password)
+    {
+        if (strlen($password) >= 6) {
+            return true;
+        }
+        return false;
+    }
     /**
      * ПЕРЕДЕЛАТЬ!!!
      * Проверяем существует ли пользователь с заданным $number
@@ -87,6 +98,36 @@ class User
         }
         return false;
     }
+    
+    /**
+     * Проверяем существует ли пользователь с заданными $email и $password
+     * @param string $email <p>E-mail</p>
+     * @param string $password <p>Пароль</p>
+     * @return mixed : integer user id or false
+     */
+    public static function checkUserEmail($email, $password)
+    {
+        // Соединение с БД
+        $db = Db::getConnection();
+
+        // Текст запроса к БД
+        $sql = 'SELECT * FROM users WHERE email = :email AND password = :password';
+
+        // Получение результатов. Используется подготовленный запрос
+        $result = $db->prepare($sql);
+        $result->bindParam(':email', $email, PDO::PARAM_INT);
+        $result->bindParam(':password', $password, PDO::PARAM_INT);
+        $result->execute();
+
+        // Обращаемся к записи
+        $user = $result->fetch();
+
+        if ($user) {
+            // Если запись существует, возвращаем id пользователя
+            return $user['id'];
+        }
+        return false;
+    }
 
     /**
      * Запоминаем пользователя
@@ -97,7 +138,32 @@ class User
         // Записываем идентификатор пользователя в сессию
         $_SESSION['user'] = $userId;
     }
+/**
+     * Возвращает идентификатор пользователя, если он авторизирован.<br/>
+     * Иначе перенаправляет на страницу входа
+     * @return string <p>Идентификатор пользователя</p>
+     */
+    public static function checkLogged()
+    {
+        // Если сессия есть, вернем идентификатор пользователя
+        if (isset($_SESSION['user'])) {
+            return $_SESSION['user'];
+        }
 
+        header("Location: /user/login");
+    }
+
+    /**
+     * Проверяет является ли пользователь гостем
+     * @return boolean <p>Результат выполнения метода</p>
+     */
+    public static function isGuest()
+    {
+        if (isset($_SESSION['user'])) {
+            return false;
+        }
+        return true;
+    }
     /**
      * Проверяет телефон: не меньше, чем 10 символов
      * @param string $phone <p>Телефон</p>

@@ -37,6 +37,11 @@ return array(
     'admin/order/delete/([0-9]+)' => 'adminOrder/delete/$1',
     'admin/order/view/([0-9]+)' => 'adminOrder/view/$1',
     'admin/order' => 'adminOrder/index',
+    //Управление ценами:    
+    'admin/price/create' => 'adminPrice/create',
+    'admin/price/update/([0-9]+)/([0-9]+)' => 'adminPrice/update/$1/$2',
+    'admin/price/delete/([0-9]+)/([0-9]+)'=>'adminPrice/delete/$1/$2',
+    'admin/price' => 'adminPrice/index',
     // Панель админа
     'admin' => 'admin/index',
     //О магазине:

@@ -286,12 +286,18 @@ class Product
         $db = Db::getConnection();
 
         // Получение и возврат результатов
-        $result = $db->query('SELECT id, name FROM products ORDER BY id ASC');
+        $result = $db->query('SELECT id, name, category_id, availability, description, is_new, is_recommended, status FROM products ORDER BY id ASC');
         $productsList = array();
         $i = 0;
         while ($row = $result->fetch()) {
             $productsList[$i]['id'] = $row['id'];
             $productsList[$i]['name'] = $row['name'];
+            $productsList[$i]['category_id'] = $row['category_id'];
+            $productsList[$i]['availability'] = $row['availability'];            
+            $productsList[$i]['description'] = $row['description'];
+            $productsList[$i]['is_new'] = $row['is_new'];
+            $productsList[$i]['is_recommended'] = $row['is_recommended'];
+            $productsList[$i]['status'] = $row['status'];
             $i++;
         }
         return $productsList;
