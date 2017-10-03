@@ -45,7 +45,12 @@
                                 </td>
                                 <td valign="top">
                                     <a href="/product/<?php echo $categoryProducts[$i]['id']; ?>"><div class="price"><h4><span>Подробнее</span></h4></div></a>                                  
-                                    <a href="#" data-id="<?php echo $categoryProducts[$i]['id']; ?>" class="toCart add-to-cart">В корзину</a>
+                                    
+                                    <?php if (!array_key_exists($categoryProducts[$i]['id'], $productsInCart)):?>
+                                        <a href="" data-id="<?php echo $categoryProducts[$i]['id']; ?>" class="toCart add-to-cart">В корзину</a>
+                                        <?php else:?>
+                                        <a class="toCart add-to-cart" style="color: rgb(32, 73, 134);">Добавлено</a>
+                                        <?php    endif;?>
                                 </td>
                                 
                             </tr>
@@ -65,13 +70,7 @@
             <?php endfor; ?>
             <!-- end grids_of_3 -->
 
-            <script>
-                $("#addProd").click(function () {
-                    var params = {
-                        text: $()
-                    }
-                })
-            </script>
+
         </div>
     </div>
 </div>

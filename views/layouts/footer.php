@@ -65,6 +65,8 @@
     $(document).ready(function () {
         $(".add-to-cart").click(function () { 
             // Если нажали "В корзину":
+            $(this).html("Добавлено");
+            $(this).css("color", "#204986");
             var id = $(this).attr("data-id");
                 $.post("/cart/addAjax/" + id, {}, function (data) {
                     $(".c1 i").html("Корзина("+data+")");

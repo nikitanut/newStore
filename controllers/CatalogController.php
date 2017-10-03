@@ -37,6 +37,9 @@ class CatalogController
         // Список цен товаров
         $prices = Product::getPriceListByProducts($categoryProducts);
         
+        // Список товаров в массиве
+        $productsInCart = Cart::getProducts();
+        
         // Общее количеcтсво товаров (необходимо для постраничной навигации)
         $total = Product::getTotalProductsInCategory($categoryId);
 

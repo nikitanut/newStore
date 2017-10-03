@@ -85,6 +85,8 @@ section{
     padding: 8px 20px !important;
     outline: none;
     margin-bottom: 25px;
+    font-family: 'bebas_neueregular';
+    text-align: center;
 } 
 a.toCart:hover { color: rgb(32, 73, 134); } /* при наведении курсора мышки */
 
@@ -1283,6 +1285,11 @@ p.para{
 	color:#555555;
 	font-size:2em;
 	margin-bottom: 10px;
+}
+.desc1 h4{
+	font-size: 1.5em;
+	color: #999999;
+        font-family: 'bebas_neueregular';
 }
 .desc1 h5{
 	margin-top: 2%;
