@@ -44,7 +44,7 @@
                                   //}
                               endforeach;?></td>
                         <td><?php echo $product['availability']; ?></td>
-                        <td><?php echo $product['description']; ?></td>
+                        <td><?php echo substr(nl2br(nl2br(htmlspecialchars(trim($product['description'])))) ,0); // Добавление абзацев (2 <br>) ?></td>
                         <td><?php echo $product['is_new']; ?></td>
                         <td><?php echo $product['is_recommended']; ?></td>
                         <td><?php echo $product['status']; ?></td> 

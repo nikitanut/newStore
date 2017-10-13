@@ -5,7 +5,7 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 */
 /* reset */
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;color:#000;vertical-align:baseline;}
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,form,label,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;color:#000;vertical-align:baseline;}
 article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav,
 ol,ul{list-style:none;margin:0;padding:0;}
 blockquote,q{quotes:none;}
@@ -61,6 +61,11 @@ section{
     background: none;
     outline: none;
 }
+legend{
+    font-size: 2.2em;
+    text-align: center;
+    font-family: 'bebas_neueregular';
+}
 .back{
     margin-bottom: 25px;
     width: 300px;
@@ -90,6 +95,22 @@ section{
 } 
 a.toCart:hover { color: rgb(32, 73, 134); } /* при наведении курсора мышки */
 
+.more{
+    color: #fff;
+    font-size: 1.5em;
+    width: 114px;
+    display: inline-block !important;
+    text-decoration: none;
+    user-select: none;
+    background: #3CC395;
+    padding: 8px 20px !important;
+    outline: none;
+    margin-bottom: 15px;
+    font-family: 'bebas_neueregular';
+    text-align: center;    
+}
+
+.more:hover { color: rgb(24, 141, 118); } /* при наведении курсора мышки */
 
 /*Стили полей для ввода*/
 #applicationName, #applicationEmail, #applicationTelephone, #applicationVK {
@@ -126,10 +147,92 @@ a.toCart:hover { color: rgb(32, 73, 134); } /* при наведении кур�
     font-size: 24px;
     outline: none;
 }
+
+.product-image img{	
+	max-height: 700px;
+        max-width: 550px;
+}
+.product-image h3{	
+	font-size: 2.5em;
+}
 /*Стили полей при клике по ним*/
 #applicationName:focus, #applicationEmail:focus, #applicationTelephone:focus, #applicationVK:focus {
     border: 1px solid #30ad64;
 }
+
+/*.menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}*/
+
+ul:after {
+    display: block;
+    content: ' ';
+    clear: both;
+    float: none;
+}
+ul.menu > li {
+    position: relative;
+}
+/*ul.menu > li > a {
+    display: block;
+    padding: 10px;
+    color: white;
+    background-color: red;
+    text-decoration: none;
+}*/
+ul.menu > li > a:hover {
+    background-color: #17635b;
+}
+ul.submenu {
+    display: none;
+    position: absolute;
+    width: 500px;
+    top: 60px;
+    /*left: 20px;   */
+    z-index: 2100;
+    opacity: 0.9;
+    columns: 2;
+    column-gap: 0;
+}
+ul.submenu > li {
+    display: block !important;
+}
+ul.submenu > li > a {
+    display: block;
+    padding: 10px;
+    color: white;
+    font-size: 1.1em !important;
+    text-transform: none !important;
+    background-color: #17635b;
+    text-decoration: none;
+}
+ul.submenu > li > a:hover {
+    text-decoration: underline;
+}
+
+ul.menu > li:hover > ul.submenu {
+    display: block;
+}
+
 /*Стили текста, выводящегося в placeholder*/
 ::-webkit-input-placeholder {
     color: #efefef;
@@ -625,9 +728,9 @@ h3{
 .h_menu ul li{
 	display: inline-block;
 }
-.h_menu ul li:first-child a{
+/*.h_menu ul li:first-child a{
 	padding-left: 0px;
-}
+}*/
 .h_menu ul li a{
 	display: block;
 	padding: 14px 18px;
@@ -855,11 +958,11 @@ h3{
 	padding: 2%;
 	display: block;
 }
-.grid1_of_3 img{
-	margin-top: 8%;
+.grid1_of_3 img{	
+        height: 300px;
 }
 .grid1_of_3 h3{
-	margin: 0% 0 8%;
+    margin-top: 10px;
 	font-size: 1.8em;
 	color: #999999;
 	-webkit-transition: all 0.3s ease-in-out;
@@ -885,6 +988,8 @@ h3{
 .price h4{
 	font-size: 1.5em;
 	color: #999999;	
+        text-align: left;
+        margin-left: 10px;
 }
 .price h4 span{
 	display: inline-block;
@@ -892,6 +997,7 @@ h3{
 	background: #3CC395;
 	color: #ffffff;
 	padding: 8px 20px;
+        margin-left: -10px;
 	/*margin-left: 30px; - если слева цена*/ 
 	-webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
@@ -1252,7 +1358,7 @@ p.para{
 }
 /*-- start details--*/
 .single{
-	padding:2% 0;
+	
 }
 .left_content{
 	width: 72.3333%;
@@ -1267,17 +1373,32 @@ p.para{
 .span1_of_1{
 	float: left;
 	width: 52.3333%;
+        text-align: center;
 }
 .span1_of_1_des{
 	float: right;
 	width: 44.3333%;
 	margin-left: 3.333%;
 }
+.span1_of_1_des li{
+	/*border-bottom: 1px dotted #cfcfcf;*/
+        font-size: 1.6em;
+        color: #7b7b7b;
+        margin-bottom: 20px;
+}
+.span1_of_1_des fieldset{
+    margin-bottom: 25px;
+}
+
 /* start desc1 */
 .desc1 {
 	font-family: 'Source Sans Pro', sans-serif;
 	display: block;
-	float: right;
+	/*float: right;*/
+        text-align: center;
+}
+.desc1 .toCart{
+    width: 238px;
 }
 .desc1 h3{
 	text-shadow: 0 1px 0 #ffffff;
@@ -1287,9 +1408,10 @@ p.para{
 	margin-bottom: 10px;
 }
 .desc1 h4{
-	font-size: 1.5em;
-	color: #999999;
-        font-family: 'bebas_neueregular';
+	font-size: 1.9em;
+    /*border-bottom: 1px dotted #cfcfcf;*/
+    color: #3fa59a;
+    font-family: 'bebas_neueregular';
 }
 .desc1 h5{
 	margin-top: 2%;

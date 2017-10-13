@@ -39,55 +39,55 @@
                                         </div>
                                     </div>
                                     <div class="product-image"> 
-                                        <a class="cs-fancybox-thumbs cloud-zoom" rel="adjustX:30,adjustY:0,position:'right',tint:'#202020',tintOpacity:0.5,smoothMove:2,showTitle:true,titleOpacity:0.5" data-fancybox-group="thumb" href="#" title="Women Shorts" alt="Women Shorts">
-                                            <img src="<?php echo Product::getImage($product['id']); ?>" alt="Батут" title="Батут"/>
-                                        </a>
+                                        <h3><?php echo $product['name']; ?></h3>
+                                        <img src="<?php echo Product::getImage($product['id']); ?>" alt="Батут" title="Батут"/>
                                     </div>					
-                                </div>
+                                </div>  
                             </div>
                         </div>
                         <!-- end product_slider -->
                     </div>
                     <!-- start span1_of_1 -->
                     <div class="span1_of_1_des">
-                        <div class="desc1">
-                            <h3><?php echo $product['name']; ?></h3>
+                        <fieldset>
+                            <legend>Характеристики</legend>
+                            <ul>
+                                <?php
+                                $characteristics = explode('.', $product['characteristics']); // Характеристики из строки в массив
+                                if (end($characteristics) == '') // Если в конце характеристики нет '.'
+                                    array_pop($characteristics);
+                                foreach ($characteristics as $char):
+                                    echo '<li>' . $char . '</li>';
+                                endforeach;
+                                ?>
+                            </ul>
+                        </fieldset>
+                        <div class="desc1">     
 
+                            <fieldset>
+                                <legend>Стоимость:</legend>
 
-                            <h5>Стоимость:</h5>
+                                <?php foreach ($prices as $price): ?>
+                                    <h4  value="<?php echo $price['time']; ?>"><?php echo $price['time'] . " - " . $price['price'] . "р."; ?></h4>
+                                <?php endforeach; ?>                               
 
-                            <?php foreach ($prices as $price): ?>
-                                <h4  value="<?php echo $price['time']; ?>"><?php echo $price['time'] . " - " . $price['price'] . "р."; ?></h4>
-                            <?php endforeach; ?>                                
-                            <a href="#" data-id="<?php echo $product['id']; ?>" class="toCart add-to-cart">В корзину</a>                                	
+                            </fieldset>
+                            <a href="#" data-id="<?php echo $product['id']; ?>" class="toCart add-to-cart">Добавить в корзину</a>                                	
                             <div class="clear"></div>
-
                         </div>
-                    </div>
-                    <div class="clear"></div>
-                    <!-- start tabs -->
-                    <section class="tabs">
-                        <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked">
-                        <label for="tab-1" class="tab-label-1">overview</label>
-                        <div class="clear-shadow"></div>
-                        <div class="content">
-                            <div class="content-1">
-                                <p class="para top"><?php echo $product['description'] . '<br>'; ?></p>
-                                <ul>
-                                    <?php
-                                    $characteristics = explode('.', $product['characteristics']); // Характеристики из строки в массив
-                                    if (end($characteristics) == '') // Если в конце характеристики нет '.'
-                                        array_pop($characteristics);
-                                    foreach ($characteristics as $char):
-                                         echo '<li>' . $char . '</li>'; 
-                                    endforeach; ?>
-                                </ul>
-                                <div class="clear"></div>
-                            </div>
-                        </div>
-                    </section>
-                    <!-- end tabs -->
+                    </div>                   
+                    
+                    <div class="clear"></div>                                    
                 </div>
+                
+                <fieldset>
+                            <legend>Полное описание</legend>
+                        <div class="content-1">
+                            <p class="para top"><?php echo substr(nl2br(nl2br(htmlspecialchars(trim($product['description'])))), 0); ?></p>                                
+                            <div class="clear"></div>
+                        </div>
+                        </fieldset>
+                
                 <div class="clear"></div>
             </div>	
             <!-- end content -->

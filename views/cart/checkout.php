@@ -1,8 +1,8 @@
 <?php include ROOT . '/views/layouts/header.php'; ?>
 
- <?php foreach ($productsInCart as &$prod):
-        $prod = '1 неделя';
- endforeach; ?>
+ <?php //foreach ($productsInCart as &$prod):
+       // $prod = '1 неделя';
+ //endforeach; ?>
 <section class="cart">
     <h3 style="text-align: center;">Заказ оформлен! Мы вам перезвоним!</h3>
 </section>

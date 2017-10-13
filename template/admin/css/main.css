@@ -972,6 +972,15 @@ h2.title {
     font-size: 15px;
     margin-bottom: 25px;
 }
+.added-to-cart{
+    background:#F5F5ED;
+    border: 0 none;
+    border-radius: 0;
+    color: #204986;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
 
 .add-to-cart:hover {
     background: #FE980F;
