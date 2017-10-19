@@ -1,7 +1,7 @@
 <?php include ROOT . '/views/layouts/header.php'; ?>
 <?php if ($productsInCart): ?>
     <form action="/cart/checkout" method="post" onsubmit="return checkForm(this)">  
-
+<div class="cart_wrap">
         <section class="cart">
             <table>
                 <thead>
@@ -56,17 +56,18 @@
         <center><input name="rent_date" type="date" id="rent_date" /></center>
         <h3 align="center">Контактные данные</h3>
         <br>
+        
         <div class="new-contact-form">       
 
             <input name="name" id="applicationName" maxlength="50" placeholder="Ваше имя" spellcheck="false" required />
-            <input name="telephone" type="tel" id="applicationTelephone" maxlength="20" placeholder="Ваш телефон" spellcheck="false" required />            
-            <input name="email" type="email" id="applicationEmail" maxlength="20" placeholder="Ваш e-mail" spellcheck="false"/>
-            <input name="vk_link"  id="applicationVK" maxlength="20" placeholder="Ссылка на vk" spellcheck="false"/>
+            <input name="telephone" type="tel" id="applicationTelephone" placeholder="Ваш телефон" spellcheck="false" required />            
+            <input name="email" type="email" id="applicationEmail" maxlength="30" placeholder="Ваш e-mail" spellcheck="false"/>
+            <input name="vk_link"  id="applicationVK" maxlength="30" placeholder="Ссылка на vk" spellcheck="false"/>
             <textarea name="comment" id="userComment" rows="10" placeholder="Комментарий"></textarea>
             <button type="submit" class="applicationButton" name="submit"> Забронировать </button>
 
         </div>
-
+</div>
     <?php else: ?>
         <h3 align="center">Корзина пуста</h3>
         <div class="back"><a href="/catalog">Вернуться к покупкам</a></div>

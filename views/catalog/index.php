@@ -2,7 +2,7 @@
 
 <!-- start main -->
 <div class="main_bg">
-<div class="wrap">	
+<div class="prod_wrap">	
 	<div class="main">
 		<!-- start grids_of_3 -->
                     <?php for ($i=0; $i < count($categories); $i++):  // Перебор массива с категориями для вывода
@@ -10,9 +10,10 @@
                             <div class="grids_of_3"> 
                         <?php endif;?>
                     <div class="grid1_of_3">
+                        <h3><?php echo $categories[$i]['name'];?></h3>
                         <a href="/category/<?php echo $categories[$i]['id']; ?>/">
                             <img src="<?php echo Product::getImage(2); ?>" alt=""/>                        
-                            <div class="price"><h4><span><?php echo $categories[$i]['name'];?></span></h4></div>
+                            <div class="price"><h3><span>Открыть</span></h3></div>
 			</a>
                     </div>  
                     <?php if ((($i+1)%4 == 0 && $i != 0)            // Если категория - последняя в grids_of_3
