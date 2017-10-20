@@ -3,7 +3,7 @@
     <head>
         <title>Центр проката г. Нарьян-Мар</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
         <link href="/template/css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -22,7 +22,7 @@
                     </div>
                     <div class="h_icon">
                         <ul class="icon1 sub-icon1">
-                            <li><a class="active-icon c1" id = "cart_total" href="/cart"><i>Корзина(<?php echo Cart::countItems(); ?>)</i></a></li>
+                            <li><a class="active-icon c1" id = "cart_total" href="/cart"><i><?php echo Cart::countItems(); ?></i></a></li>
                         </ul>
                     </div>
                     <div class="h_search">

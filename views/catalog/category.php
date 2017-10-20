@@ -22,16 +22,13 @@
                        
                         <table width="100%" cellspacing="0" cellpadding="5">
                             <tr> 
-                                <td width="200" valign="top">
+                                
                                     <div class="price">
                                         <h4><?php foreach ($prices as $price):
                                             if ($categoryProducts[$i]['id'] == $price['prod_id']):
                                                 echo $price['time'] . " - " . $price['price'] . "р.";?><br><?php endif;endforeach;?>
                                         </h4>
-                                    </div>
-                                </td>
-                                <td valign="top">
-                                    <a href="/product/<?php echo $categoryProducts[$i]['id']; ?>"><div class="more">Подробнее</div></a>                                  
+                                        <a href="/product/<?php echo $categoryProducts[$i]['id']; ?>" class="more">Подробнее</a>                                  
                                     
                                     <?php if (!is_array($productsInCart)) $productsInCart = array(); // Костыль
                                     if (!array_key_exists($categoryProducts[$i]['id'], $productsInCart)):?>
@@ -39,7 +36,10 @@
                                         <?php else:?>
                                         <a class="toCart added-to-cart" style="color: rgb(32, 73, 134);">Добавлено</a>
                                         <?php    endif;?>
-                                </td>
+                                    </div>
+                                
+                                    
+                                
                                 
                             </tr>
                         </table>
