@@ -119,8 +119,9 @@ class CartController
             // Если форма отправлена
             // Получаем данные из формы
             $userName = $_POST['name'];
-            $userPhone = preg_replace("/[^0-9]/", '', $_POST['telephone']); // Телефон в формате 89991112233
-            $date = $_POST['rent_date'];
+            //$userPhone = preg_replace("/[^0-9]/", '', $_POST['telephone']); // Телефон в формате 89991112233
+            $userPhone = $_POST['telephone'];            
+            $date = date('Y-m-d', strtotime($_POST['datetimepicker']));
             $userEmail=$_POST['email'];
             $userComment = $_POST['comment'];
             $vk_link = $_POST['vk_link'];

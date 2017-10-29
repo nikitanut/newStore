@@ -65,13 +65,17 @@
     $(document).ready(function () {
         $(".add-to-cart").click(function () { 
             // Если нажали "В корзину":
-            $(this).html("Добавлено");
+            var text = $(this).text();
+            if (text === "Добавлено")
+                location.href = "/cart";
+            $(this).html("Добавлено");   
+            $(this).attr("href", "/cart");
             $(this).css("color", "#204986");
             var id = $(this).attr("data-id");
                 $.post("/cart/addAjax/" + id, {}, function (data) {
-                    $(".c1 i").html("Корзина("+data+")");
-                });         
-            return false;
+                    $(".c1 i").html(data);
+                }); 
+                return false;
         });
     });
 </script>

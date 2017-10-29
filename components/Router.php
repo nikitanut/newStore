@@ -7,6 +7,7 @@ class Router
 
     public function __construct()
     {
+        date_default_timezone_set('UTC');
         $routesPath = ROOT . '/config/routes.php';
         $this->routes = include($routesPath);
     }

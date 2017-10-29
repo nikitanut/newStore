@@ -7,9 +7,9 @@
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/>
         <link href="/template/css/style.css" rel="stylesheet" type="text/css" media="all" />
-        <script type="text/javascript" src="/template/js/jquery.min.js"></script>	
+        <script type="text/javascript" src="/template/js/jquery-2.2.4.min.js"></script>	
         <link href="/template/css/slider.css" rel="stylesheet" type="text/css" media="all" />
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="/template/js/bootstrap.min.js" type="text/javascript"></script>  
     </head>
 
     <body>
@@ -24,13 +24,7 @@
                         <ul class="icon1 sub-icon1">
                             <li><a class="active-icon c1" id = "cart_total" href="/cart"><i><?php echo Cart::countItems(); ?></i></a></li>
                         </ul>
-                    </div>
-                    <div class="h_search">
-                        <form>
-                            <input type="text" value="">
-                            <input type="submit" value="">
-                        </form>
-                    </div>
+                    </div>                    
                     <div class="clear"></div>
                 </div>
             </div>

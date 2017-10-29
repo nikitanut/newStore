@@ -34,7 +34,7 @@
                                     if (!array_key_exists($categoryProducts[$i]['id'], $productsInCart)):?>
                                         <a href="" data-id="<?php echo $categoryProducts[$i]['id']; ?>" class="toCart add-to-cart">В корзину</a>
                                         <?php else:?>
-                                        <a class="toCart added-to-cart" style="color: rgb(32, 73, 134);">Добавлено</a>
+                                        <a href="/cart" class="toCart added-to-cart" style="color: rgb(32, 73, 134);">Добавлено</a>
                                         <?php    endif;?>
                                     </div>
                                 
