@@ -11,8 +11,8 @@
                         <?php endif;?>
                     <div class="grid1_of_3">
                         <h3><?php echo $categories[$i]['name'];?></h3>
-                        <a href="/category/<?php echo $categories[$i]['id']; ?>/">
-                            <img src="<?php echo Product::getImage(2); ?>" alt=""/>                        
+                        <a href="/category/<?php echo $categories[$i]['id']; ?>">
+                            <img src="<?php echo Product::getCategoryImage($categories[$i]['id']); ?>" alt=""/> 
                             <div class="price"><h3><span>Открыть</span></h3></div>
 			</a>
                     </div>  

@@ -8,12 +8,8 @@
                 <!-- start span1_of_1 -->
                 <div class="left_content">
                     <div class="span1_of_1">
-                        <!-- start product_slider -->
-
                         <h3><?php echo $product['name']; ?></h3>
                         <img src="<?php echo Product::getImage($product['id']); ?>" class="image" alt="Батут" title="Батут"/>
-
-                        <!-- end product_slider -->
                     </div>
                     <!-- start span1_of_1 -->
                     <div class="span1_of_1_des">
@@ -41,11 +37,10 @@
 
                             </fieldset>
                             <a href="#" data-id="<?php echo $product['id']; ?>" class="toCart add-to-cart">Добавить в корзину</a> 
-                            <a href="/cart" class="more">Перейти в корзину</a>
                             <div class="clear"></div>
                         </div>
                     </div>                   
-                    <!-- <h3>Полное описание</h3> -->
+                    
                     <fieldset>
                         <legend>Описание</legend>
                     <p class="para top"><?php echo substr(nl2br(nl2br(htmlspecialchars(trim($product['description'])))), 0); ?></p>
@@ -76,7 +71,6 @@
                 }, 800);
             });
         });
-
     });
 </script>
 

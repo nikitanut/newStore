@@ -19,28 +19,33 @@
                     <div class="grid1_of_3">   
                         <h3><?php echo $categoryProducts[$i]['name']; ?></h3>
                         <img src="<?php echo Product::getImage($categoryProducts[$i]['id']); ?>" alt=""/>  
-                       
+
                         <table width="100%" cellspacing="0" cellpadding="5">
                             <tr> 
-                                
-                                    <div class="price">
-                                        <h4><?php foreach ($prices as $price):
-                                            if ($categoryProducts[$i]['id'] == $price['prod_id']):
-                                                echo $price['time'] . " - " . $price['price'] . "р.";?><br><?php endif;endforeach;?>
-                                        </h4>
-                                        <a href="/product/<?php echo $categoryProducts[$i]['id']; ?>" class="more">Подробнее</a>                                  
-                                    
-                                    <?php if (!is_array($productsInCart)) $productsInCart = array(); // Костыль
-                                    if (!array_key_exists($categoryProducts[$i]['id'], $productsInCart)):?>
-                                        <a href="" data-id="<?php echo $categoryProducts[$i]['id']; ?>" class="toCart add-to-cart">В корзину</a>
-                                        <?php else:?>
-                                        <a href="/cart" class="toCart added-to-cart" style="color: rgb(32, 73, 134);">Добавлено</a>
-                                        <?php    endif;?>
-                                    </div>
-                                
-                                    
-                                
-                                
+
+                            <div class="price">
+                                <h4><?php
+                                    foreach ($prices as $price):
+                                        if ($categoryProducts[$i]['id'] == $price['prod_id']):
+                                            echo $price['time'] . " - " . $price['price'] . "р.";
+                                            ?><br><?php
+                                        endif;
+                                    endforeach;
+                                    ?>
+                                </h4>
+                                <a href="/product/<?php echo $categoryProducts[$i]['id']; ?>" class="more">Подробнее</a>                                  
+
+                                <?php
+                                if (!is_array($productsInCart))
+                                    $productsInCart = array(); // Костыль
+                                if (!array_key_exists($categoryProducts[$i]['id'], $productsInCart)):
+                                    ?>
+                                    <a href="" data-id="<?php echo $categoryProducts[$i]['id']; ?>" class="toCart add-to-cart">В корзину</a>
+                                <?php else: ?>
+                                    <a href="/cart" class="toCart added-to-cart" style="color: rgb(32, 73, 134);">Перейти в корзину</a>
+                                <?php endif; ?>
+                            </div>
+
                             </tr>
                         </table>
                         <span class="b_btm"></span>                       
@@ -52,13 +57,11 @@
                         ?>
                         <div class="clear"></div>                   
                     <?php endif; ?>
-                    <?php if (($i + 1) % 4 == 0): // Если товар последний в grids_of_3, то закрыть тег  ?> 
+                    <?php if (($i + 1) % 4 == 0): // Если товар последний в grids_of_3, то закрыть тег    ?> 
                     </div>
                 <?php endif; ?>
             <?php endfor; ?>
             <!-- end grids_of_3 -->
-
-
         </div>
     </div>
 </div>
