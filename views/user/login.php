@@ -1,32 +1,21 @@
-
-
-<section>
-    <div class="container">
-        <div class="row">
-
-            <div class="col-sm-4 col-sm-offset-4 padding-right">
-
-                <?php if (isset($errors) && is_array($errors)): ?>
-                    <ul>
-                        <?php foreach ($errors as $error): ?>
-                            <li> - <?php echo $error; ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                <?php endif; ?>
-
-                <div class="signup-form"><!--sign up form-->
-                    <h2>Вход на сайт</h2>
-                    <form action="#" method="post">
-                        <input type="email" name="email" placeholder="E-mail" value="<?php echo $email; ?>"/>
-                        <input type="password" name="password" placeholder="Пароль" value="<?php echo $password; ?>"/>
-                        <input type="submit" name="submit" class="btn btn-default" value="Вход" />
-                    </form>
-                </div><!--/sign up form-->
-
-
-                <br/>
-                <br/>
-            </div>
+<link rel="stylesheet" href="/template/admin/font-awesome-4.7.0/css/font-awesome.css" type="text/css">
+<link rel="stylesheet" href="/template/admin/css/login.css" type="text/css"> 
+<div class="container">
+    <img src="/template/admin/images/lock.png">
+    <?php if (isset($errors) && is_array($errors)): ?>
+        <ul>
+            <?php foreach ($errors as $error): ?>
+                <li> - <?php echo $error; ?></li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
+    <form action="#" method="post">
+        <div class="dws-input">
+            <input type="login" name="login" placeholder="Введите логин">
         </div>
-    </div>
-</section>
+        <div class="dws-input">
+            <input type="password" name="password" placeholder="Введите пароль">
+        </div>
+            <input class="dws-submit" type="submit" name="submit" value="ВОЙТИ"><br />
+    </form>
+</div>

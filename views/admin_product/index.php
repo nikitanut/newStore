@@ -24,7 +24,6 @@
                     <th>Название товара</th>
                     <th>Название категории</th>
                     <th>Наличие</th>
-                    <th>Описание</th>
                     <th>Новинка</th>
                     <th>Рекомендуемый</th>                    
                     <th>Статус</th>
@@ -44,7 +43,6 @@
                                   //}
                               endforeach;?></td>
                         <td><?php echo $product['availability']; ?></td>
-                        <td><?php echo substr(nl2br(nl2br(htmlspecialchars(trim($product['description'])))) ,0); // Добавление абзацев (2 <br>) ?></td>
                         <td><?php echo $product['is_new']; ?></td>
                         <td><?php echo $product['is_recommended']; ?></td>
                         <td><?php echo $product['status']; ?></td> 

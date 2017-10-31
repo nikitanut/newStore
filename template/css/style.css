@@ -30,7 +30,11 @@ img{max-width:100%;}
 /*end reset*/
 @font-face {
     font-family: 'bebas_neueregular';
-    src:url(../fonts/10771.ttf) format('truetype');
+    src:url(../fonts/bebas.ttf) format('truetype');
+}
+@font-face{
+    font-family: 'boom';
+    src:url(../fonts/10897.otf);
 }
 body {
     font-family: 'bebas_neueregular';
@@ -205,15 +209,15 @@ ul.submenu {
     display: none;
     position: absolute;
     width: 700px;    
-    background: #17635b;
+    background: #17635b;    
     /*left: 20px;   */
-    z-index: 2100;
+    z-index: 2000;
     opacity: 0.9;
-    columns: 3;
-    column-gap: 0;
+    /*columns: 3;
+    column-gap: 0;*/
 }
 ul.submenu > li {
-    display: block !important;
+    /*display: block !important;*/
 }
 ul.submenu > li > a {
     display: block;
@@ -574,7 +578,7 @@ h3{
 }
 .prod_wrap{
     margin:0 auto;
-    width: 100%;
+    padding: 0 5%;
 }
 .header_bg{
     background: #ffffff;
@@ -584,6 +588,15 @@ h3{
 }
 .logo{
     float:left;
+}
+.logoname{
+       position: relative;
+    width: 43%;
+    margin: 0.5% 8% 0;
+    font-size: 46pt;
+    margin-top: -6px;
+    color: #007382;
+    font-family: 'boom';
 }
 /*search*/
 .h_search{
@@ -1063,10 +1076,10 @@ h3{
 /*Кнопка "Открыть" в каталоге*/
 .price h3 span{
     display: inline-block;
-    font-size: 1.1em;
+    font-size: 1em;
     background: #3CC395;
     color: #ffffff;
-    padding: 8px 50px;
+    padding: 5px 34px;
     text-align: center;
 }
 .price h3 span:hover
@@ -1888,6 +1901,37 @@ p.para{
     color: #555555;
     font-family: 'Source Sans Pro', sans-serif;
 }
+.signup-form h2 {
+    color: #696763;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+.signup-form form input {
+    background: #eceaea;
+    border: medium none;
+    color: #696763;
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    height: 40px;
+    margin-bottom: 10px;
+    outline: medium none;
+    padding-left: 10px;
+    width: 50%;
+}
+.signup-form form button {
+    background: #FE980F;
+    border: medium none;
+    border-radius: 0;
+    color: #FFFFFF;
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    padding: 6px 25px;
+}
+
 /* end tabs */
 /***** Media Quries *****/
 @media only screen and (max-width: 1550px) {
@@ -1936,6 +1980,12 @@ p.para{
     .grid1_of_3 img {
         height: 250px;
     }
+    .prod_wrap {
+    padding: 0 3%;
+}
+.main {
+    padding: 3% 1%;
+}
     
     .cart_wrap {
         margin: 0 10%;        

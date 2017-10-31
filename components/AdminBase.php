@@ -19,7 +19,6 @@ abstract class AdminBase
         // Получаем информацию о текущем пользователе
         $user = User::getUserById($userId);
 
-        print_r($user['role']);
         // Если роль текущего пользователя "admin", пускаем его в админпанель
         if ($user['role'] == 'admin') {
             return true;

@@ -56,36 +56,26 @@ class UserController
     /**
      * Action для страницы "Вход на сайт"
      */
-    public function actionLogin()
+   public function actionLogin()
     {
         // Переменные для формы
-        $email = false;
         $password = false;
         
         // Обработка формы
         if (isset($_POST['submit'])) {
             // Если форма отправлена 
             // Получаем данные из формы
-            $email = $_POST['email'];
-            $password = $_POST['password'];
+            $hash=md5($_POST['login'].';'.$_POST['password']);
 
             // Флаг ошибок
             $errors = false;
 
-            // Валидация полей
-            if (!User::checkEmail($email)) {
-                $errors[] = 'Неправильный email';
-            }
-            if (!User::checkPassword($password)) {
-                $errors[] = 'Пароль не должен быть короче 6-ти символов';
-            }
-
             // Проверяем существует ли пользователь
-            $userId = User::checkUserEmail($email, $password);
+            $userId = User::checkAdmin($hash);
 
             if ($userId == false) {
                 // Если данные неправильные - показываем ошибку
-                $errors[] = 'Неправильные данные для входа на сайт';
+                $errors[] = 'Неправильные данные для входа в панель администратора';
             } else {
                 // Если данные правильные, запоминаем пользователя (сессия)
                 User::auth($userId);

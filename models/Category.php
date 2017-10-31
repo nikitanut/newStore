@@ -81,7 +81,7 @@ class Category
      * @param integer $status <p>Статус <i>(включено "1", выключено "0")</i></p>
      * @return boolean <p>Результат выполнения метода</p>
      */
-    public static function updateCategoryById($id, $name, $sortOrder, $status)
+    public static function updateCategoryById($id, $name, $status)
     {
         // Соединение с БД
         $db = Db::getConnection();
@@ -153,7 +153,7 @@ class Category
      * @param integer $status <p>Статус <i>(включено "1", выключено "0")</i></p>
      * @return boolean <p>Результат добавления записи в таблицу</p>
      */
-    public static function createCategory($name, $sortOrder, $status)
+    public static function createCategory($name, $status)
     {
         // Соединение с БД
         $db = Db::getConnection();

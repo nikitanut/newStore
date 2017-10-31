@@ -99,6 +99,28 @@ class User
         return false;
     }
     
+    public static function checkAdmin($password)
+    {
+        $db = Db::getConnection();
+
+        // Текст запроса к БД
+        $sql = 'SELECT * FROM users WHERE password = :password';
+
+        // Получение результатов. Используется подготовленный запрос
+        $result = $db->prepare($sql);        
+        $result->bindParam(':password', $password, PDO::PARAM_INT);
+        $result->execute();
+
+        // Обращаемся к записи
+        $user = $result->fetch();
+
+        if ($user) {
+            // Если запись существует, возвращаем id пользователя
+            return $user['id'];
+        }
+        return false;
+    }
+    
     /**
      * Проверяем существует ли пользователь с заданными $email и $password
      * @param string $email <p>E-mail</p>
