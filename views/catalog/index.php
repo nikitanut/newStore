@@ -10,10 +10,13 @@
                             <div class="grids_of_3"> 
                         <?php endif;?>
                     <div class="grid1_of_3">
-                        <h3><?php echo $categories[$i]['name'];?></h3>
-                        <a href="/category/<?php echo $categories[$i]['id']; ?>">
+                        <a
+                            href="/category/<?php echo $categories[$i]['id']; ?>">
+                            <h3><?php echo $categories[$i]['name'];?></h3>
+                        
                             <img src="<?php echo Product::getCategoryImage($categories[$i]['id']); ?>" alt=""/> 
-                            <div class="price"><h3><span>Открыть</span></h3></div>
+                            
+                           <!-- <div class="price"><h3><span>Открыть</span></h3></div> -->
 			</a>
                     </div>  
                     <?php if ((($i+1)%4 == 0 && $i != 0)            // Если категория - последняя в grids_of_3

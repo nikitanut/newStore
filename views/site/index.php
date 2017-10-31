@@ -89,13 +89,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div id="owl-demo" class="owl-carousel">
         <?php foreach ($categories as $category): ?>
         <div class="item" onclick="location.href = '/category/<?php echo $category['id'] ?>';">
-            <div class="cau_left">
+            <h3><a href="/category/<?php echo $category['id'] ?>"><?php echo $category['name'] ?></a></h3>
+            <div class="cau_left">                
                 <img class="lazyOwl" data-src="/upload/images/products/categories/<?php echo $category['id'] ?>.jpg" alt="Lazy Owl Image">
             </div>
-            <div class="cau_left">
-                <h5><a href="/category/<?php echo $category['id'] ?>"><?php echo $category['name'] ?></a></h5>
                 
-            </div>
+                
         </div>
         <?php  endforeach; ?>
     </div>
@@ -105,7 +104,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div class="main_bg1">
     <div class="wrap">	
         <div class="main1">
-            <h2>Рекомендуемые продукты</h2>        
+            <h2>Рекомендуемые товары</h2>        
         </div>
     </div>
 </div>
@@ -119,7 +118,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="clear"></div>
             <?php else: ?>
             <?php
-            for ($i = 0; $i < 4; $i++):  // Перебор массива с товарами для вывода
+            for ($i = 0; $i < count($sliderProducts); $i++):  // Перебор массива с товарами для вывода
                 if ($i % 4 == 0): // Если новая строка, то вставить grids_of_3 (позиции для 3х товаров)
                     ?> 
                     <div class="grids_of_3"> 

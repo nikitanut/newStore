@@ -5,8 +5,6 @@
         <link rel="shortcut icon" href="/upload/logo.png" type="image/x-icon">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <!--      <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet"/> -->
         <link href="/template/css/style.css" rel="stylesheet" type="text/css" media="all" />
         <script type="text/javascript" src="/template/js/jquery-2.2.4.min.js"></script>	
         <link href="/template/css/slider.css" rel="stylesheet" type="text/css" media="all" />
@@ -19,7 +17,7 @@
             <div class="wrap">
                 <div class="header">
                     <div class="logo">
-                        <a href="index.php"><img src="/upload/logo.png" alt=""/></a>
+                        <a href="/"><img src="/upload/logo.png" alt=""/></a>
                     </div>
 
                     <div class="h_icon">
@@ -45,8 +43,7 @@
                 <div class="header_sub">
                     <div class="h_menu">
                         <ul class="menu">
-                            <li><a href="/">Главная</a></li> |
-
+                            <li><a href="/">Главная</a></li>
                             <li><a href="/catalog">Каталог</a>
                                 <ul class="submenu">
                                     <?php foreach ($categories as $categoryItem): ?>
@@ -54,11 +51,10 @@
                                         </li>
                                     <?php endforeach; ?>
                                 </ul>
-                            </li>  
-                            |
-                            <li><a href="/">Условия проката</a></li> |
-                            <li><a href="/">Доставка</a></li> |
-                            <li><a href="/">Отзывы</a></li> |
+                            </li>
+                            <li><a href="/">Условия проката</a></li>
+                            <li><a href="/">Доставка</a></li>
+                            <li><a href="/">Отзывы</a></li>
                             <li><a href="/contacts">Контакты</a></li></ul>
 
 

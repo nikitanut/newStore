@@ -36,6 +36,11 @@ img{max-width:100%;}
     font-family: 'boom';
     src:url(../fonts/10897.otf);
 }
+@font-face{
+    font-family: 'prod_font';
+    src:url(../fonts/new_font.otf);
+}
+
 body {
     font-family: 'bebas_neueregular';
     background:#ffffff;
@@ -229,7 +234,7 @@ ul.submenu > li > a {
     text-decoration: none;
 }
 ul.submenu > li > a:hover {
-    text-decoration: underline;
+    text-shadow: 0 0 1.5em #ffffff;
 }
 
 ul.menu > li:hover > ul.submenu {
@@ -282,7 +287,7 @@ ul.menu > li:hover > ul.submenu {
     color: #fff;
     font-size: 24px;
     text-transform: uppercase;
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'prod_font', sans-serif;
     cursor: pointer;
     /*    transition: .6s;*/
 }
@@ -386,7 +391,7 @@ ul.menu > li:hover > ul.submenu {
 .cart {
     margin: 0 auto;
     padding: 0 10px;
-    border: 1px dashed #bfbfbf;
+    border: 1px dashed #454545;
     border-top: 0;
     border-radius: 0 0 20px 20px;
 }
@@ -422,7 +427,7 @@ ul.menu > li:hover > ul.submenu {
     padding: 30px 0px 0px 23px;
 }
 .cart tbody h3{
-        font-family: cursive;
+        font-family: inherit;
     }
 .cart tbody h4 {
     height: 92px;
@@ -965,7 +970,11 @@ h3{
 .cau_left{
     float:left;
     width: 47.3333%;
-    margin-left: 3.33333%;
+    margin-left: 30%;
+}
+
+.cau_left h3{
+    font-size: 1.2em;
 }
 .cau_left:first-child{
     margin-left: 0%;
@@ -1003,6 +1012,7 @@ h3{
     margin-left: 1.8333%;
     border: 1px solid rgb(223, 223, 223);
     position: relative;
+    box-shadow: 0 -3px 0 #4ccec1;
 }
 .grid1_of_3:first-child{
     margin-left: 0;
@@ -1019,7 +1029,7 @@ h3{
     font-family: cursive;
     margin-top: 10px;
     font-size: 1.8em;
-    color: #999999;
+    color: #757575 !important;;
     height: 86px;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;

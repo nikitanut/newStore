@@ -56,7 +56,7 @@
                         <div class="col-lg-8">
                             <div class="login-form">
                                 <p>Характеристики</p>
-                                <textarea name="description" style="margin-bottom: 5px; height: 250px; width: 100%;"><?php echo $product['description'] ?></textarea>
+                                <textarea name="characteristics" style="margin-bottom: 5px; height: 250px; width: 100%;"><?php echo $product['characteristics'] ?></textarea>
                             </div>
                         </div>
                         <div class="col-lg-8">
@@ -134,6 +134,4 @@
         </div>
     </div>
 </section>
-
-<?php // include ROOT . '/views/layouts/footer_admin.php';      ?>
 

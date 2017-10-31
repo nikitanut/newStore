@@ -80,7 +80,7 @@ class AdminPriceController extends AdminBase {
             // Сохраняем изменения
             
             Price::updatePrice($prod_id, $time, $price, $prices['price']);
-            // Перенаправляем пользователя на страницу управлениями категориями
+            // Перенаправляем пользователя на страницу управлениями ценами
             header("Location: /admin/price");
         }
 

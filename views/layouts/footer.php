@@ -1,8 +1,8 @@
 <!-- start footer -->
-<div class="footer_bg">
+<!--<div class="footer_bg">
     <div class="wrap">	
         <div class="footer">
-            <!-- start grids_of_4 -->	
+            <!-- start grids_of_4 	
             <div class="grids_of_4">
                 <div class="grid1_of_4">
                     <h4>featured sale</h4>
@@ -60,7 +60,7 @@
             </div>
         </div>
     </div>
-</div>	
+</div>	-->
 <script>
     $(document).ready(function () {
         $(".add-to-cart").click(function () { 

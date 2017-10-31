@@ -52,5 +52,3 @@
     </div>
 </section>
 
-<?php// include ROOT . '/views/layouts/footer_admin.php'; ?>
-

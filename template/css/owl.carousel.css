@@ -11,13 +11,14 @@
 		padding: 1em;
 		background: #fff;
 		cursor:pointer;
+                text-align: center;
     }
     #owl-demo .item:hover a{
     	color:#171717;
     }
     #owl-demo .item img{
         display: block;
-        height: auto;
+        max-height: 12em;
     }
 .item img,.item a,.item p{
 	transition: 0.5s all;
@@ -33,15 +34,9 @@
 	text-align: center;
 }
 /*-----*/
-.item h4 a{
-	font-size: 1.8em;
-	color: #999999;
-	padding: 0.5em 0 0.4em 0;
-	display:block;
-	transition:0.5s all;
-    -webkit-transition:0.5s all;
-    -moz-transition:0.5s all;
-    -o-transition:0.5s all;
+.item h3 {
+	font-size: 1.4em;
+        margin: 1% 0 3%;
 }
 .item a.btn{
 	font-size: 1.2em;
@@ -153,7 +148,7 @@
 	position: relative;
 	width: 100%;
 	-ms-touch-action: pan-y;
-	margin: 2% 0 4%;
+	margin: 1% 0 3%;;
 }
 .owl-carousel .owl-wrapper{
 	display: none;

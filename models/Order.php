@@ -28,6 +28,8 @@ class Order
 
      //   $products = json_encode($products);
         $products = json_encode($products, JSON_UNESCAPED_UNICODE);
+        
+        $userPhone = str_replace(array(")","("," ", "-"),'',$userPhone);
 
         $result = $db->prepare($sql);
         $result->bindParam(':user_name', $userName, PDO::PARAM_STR);
@@ -50,14 +52,14 @@ class Order
         $db = Db::getConnection();
 
         // Получение и возврат результатов
-        $result = $db->query('SELECT id, user_name, user_phone, curr_date, status FROM orders ORDER BY id DESC');
+        $result = $db->query('SELECT id, user_name, user_phone, date, status FROM orders ORDER BY id DESC');
         $ordersList = array();
         $i = 0;
         while ($row = $result->fetch()) {
             $ordersList[$i]['id'] = $row['id'];
             $ordersList[$i]['user_name'] = $row['user_name'];
             $ordersList[$i]['user_phone'] = $row['user_phone'];
-            $ordersList[$i]['curr_date'] = $row['curr_date'];
+            $ordersList[$i]['date'] = $row['date'];
             $ordersList[$i]['status'] = $row['status'];
             $i++;
         }
@@ -145,7 +147,7 @@ class Order
      * @param integer $status <p>Статус <i>(включено "1", выключено "0")</i></p>
      * @return boolean <p>Результат выполнения метода</p>
      */
-    public static function updateOrderById($id, $userName, $userPhone, $userComment, $curr_date, $date, $time, $status)
+    public static function updateOrderById($id, $userName, $userPhone, $userComment, $date, $status)
     {
         // Соединение с БД
         $db = Db::getConnection();
@@ -156,9 +158,7 @@ class Order
                 user_name = :user_name, 
                 user_phone = :user_phone, 
                 user_comment = :user_comment, 
-                curr_date = :curr_date, 
                 date = :date,
-                time = :time,
                 status = :status 
             WHERE id = :id";
 
@@ -168,9 +168,7 @@ class Order
         $result->bindParam(':user_name', $userName, PDO::PARAM_STR);
         $result->bindParam(':user_phone', $userPhone, PDO::PARAM_STR);
         $result->bindParam(':user_comment', $userComment, PDO::PARAM_STR);
-        $result->bindParam(':curr_date', $date, PDO::PARAM_STR);
         $result->bindParam(':date', $date, PDO::PARAM_STR);
-        $result->bindParam(':time', time, PDO::PARAM_INT);
         $result->bindParam(':status', $status, PDO::PARAM_INT);
         return $result->execute();
     }

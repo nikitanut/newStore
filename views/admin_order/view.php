@@ -74,9 +74,6 @@
 
             <a href="/admin/order/" class="btn btn-default back"><i class="fa fa-arrow-left"></i> Назад</a>
         </div>
-
-
 </section>
 
-<?php// include ROOT . '/views/layouts/footer_admin.php'; ?>
 
