@@ -12,7 +12,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script type="text/javascript" src="/template/js/jquery.cslider.js"></script>
 <script type="text/javascript">
     $(function () {
-        $('#da-slider').cslider();        
+        $('#da-slider').cslider();
     });
 </script>
 <!-- Owl Carousel Assets -->
@@ -88,15 +88,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!----start-img-cursual---->
     <div id="owl-demo" class="owl-carousel">
         <?php foreach ($categories as $category): ?>
-        <div class="item" onclick="location.href = '/category/<?php echo $category['id'] ?>';">
-            <h3><a href="/category/<?php echo $category['id'] ?>"><?php echo $category['name'] ?></a></h3>
-            <div class="cau_left">                
-                <img class="lazyOwl" data-src="/upload/images/products/categories/<?php echo $category['id'] ?>.jpg" alt="Lazy Owl Image">
+            <div class="item" onclick="location.href = '/category/<?php echo $category['id'] ?>';">
+                <h3><a href="/category/<?php echo $category['id'] ?>"><?php echo $category['name'] ?></a></h3>
+                <div class="cau_left">                
+                    <img class="lazyOwl" data-src="/upload/images/products/categories/<?php echo $category['id'] ?>.jpg" alt="Lazy Owl Image">
+                </div>
+
+
             </div>
-                
-                
-        </div>
-        <?php  endforeach; ?>
+        <?php endforeach; ?>
     </div>
     <!----//End-img-cursual---->
 </div>
@@ -117,33 +117,31 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <!-- TODO. Если нет товаров, то чё-нибудь вывести -->
                 <div class="clear"></div>
             <?php else: ?>
-            <?php
-            for ($i = 0; $i < count($sliderProducts); $i++):  // Перебор массива с товарами для вывода
-                if ($i % 4 == 0): // Если новая строка, то вставить grids_of_3 (позиции для 3х товаров)
-                    ?> 
-                    <div class="grids_of_3"> 
+                <?php
+                for ($i = 0; $i < count($sliderProducts); $i++):  // Перебор массива с товарами для вывода
+                    if ($i % 4 == 0): // Если новая строка, то вставить grids_of_3 (позиции для 3х товаров)
+                        ?> 
+                        <div class="grids_of_3"> 
+                        <?php endif; ?>
+                        <div class="grid1_of_3">
+                            <a href="/product/<?php echo $sliderProducts[$i]['id']; ?>">
+                                <h3><?php echo $sliderProducts[$i]['name']; ?></h3>
+                                <img src="<?php echo Product::getImage($sliderProducts[$i]['id']); ?>" alt="" />                        
+                            </a>
+                            <!--<div class="price"> <h4>$<?php //echo $sliderItem['price'];     ?></h4> </div>  -->                                          
+                            <span class="b_btm"></span>
+                        </div>
+                        <?php
+                        if ((($i + 1) % 4 == 0 && $i != 0)            // Если товар - последний в grids_of_3
+                                || ($i + 1 == count($sliderProducts))): // или последний в массиве, то сделать отступ
+                            ?>
+                            <div class="clear"></div>                   
+                        <?php endif; ?>
+                        <?php if (($i + 1) % 4 == 0): // Если товар последний в grids_of_3, то закрыть тег  ?> 
+                        </div>
                     <?php endif; ?>
-                    <div class="grid1_of_3">
-                        <h3><?php echo $sliderProducts[$i]['name']; ?></h3>
-                        <img src="<?php echo Product::getImage($sliderProducts[$i]['id']); ?>" alt="" />
-                        <a href="/product/<?php echo $sliderProducts[$i]['id']; ?>">
-                            
-                            <div class="price"><h3><span>Подробнее</span></h3></div>
-                        </a>
-                        <!--<div class="price"> <h4>$<?php //echo $sliderItem['price'];    ?></h4> </div>  -->                                          
-                        <span class="b_btm"></span>
-                    </div>
-                    <?php
-                    if ((($i + 1) % 4 == 0 && $i != 0)            // Если товар - последний в grids_of_3
-                            || ($i + 1 == count($sliderProducts))): // или последний в массиве, то сделать отступ
-                        ?>
-                        <div class="clear"></div>                   
-                    <?php endif; ?>
-                    <?php if (($i + 1) % 4 == 0): // Если товар последний в grids_of_3, то закрыть тег  ?> 
-                    </div>
-                <?php endif; ?>
-            <?php endfor; ?>
-<?php endif; ?>
+                <?php endfor; ?>
+            <?php endif; ?>
         </div>
     </div>
 </div>	

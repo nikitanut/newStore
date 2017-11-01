@@ -110,6 +110,8 @@
                                 <span style='padding-left:10px;'> </span>
                                 <input class="form-control" type="text" name="time2" placeholder="Третий" value=""> 
                                 <span style='padding-left:10px;'> </span>
+                                <input class="form-control" type="text" name="time3" placeholder="Четвёртый" value=""> 
+                                <span style='padding-left:10px;'> </span>
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -120,6 +122,8 @@
                                 <input class="form-control" type="text" name="price1" placeholder="Второй" value="">
                                 <span style='padding-left:10px;'> </span>
                                 <input class="form-control" type="text" name="price2" placeholder="Третий" value="">
+                                <span style='padding-left:10px;'> </span>
+                                <input class="form-control" type="text" name="price3" placeholder="Четвёртый" value="">
                                 <span style='padding-left:10px;'> </span>
                             </div>
                         </div>

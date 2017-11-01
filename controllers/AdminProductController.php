@@ -50,6 +50,11 @@ class AdminProductController extends AdminBase {
             $options['price1'] = $_POST['price1'];
             $options['time2'] = $_POST['time2'];
             $options['price2'] = $_POST['price2'];
+            if ($_POST['time3'] != NULL){
+                
+            $options['time3'] = $_POST['time3'];
+            $options['price3'] = $_POST['price3'];
+            }
 
             // Флаг ошибок в форме
             $errors = false;
@@ -67,7 +72,9 @@ class AdminProductController extends AdminBase {
                 Price::createPrice($id, $options['time'], $options['price']);
                 Price::createPrice($id, $options['time1'], $options['price1']);
                 Price::createPrice($id, $options['time2'], $options['price2']);
-
+                if ($_POST['time3'] != NULL){
+                Price::createPrice($id, $options['time3'], $options['price3']);
+                }
                 // Если запись добавлена
                 if ($id) {
                     // Проверим, загружалось ли через форму изображение
