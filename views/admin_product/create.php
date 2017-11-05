@@ -78,8 +78,8 @@
                             <div class="login-form">
                                 <p>Новинка</p>
                                 <select name="is_new">
-                                    <option value="1" selected="selected">Да</option>
-                                    <option value="0">Нет</option>
+                                    <option value="1">Да</option>
+                                    <option value="0" selected="selected">Нет</option>
                                 </select>
 
                                 <br/><br/>
@@ -94,8 +94,8 @@
 
                                 <p>Статус</p>
                                 <select name="status">
-                                    <option value="1">Отображается</option>
-                                    <option value="0" selected="selected">Скрыт</option>
+                                    <option value="1" selected="selected">Отображается</option>
+                                    <option value="0">Скрыт</option>
                                 </select>
                             </div>
                         </div>

@@ -19,21 +19,19 @@
                     <div class="logo">
                         <a href="/"><img src="/upload/logo.png" alt=""/></a>
                     </div>
-
+                    <div class="logoname">ЦЕНТР ПРОКАТА</div>
+                    <div class="number">Работаем с 10:00 до 20:00<br>
+                        8 (964) 299 82-64
+                    </div>
+                    <div class="social-networks">
+                        <a href="http://vk.com/prokat83"><img src="/upload/vk.png" alt=""></a>                    
+                        <a href="https://www.instagram.com/prokat83/"><img src="/upload/ins.png" alt=""></a>
+                    </div>   
                     <div class="h_icon">
                         <ul class="icon1 sub-icon1">
                             <li><a class="active-icon c1" id = "cart_total" href="/cart"><i><?php echo Cart::countItems(); ?></i></a></li>
                         </ul>
                     </div>
-                    <div class="logoname" >ЦЕНТР ПРОКАТА
-                    </div>
-                    <!--<div class="social-networks">
-                        <a href="http://vk.com"><img src="/upload/vk.png" alt=""></a>
-                    </div>
-                    <div class="social-networks">
-                        <a href="http://instagram.com"><img src="/upload/ins.png" alt=""></a>
-                    </div>-->
-
                     <div class="clear"></div>
                 </div>
             </div>
@@ -65,6 +63,9 @@
                             <ul class="nav-list">
                                 <li class="nav-item"><a href="/">Главная</a></li>
                                 <li class="nav-item"><a href="/catalog">Каталог</a></li>
+                                <li class="nav-item"><a href="/condition">Условия проката</a></li>
+                                <li class="nav-item"><a href="/delivering">Доставка</a></li>
+                                <li class="nav-item"><a href="/feedback">Отзывы</a></li>
                                 <li class="nav-item"><a href="/contacts">Контакты</a></li>
                             </ul>
                         </nav>
