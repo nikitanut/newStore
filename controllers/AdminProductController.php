@@ -44,16 +44,25 @@ class AdminProductController extends AdminBase {
             $options['is_new'] = $_POST['is_new'];
             $options['is_recommended'] = $_POST['is_recommended'];
             $options['status'] = $_POST['status'];
-            $options['time'] = $_POST['time'];
-            $options['price'] = $_POST['price'];
-            $options['time1'] = $_POST['time1'];
-            $options['price1'] = $_POST['price1'];
-            $options['time2'] = $_POST['time2'];
-            $options['price2'] = $_POST['price2'];
-            if ($_POST['time3'] != NULL){
-                
-            $options['time3'] = $_POST['time3'];
-            $options['price3'] = $_POST['price3'];
+
+            if ($_POST['time'] != NULL and $_POST['price'] != NULL) {
+                $options['time'] = $_POST['time'];
+                $options['price'] = $_POST['price'];
+            }
+
+            if ($_POST['time1'] != NULL and $_POST['price1'] != NULL) {
+                $options['time1'] = $_POST['time1'];
+                $options['price1'] = $_POST['price1'];
+            }
+
+            if ($_POST['time2'] != NULL and $_POST['price2'] != NULL) {
+                $options['time2'] = $_POST['time2'];
+                $options['price2'] = $_POST['price2'];
+            }
+
+            if ($_POST['time3'] != NULL and $_POST['price3'] != NULL) {
+                $options['time3'] = $_POST['time3'];
+                $options['price3'] = $_POST['price3'];
             }
 
             // Флаг ошибок в форме
@@ -69,11 +78,17 @@ class AdminProductController extends AdminBase {
                 // Если ошибок нет
                 // Добавляем новый товар
                 $id = Product::createProduct($options);
-                Price::createPrice($id, $options['time'], $options['price']);
-                Price::createPrice($id, $options['time1'], $options['price1']);
-                Price::createPrice($id, $options['time2'], $options['price2']);
-                if ($_POST['time3'] != NULL){
-                Price::createPrice($id, $options['time3'], $options['price3']);
+                if ($_POST['time'] != NULL and $_POST['price'] != NULL) {
+                    Price::createPrice($id, $options['time'], $options['price']);
+                }
+                if ($_POST['time1'] != NULL and $_POST['price1'] != NULL) {
+                    Price::createPrice($id, $options['time1'], $options['price1']);
+                }
+                if ($_POST['time2'] != NULL and $_POST['price2'] != NULL) {
+                    Price::createPrice($id, $options['time2'], $options['price2']);
+                }
+                if ($_POST['time3'] != NULL and $_POST['price3'] != NULL) {
+                    Price::createPrice($id, $options['time3'], $options['price3']);
                 }
                 // Если запись добавлена
                 if ($id) {
@@ -131,7 +146,7 @@ class AdminProductController extends AdminBase {
                     print_r($price);
                     Price::updatePrice($id, $time, $price, $prices[$i]['price']);
                 }
-                
+
                 // Если запись сохранена
                 // Проверим, загружалось ли через форму изображение
                 if (is_uploaded_file($_FILES["image"]["tmp_name"])) {

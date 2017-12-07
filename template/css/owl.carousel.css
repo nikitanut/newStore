@@ -18,7 +18,7 @@
     }
     #owl-demo .item img{
         display: block;
-        max-height: 12em;
+        max-height: 10em;
     }
 .item img,.item a,.item p{
 	transition: 0.5s all;

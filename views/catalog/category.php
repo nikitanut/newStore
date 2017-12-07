@@ -62,6 +62,7 @@
                 <?php endif; ?>
             <?php endfor; ?>
             <!-- end grids_of_3 -->
+        <?php echo $pagination->get(); ?>
         </div>
     </div>
 </div>

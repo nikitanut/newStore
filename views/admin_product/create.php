@@ -64,7 +64,7 @@
                         <div class="col-lg-8">
                             <div class="login-form">
                                 <p>Характеристики</p>
-                                <textarea name="description" style="margin-bottom: 5px; height: 250px; width: 100%;"></textarea>
+                                <textarea name="characteristics" style="margin-bottom: 5px; height: 250px; width: 100%;"></textarea>
                             </div>
                         </div>
                         <div class="col-lg-8">
@@ -78,16 +78,16 @@
                             <div class="login-form">
                                 <p>Новинка</p>
                                 <select name="is_new">
-                                    <option value="1" selected="selected">Да</option>
-                                    <option value="0">Нет</option>
+                                    <option value="1">Да</option>
+                                    <option value="0" selected="selected">Нет</option>
                                 </select>
 
                                 <br/><br/>
 
                                 <p>Рекомендуемые</p>
                                 <select name="is_recommended">
-                                    <option value="1" selected="selected">Да</option>
-                                    <option value="0">Нет</option>
+                                    <option value="1">Да</option>
+                                    <option value="0" selected="selected">Нет</option>
                                 </select>
 
                                 <br/><br/>
