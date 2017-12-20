@@ -6,7 +6,7 @@ class Price {
 
         $db = Db::getConnection();
 
-        $result = $db->query('SELECT prod_id, time, price FROM price');
+        $result = $db->query('SELECT prod_id, time, price FROM price ORDER BY prod_id, price ASC');
         $priceList = array();
         $i = 0;
         while ($row = $result->fetch()) {

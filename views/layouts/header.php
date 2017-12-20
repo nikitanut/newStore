@@ -50,8 +50,7 @@
                                     <?php endforeach; ?>
                                 </ul>
                             </li>
-                            <li><a href="/">Условия проката</a></li>
-                            <li><a href="/">Доставка</a></li>
+                            <li><a href="/">Условия проката и доставка</a></li>
                             <li><a href="/">Отзывы</a></li>
                             <li><a href="/contacts">Контакты</a></li></ul>
 
@@ -63,8 +62,7 @@
                             <ul class="nav-list">
                                 <li class="nav-item"><a href="/">Главная</a></li>
                                 <li class="nav-item"><a href="/catalog">Каталог</a></li>
-                                <li class="nav-item"><a href="/condition">Условия проката</a></li>
-                                <li class="nav-item"><a href="/delivering">Доставка</a></li>
+                                <li class="nav-item"><a href="/condition">Условия проката и доставка</a></li>
                                 <li class="nav-item"><a href="/feedback">Отзывы</a></li>
                                 <li class="nav-item"><a href="/contacts">Контакты</a></li>
                             </ul>

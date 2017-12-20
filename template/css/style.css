@@ -1381,14 +1381,59 @@ p.para{
     font-family: sans-serif;
 }
 /* start contact */
-.contact{
-    margin:2% 0;
-    display: block;
+.contact .input {
+    width: 600px;
+    margin: 0 auto;
 }
-.contact h2{
-    font-size: 2em;
-    color: #777777;
-    text-shadow: 0 1px 0 #ffffff;
+
+.contact div {
+    padding:4px;
+    margin: 4px 0;
+    position:relative;
+}
+
+.contact input.text,
+.textarea {
+    padding:5px 10px;
+    height:20px;
+    border:1px solid #ddd;
+    color:#333;
+    background:url(images/bginput.jpg) repeat-x bottom #fff;
+    position:relative;
+    z-index:2;
+    font-size: 16px;
+}
+
+.contact input.text {
+    width:290px;
+}
+
+.contact .textarea {
+    height:150px;
+    width:290px;
+}
+
+.contact label {
+    float:left;
+    width:120px;
+    text-align:right;
+    margin-right:15px;
+    font-weight:bold;
+    color:#666;
+    font-size: 13px;
+}
+
+.contact .input .btn {
+    display:block;
+    height:31px;
+    padding:0 10px;
+    background:url(images/bgbtn.jpg) repeat-x;
+    color:#565e62;
+    font-weight:bold;
+    font-size:12px;
+    border:1px solid #e1e0df;
+    outline:none;
+    cursor: pointer;
 }
 .map{
     margin: 2% 2% 2% 0;
@@ -1966,8 +2011,8 @@ p.para{
     padding: 8px 16px;
     text-decoration: none;
 }
-.pagination a.active {
-    background-color: #4CAF50;
+.pagination .active a {
+    background-color: #2da89b8f;
     color: white;
 }
 
