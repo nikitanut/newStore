@@ -581,6 +581,36 @@ h3{
     margin:0 auto;
     width: 90%;
 }
+
+.condition_wrap{
+    margin: 10px auto;
+    width: 70%;
+}
+
+.condition_wrap h3{
+    font-size: 1.3em;
+    margin: 0.6em 0em 0.6em 0em;
+    text-align: center;
+}
+
+.condition_wrap h4{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: 1.7em;
+    text-align: center;
+}
+
+.condition_wrap p{
+    font-size: 1.4em;
+    font-family: monospace;
+    color: #696969;
+}
+
+.condition_wrap a{
+    color: #0486ff;
+    text-decoration: underline;
+}
+
 .prod_wrap{
     margin:0 auto;
     padding: 0 5%;
@@ -1380,74 +1410,7 @@ p.para{
     display: inline-block;
     font-family: sans-serif;
 }
-/* start contact */
-.contact{
-    margin:2% 0;
-    display: block;
-}
-.contact h2{
-    font-size: 2em;
-    color: #777777;
-    text-shadow: 0 1px 0 #ffffff;
-}
-.map{
-    margin: 2% 2% 2% 0;
-}
-.col{
-    display: block;
-}
-.contact-form{
-    position:relative;
-}
-.contact-form div{
-    padding:5px 0;
-}
-.contact-form span label{
-    font-family: 'Source Sans Pro', sans-serif;
-    color: #777777;
-    display: block;
-    font-size: 0.8725em;
-    padding-bottom: 5px;
-    text-transform: capitalize;
-}
-.contact-form input[type="text"], .contact-form textarea {
-    font-family: 'Source Sans Pro', sans-serif;
-    background: #FFFFFF;
-    border: 1px solid #E7E7E7;
-    color: rgba(85, 81, 81, 0.84);
-    padding: 8px;
-    display: block;
-    width: 96.3333%;
-    outline: none;
-    -webkit-appearance: none;
-    text-transform: capitalize;
-}
-.contact-form textarea{
-    resize:none;
-    height:120px;		
-}
-.contact-form input[type="submit"]{
-    margin-top:10px;
-    font-family: 'Source Sans Pro', sans-serif;
-    -webkit-appearance: none;
-    cursor:pointer;
-    color: #ffffff;
-    background: #3CC395;
-    border:none;
-    outline:none;
-    display: inline-block;
-    text-transform: uppercase;
-    padding: 12px 38px;
-    font-size: 0.875em;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-}
-.contact-form input[type="submit"]:hover{
-    background: #555555;
-    color: #ffffff;
-}
+
 /*-- start details--*/
 .single{
 
@@ -1966,8 +1929,8 @@ p.para{
     padding: 8px 16px;
     text-decoration: none;
 }
-.pagination a.active {
-    background-color: #4CAF50;
+.pagination .active a {
+    background-color: #2da89b8f;
     color: white;
 }
 
@@ -2215,7 +2178,7 @@ p.para{
     .ser-grid-list h5 a {
         font-size: 1.5em;
     }
-    .grid1_of_3 {
+    /*.grid1_of_3 {
         float: none;
         width: 99.333%;
         margin-left: 0%;
@@ -2251,7 +2214,7 @@ p.para{
     }
     .grid1_of_4:nth-child(3){
         margin-left: 0;
-    }
+    }*/
 
 
     .tabs input {
@@ -2269,9 +2232,12 @@ p.para{
     .btn_form {
         margin-top: 4%;
     }
+    body{
+        min-width: 800px;
+    }
 }
-@media only screen and (max-width: 640px){
-    .wrap{
+/*@media only screen and (max-width: 640px){
+    .wrap{ 
         width:95%;
     }
     .logo{
@@ -2482,4 +2448,4 @@ p.para{
     .tabs {
         margin: 10px auto;
     }
-}
+} */
