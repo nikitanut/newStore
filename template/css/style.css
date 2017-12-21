@@ -1381,118 +1381,14 @@ p.para{
     font-family: sans-serif;
 }
 /* start contact */
-.contact .input {
-    width: 600px;
-    margin: 0 auto;
-}
 
-.contact div {
-    padding:4px;
-    margin: 4px 0;
-    position:relative;
-}
-
-.contact input.text,
-.textarea {
-    padding:5px 10px;
-    height:20px;
-    border:1px solid #ddd;
-    color:#333;
-    background:url(images/bginput.jpg) repeat-x bottom #fff;
-    position:relative;
-    z-index:2;
-    font-size: 16px;
-}
-
-.contact input.text {
-    width:290px;
-}
-
-.contact .textarea {
-    height:150px;
-    width:290px;
-}
-
-.contact label {
-    float:left;
-    width:120px;
-    text-align:right;
-    margin-right:15px;
-    font-weight:bold;
-    color:#666;
-    font-size: 13px;
-}
-
-.contact .input .btn {
-    display:block;
-    height:31px;
-    padding:0 10px;
-    background:url(images/bgbtn.jpg) repeat-x;
-    color:#565e62;
-    font-weight:bold;
-    font-size:12px;
-    border:1px solid #e1e0df;
-    outline:none;
-    cursor: pointer;
-}
 .map{
     margin: 2% 2% 2% 0;
 }
 .col{
     display: block;
 }
-.contact-form{
-    position:relative;
-}
-.contact-form div{
-    padding:5px 0;
-}
-.contact-form span label{
-    font-family: 'Source Sans Pro', sans-serif;
-    color: #777777;
-    display: block;
-    font-size: 0.8725em;
-    padding-bottom: 5px;
-    text-transform: capitalize;
-}
-.contact-form input[type="text"], .contact-form textarea {
-    font-family: 'Source Sans Pro', sans-serif;
-    background: #FFFFFF;
-    border: 1px solid #E7E7E7;
-    color: rgba(85, 81, 81, 0.84);
-    padding: 8px;
-    display: block;
-    width: 96.3333%;
-    outline: none;
-    -webkit-appearance: none;
-    text-transform: capitalize;
-}
-.contact-form textarea{
-    resize:none;
-    height:120px;		
-}
-.contact-form input[type="submit"]{
-    margin-top:10px;
-    font-family: 'Source Sans Pro', sans-serif;
-    -webkit-appearance: none;
-    cursor:pointer;
-    color: #ffffff;
-    background: #3CC395;
-    border:none;
-    outline:none;
-    display: inline-block;
-    text-transform: uppercase;
-    padding: 12px 38px;
-    font-size: 0.875em;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-}
-.contact-form input[type="submit"]:hover{
-    background: #555555;
-    color: #ffffff;
-}
+
 /*-- start details--*/
 .single{
 
