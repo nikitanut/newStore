@@ -11,24 +11,24 @@ class User
      * @param string $number <p>Телефон</p>
      * @param string $name <p>Имя</p>
      * @param string $email <p>E-mail</p>
-     * @param string $vk_link <p>Ссылка на vk</p>
+     * @param string $address <p>Адрес доставки</p>
      * @return boolean <p>Результат выполнения метода</p>
      */
-    public static function register($number, $name, $email, $vk_link)
+    public static function register($number, $name, $email, $address)
     {
         // Соединение с БД
         $db = Db::getConnection();
 
         // Текст запроса к БД
-        $sql = 'INSERT INTO users (number, name, email, vk_link) '
-                . 'VALUES (:number, :name, :email, :vk_link)';
+        $sql = 'INSERT INTO users (number, name, email, address) '
+                . 'VALUES (:number, :name, :email, :address)';
 
         // Получение и возврат результатов. Используется подготовленный запрос
         $result = $db->prepare($sql);
         $result->bindParam(':number', $number, PDO::PARAM_STR);
         $result->bindParam(':name', $name, PDO::PARAM_STR);
         $result->bindParam(':email', $email, PDO::PARAM_STR);
-        $result->bindParam(':vk_link', $vk_link, PDO::PARAM_STR);
+        $result->bindParam(':address', $address, PDO::PARAM_STR);
         return $result->execute();
     }
 
@@ -40,14 +40,14 @@ class User
      * @param string $vk_link <p>Пароль</p>
      * @return boolean <p>Результат выполнения метода</p>
      */
-    public static function edit($id, $number, $name, $vk_link)
+    public static function edit($id, $number, $name, $address)
     {
         // Соединение с БД
         $db = Db::getConnection();
 
         // Текст запроса к БД
         $sql = "UPDATE users 
-            SET number = :number, name = :name, vk_link = :vk_link 
+            SET number = :number, name = :name, address = :address 
             WHERE id = :id";
 
         // Получение и возврат результатов. Используется подготовленный запрос
@@ -55,7 +55,7 @@ class User
         $result->bindParam(':id', $id, PDO::PARAM_INT);
         $result->bindParam(':number', $number, PDO::PARAM_STR);
         $result->bindParam(':name', $name, PDO::PARAM_STR);
-        $result->bindParam(':vk_link', $vk_link, PDO::PARAM_STR);
+        $result->bindParam(':address', $address, PDO::PARAM_STR);
         return $result->execute();
     }
     /**

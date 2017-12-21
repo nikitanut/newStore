@@ -124,7 +124,7 @@ class CartController
             $date = date('Y-m-d', strtotime($_POST['datetimepicker']));
             $userEmail=$_POST['email'];
             $userComment = $_POST['comment'];
-            $vk_link = $_POST['vk_link'];
+            $userAddress = $_POST['address'];
             $index_price = array(); 
             for ($i = 0; $i < count($productsIds); $i++){
                $index_price[$productsIds[$i]] = $_POST['time'.$productsIds[$i]]; // создание массива [id] = time
@@ -132,7 +132,7 @@ class CartController
             $userId = User::checkUserData($userPhone);
             
             if (!$userId){            
-                User::register($userPhone, $userName, $userEmail, $vk_link);
+                User::register($userPhone, $userName, $userEmail, $userAddress);
                 $userId = User::checkUserData($userPhone);
             }
            

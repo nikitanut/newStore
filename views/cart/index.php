@@ -63,10 +63,10 @@
             <br>
 
             <div class="new-contact-form">
-                <input name="name" id="applicationName" maxlength="50" placeholder="Ваше имя" spellcheck="false" required />
+                <input name="name" id="applicationName" maxlength="50" placeholder="ФИО" spellcheck="false" required />
                 <input name="telephone" type="tel" id="applicationTelephone" placeholder="Ваш телефон" spellcheck="false" required />            
                 <input name="email" type="email" id="applicationEmail" maxlength="30" placeholder="Ваш e-mail" spellcheck="false"/>
-                <input name="vk_link"  id="applicationVK" maxlength="30" placeholder="Ссылка на vk" spellcheck="false"/>
+                <input name="address"  id="applicationAddress" maxlength="30" placeholder="Адрес доставки" spellcheck="false" required/>
                 <textarea name="comment" id="userComment" rows="10" placeholder="Комментарий"></textarea>
                 <button type="submit" class="applicationButton" name="submit"> Забронировать </button>
             </div>

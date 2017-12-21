@@ -122,7 +122,7 @@ a.toCart:hover { color: rgb(32, 73, 134); } /* при наведении кур�
 .more:hover { color: rgb(24, 141, 118); } /* при наведении курсора мышки */
 
 /*Стили полей для ввода*/
-#applicationName, #applicationEmail, #applicationTelephone, #applicationVK {
+#applicationName, #applicationEmail, #applicationTelephone, #applicationAddress {
     width: 99%;
     height: 73px;
     background: none;
@@ -164,7 +164,7 @@ a.toCart:hover { color: rgb(32, 73, 134); } /* при наведении кур�
     font-size: 2.5em;
 }
 /*Стили полей при клике по ним*/
-#applicationName:focus, #applicationEmail:focus, #applicationTelephone:focus, #applicationVK:focus {
+#applicationName:focus, #applicationEmail:focus, #applicationTelephone:focus, #applicationAddress:focus {
     border: 1px solid #30ad64;
 }
 
