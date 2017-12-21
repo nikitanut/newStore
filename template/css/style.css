@@ -34,7 +34,7 @@ img{max-width:100%;}
 }
 @font-face{
     font-family: 'boom';
-    src:url(../fonts/10897.otf);
+    src:url(../fonts/brush.ttf);
 }
 @font-face{
     font-family: 'prod_font';
@@ -625,12 +625,15 @@ h3{
     float:left;
     margin-top: 0.6%;
 }
-.logoname{
+.logoname {
     font-size: 3.9em;
     padding: 0% 6% 0% 6%;
     color: #007382;
     font-family: 'boom';
     display: inline-block;
+}
+.logoname a{
+    color: #007382;
 }
 /*search*/
 .h_search{

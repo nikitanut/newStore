@@ -19,7 +19,8 @@
                     <div class="logo">
                         <a href="/"><img src="/upload/logo.png" alt=""/></a>
                     </div>
-                    <div class="logoname">ЦЕНТР ПРОКАТА</div>
+                    <div class="logoname">
+                        <a href="/">ЦЕНТР ПРОКАТА</a></div>
                     <div class="number">Работаем с 10:00 до 20:00<br>
                         8 (964) 299 82-64
                     </div>
