@@ -1,115 +1,55 @@
 <!-- start footer -->
-<!--<div class="footer_bg">
-    <div class="wrap">	
-        <div class="footer">
-            <!-- start grids_of_4 	
-            <div class="grids_of_4">
-                <div class="grid1_of_4">
-                    <h4>featured sale</h4>
-                    <ul class="f_nav">
-                        <li><a href="">alexis Hudson</a></li>
-                        <li><a href="">american apparel</a></li>
-                        <li><a href="">ben sherman</a></li>
-                        <li><a href="">big buddha</a></li>
-                        <li><a href="">channel</a></li>
-                        <li><a href="">christian audigier</a></li>
-                        <li><a href="">coach</a></li>
-                        <li><a href="">cole haan</a></li>
-                    </ul>
-                </div>
-                <div class="grid1_of_4">
-                    <h4>mens store</h4>
-                    <ul class="f_nav">
-                        <li><a href="">alexis Hudson</a></li>
-                        <li><a href="">american apparel</a></li>
-                        <li><a href="">ben sherman</a></li>
-                        <li><a href="">big buddha</a></li>
-                        <li><a href="">channel</a></li>
-                        <li><a href="">christian audigier</a></li>
-                        <li><a href="">coach</a></li>
-                        <li><a href="">cole haan</a></li>
-                    </ul>
-                </div>
-                <div class="grid1_of_4">
-                    <h4>women store</h4>
-                    <ul class="f_nav">
-                        <li><a href="">alexis Hudson</a></li>
-                        <li><a href="">american apparel</a></li>
-                        <li><a href="">ben sherman</a></li>
-                        <li><a href="">big buddha</a></li>
-                        <li><a href="">channel</a></li>
-                        <li><a href="">christian audigier</a></li>
-                        <li><a href="">coach</a></li>
-                        <li><a href="">cole haan</a></li>
-                    </ul>
-                </div>
-                <div class="grid1_of_4">
-                    <h4>quick links</h4>
-                    <ul class="f_nav">
-                        <li><a href="">alexis Hudson</a></li>
-                        <li><a href="">american apparel</a></li>
-                        <li><a href="">ben sherman</a></li>
-                        <li><a href="">big buddha</a></li>
-                        <li><a href="">channel</a></li>
-                        <li><a href="">christian audigier</a></li>
-                        <li><a href="">coach</a></li>
-                        <li><a href="">cole haan</a></li>
-                    </ul>
-                </div>
-                <div class="clear"></div>
-            </div>
-        </div>
-    </div>
-</div>	-->
+
 <script>
     $(document).ready(function () {
-        $(".add-to-cart").click(function () { 
+        $(".add-to-cart").click(function () {
             // Если нажали "В корзину":
             var text = $(this).text();
             if (text === "Перейти в корзину")
                 location.href = "/cart";
-            $(this).html("Перейти в корзину");   
+            $(this).html("Перейти в корзину");
             $(this).attr("href", "/cart");
             $(this).css("color", "#204986");
             var id = $(this).attr("data-id");
-                $.post("/cart/addAjax/" + id, {}, function (data) {
-                    $(".c1 i").html(data);
-                }); 
-                return false;
+            $.post("/cart/addAjax/" + id, {}, function (data) {
+                $(".c1 i").html(data);
+            });
+            return false;
         });
     });
 </script>
 <script>
     var columns = 3;
 
-var $ul = $('ul.submenu'),
-    $elements = $ul.children('li'),
-    breakPoint = Math.round($elements.length/columns);
+    var $ul = $('ul.submenu'),
+            $elements = $ul.children('li'),
+            breakPoint = Math.round($elements.length / columns);
     $ordered = $('<div></div>');
 
-function appendToUL(i) {
-    if ($ul.children().eq(i).length > 0) {
-        $ordered.append($ul.children().eq(i).clone());
-    } 
-    else $ordered.append($('<li></li>'));
-}
+    function appendToUL(i) {
+        if ($ul.children().eq(i).length > 0) {
+            $ordered.append($ul.children().eq(i).clone());
+        } else
+            $ordered.append($('<li></li>'));
+    }
 
-function reorder($el) {
-    $el.each(function(){
-        $item = $(this);
-        
-        if ($item.index() >= breakPoint) return false;
+    function reorder($el) {
+        $el.each(function () {
+            $item = $(this);
 
-        appendToUL($item.index());
-        for (var i = 1; i < columns; i++) {
-            appendToUL(breakPoint*i+$item.index());
-        }
-    });
+            if ($item.index() >= breakPoint)
+                return false;
 
-    $ul.html($ordered.children().css('width',100/columns+'%'));
-}
+            appendToUL($item.index());
+            for (var i = 1; i < columns; i++) {
+                appendToUL(breakPoint * i + $item.index());
+            }
+        });
 
-reorder($elements);
+        $ul.html($ordered.children().css('width', 100 / columns + '%'));
+    }
+
+    reorder($elements);
 </script>
 <!-- start footer -->
 <div class="footer_bg1">
@@ -137,7 +77,7 @@ reorder($elements);
             <a href="#" id="toTop" style="display: block;"><span id="toTopHover" style="opacity: 1;"></span></a>
             <!--end scroll_top_btn -->
             <div class="copy">
-                <p class="link">&copy;  All rights reserved | Template by&nbsp;&nbsp;<a href="http://w3layouts.com/"> W3Layouts</a></p>
+                <p class="link">&copy;  All rights reserved | Template by&nbsp;&nbsp;<a href="http://w3layouts.com/" target="_blank"> W3Layouts</a></p>
             </div>
             <div class="clear"></div>
         </div>

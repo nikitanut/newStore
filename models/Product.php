@@ -339,8 +339,7 @@ class Product
                 name = :name, 
                 category_id = :category_id, 
                 availability = :availability, 
-                description = :description, 
-                characteristics = :characteristics,
+                description = :description,
                 is_new = :is_new, 
                 is_recommended = :is_recommended, 
                 status = :status
@@ -353,7 +352,6 @@ class Product
         $result->bindParam(':category_id', $options['category_id'], PDO::PARAM_INT);
         $result->bindParam(':availability', $options['availability'], PDO::PARAM_INT);
         $result->bindParam(':description', $options['description'], PDO::PARAM_STR);
-        $result->bindParam(':characteristics', $options['characteristics'], PDO::PARAM_STR);
         $result->bindParam(':is_new', $options['is_new'], PDO::PARAM_INT);
         $result->bindParam(':is_recommended', $options['is_recommended'], PDO::PARAM_INT);
         $result->bindParam(':status', $options['status'], PDO::PARAM_INT);
@@ -373,9 +371,9 @@ class Product
         // Текст запроса к БД
         $sql = 'INSERT INTO products '
                 . '(name, category_id, availability,'
-                . 'description, characteristics, is_new, is_recommended, status)'
+                . 'description, is_new, is_recommended, status)'
                 . 'VALUES '
-                . '(:name, :category_id, :availability, :description, :characteristics, :is_new, :is_recommended, :status)';
+                . '(:name, :category_id, :availability, :description, :is_new, :is_recommended, :status)';
 
         // Получение и возврат результатов. Используется подготовленный запрос
         $result = $db->prepare($sql);
@@ -383,7 +381,6 @@ class Product
         $result->bindParam(':category_id', $options['category_id'], PDO::PARAM_INT);
         $result->bindParam(':availability', $options['availability'], PDO::PARAM_INT);
         $result->bindParam(':description', $options['description'], PDO::PARAM_STR);
-        $result->bindParam(':characteristics', $options['characteristics'], PDO::PARAM_STR);
         $result->bindParam(':is_new', $options['is_new'], PDO::PARAM_INT);
         $result->bindParam(':is_recommended', $options['is_recommended'], PDO::PARAM_INT);
         $result->bindParam(':status', $options['status'], PDO::PARAM_INT);

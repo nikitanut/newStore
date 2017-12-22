@@ -79,7 +79,7 @@ class Pagination
         # Получаем ограничения для цикла
         $limits = $this->limits();
         
-        $html = '<ul class="pagination">';
+        $html = '<ul class="pagination" style="border: 1px solid #89cec7;">';
         # Генерируем ссылки
         for ($page = $limits[0]; $page <= $limits[1]; $page++) {
             # Если текущая это текущая страница, ссылки нет и добавляется класс active

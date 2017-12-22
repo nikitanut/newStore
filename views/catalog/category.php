@@ -2,8 +2,12 @@
 
 <!-- start main -->
 <div class="main_bg">
+    <div class="category-name">
+        <?php echo $categoryname['name']; ?>
+    </div>
     <div class="prod_wrap">	
         <div class="main">
+               
             <!-- start grids_of_3 -->
             <?php if (count($categoryProducts) == 0): ?>
                 <div class="grids_of_3"></div>
@@ -62,7 +66,7 @@
                 <?php endif; ?>
             <?php endfor; ?>
             <!-- end grids_of_3 -->
-        <?php echo $pagination->get() ?>
+        <?php echo $pagination->get(); ?>
         </div>
     </div>
 </div>

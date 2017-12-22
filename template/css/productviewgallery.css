@@ -852,7 +852,7 @@
 		width:95%;
 	}
 }
-@media only screen and (max-width: 640px) {
+/*@media only screen and (max-width: 640px) {
 	.wrap{
 		width:95%;
 	}
@@ -887,4 +887,4 @@
 	.product-view .product-img-box .more-views li {
 		margin-bottom: 0px !important;
 	}
-}
+}*/

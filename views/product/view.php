@@ -13,19 +13,7 @@
                     </div>
                     <!-- start span1_of_1 -->
                     <div class="span1_of_1_des">
-                        <fieldset>
-                            <legend>Характеристики</legend>
-                            <ul>
-                                <?php
-                                $characteristics = explode('.', $product['characteristics']); // Характеристики из строки в массив
-                                if (end($characteristics) == '') // Если в конце характеристики нет '.'
-                                    array_pop($characteristics);
-                                foreach ($characteristics as $char):
-                                    echo '<li>' . $char . '</li>';
-                                endforeach;
-                                ?>
-                            </ul>
-                        </fieldset>
+                        
                         <div class="desc1">     
 
                             <fieldset>

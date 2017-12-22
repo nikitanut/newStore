@@ -70,10 +70,11 @@ class SiteController
     /**
      * Action для страницы "О магазине"
      */
-    public function actionAbout()
+    public function actionCondition()
     {
+        $categories = Category::getCategoriesList();
         // Подключаем вид
-        require_once(ROOT . '/views/site/about.php');
+        require_once(ROOT . '/views/condition/index.php');
         return true;
     }
 

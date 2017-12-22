@@ -12,7 +12,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script type="text/javascript" src="/template/js/jquery.cslider.js"></script>
 <script type="text/javascript">
     $(function () {
-        $('#da-slider').cslider();
+        $('#da-slider').cslider({
+            interval: 10000,
+        });
     });
 </script>
 <!-- Owl Carousel Assets -->
@@ -128,7 +130,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <h3><?php echo $sliderProducts[$i]['name']; ?></h3>
                                 <img src="<?php echo Product::getImage($sliderProducts[$i]['id']); ?>" alt="" />                        
                             </a>
-                            <!--<div class="price"> <h4>$<?php //echo $sliderItem['price'];     ?></h4> </div>  -->                                          
+                            <!--<div class="price"> <h4>$<?php //echo $sliderItem['price'];      ?></h4> </div>  -->                                          
                             <span class="b_btm"></span>
                         </div>
                         <?php

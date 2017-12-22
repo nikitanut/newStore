@@ -390,7 +390,7 @@
 		padding: 2%;
 	}
 }
-@media only screen and (max-width:800px) and (min-width:640px) {
+@media only screen and (max-width:800px) {
 	.owl-carousel {
 		width: 80%;
 		margin: 0 auto;
@@ -413,7 +413,7 @@
 		padding: 10px 34px 8px;
 	}
 }
-@media only screen and (max-width:640px) and (min-width:480px) {
+/* @media only screen and (max-width:640px) and (min-width:480px) {
 	.owl-carousel {
 		width: 80%;
 		margin: 0 auto;
@@ -466,4 +466,4 @@
 	.da-arrows span.da-arrows-next {
 		right: 12px;
 	}
-}
+}*/

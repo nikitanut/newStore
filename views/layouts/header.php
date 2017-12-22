@@ -19,13 +19,14 @@
                     <div class="logo">
                         <a href="/"><img src="/upload/logo.png" alt=""/></a>
                     </div>
-                    <div class="logoname">ЦЕНТР ПРОКАТА</div>
+                    <div class="logoname">
+                        <a href="/">ЦЕНТР ПРОКАТА</a></div>
                     <div class="number">Работаем с 10:00 до 20:00<br>
                         8 (964) 299 82-64
                     </div>
                     <div class="social-networks">
-                        <a href="http://vk.com/prokat83"><img src="/upload/vk.png" alt=""></a>                    
-                        <a href="https://www.instagram.com/prokat83/"><img src="/upload/ins.png" alt=""></a>
+                        <a href="http://vk.com/prokat83" target="_blank"><img src="/upload/vk.png" alt=""></a>                    
+                        <a href="https://www.instagram.com/prokat83/" target="_blank"><img src="/upload/ins.png" alt=""></a>
                     </div>   
                     <div class="h_icon">
                         <ul class="icon1 sub-icon1">
@@ -50,9 +51,8 @@
                                     <?php endforeach; ?>
                                 </ul>
                             </li>
-                            <li><a href="/">Условия проката и доставка</a></li>
-                            <li><a href="/">Отзывы</a></li>
-                            <li><a href="/contacts">Контакты</a></li></ul>
+                            <li><a href="/condition">Условия проката и доставка</a></li>
+                            <li><a href="/contact">Контакты</a></li></ul>
 
 
                     </div>
@@ -63,8 +63,7 @@
                                 <li class="nav-item"><a href="/">Главная</a></li>
                                 <li class="nav-item"><a href="/catalog">Каталог</a></li>
                                 <li class="nav-item"><a href="/condition">Условия проката и доставка</a></li>
-                                <li class="nav-item"><a href="/feedback">Отзывы</a></li>
-                                <li class="nav-item"><a href="/contacts">Контакты</a></li>
+                                <li class="nav-item"><a href="/contact">Контакты</a></li>
                             </ul>
                         </nav>
                         <div class="clear"> </div>
