@@ -5,9 +5,9 @@
         $(".add-to-cart").click(function () { 
             // Если нажали "В корзину":
             var text = $(this).text();
-            if (text === "Перейти в корзину")
+            if (text === "Заказать")
                 location.href = "/cart";
-            $(this).html("Перейти в корзину");   
+            $(this).html("Заказать");   
             $(this).attr("href", "/cart");
             $(this).css("color", "#204986");
             var id = $(this).attr("data-id");

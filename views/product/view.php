@@ -12,22 +12,8 @@
                         <img src="<?php echo Product::getImage($product['id']); ?>" class="image" alt="Батут" title="Батут"/>
                     </div>
                     <!-- start span1_of_1 -->
-                    <div class="span1_of_1_des">
-                        <fieldset>
-                            <legend>Характеристики</legend>
-                            <ul>
-                                <?php
-                                $characteristics = explode('.', $product['characteristics']); // Характеристики из строки в массив
-                                if (end($characteristics) == '') // Если в конце характеристики нет '.'
-                                    array_pop($characteristics);
-                                foreach ($characteristics as $char):
-                                    echo '<li>' . $char . '</li>';
-                                endforeach;
-                                ?>
-                            </ul>
-                        </fieldset>
+                    <div class="span1_of_1_des">                        
                         <div class="desc1">     
-
                             <fieldset>
                                 <legend>Стоимость</legend>
 
@@ -43,7 +29,7 @@
                     
                     <fieldset>
                         <legend>Описание</legend>
-                    <p class="para top"><?php echo substr(nl2br(nl2br(htmlspecialchars(trim($product['description'])))), 0); ?></p>
+                    <p class="para top"><?php echo substr(nl2br(htmlspecialchars(trim($product['description']))), 0); ?></p>
                     </fieldset>
                 </div>
                 <div class="clear"></div>

@@ -2,6 +2,9 @@
 
 <!-- start main -->
 <div class="main_bg">
+    <div class="category-name"> 
+        <?php echo $categoryname['name']; ?> 
+    </div>     
     <div class="prod_wrap">	
         <div class="main">
             <!-- start grids_of_3 -->
@@ -42,13 +45,16 @@
                                     ?>
                                     <a href="" data-id="<?php echo $categoryProducts[$i]['id']; ?>" class="toCart add-to-cart">В корзину</a>
                                 <?php else: ?>
-                                    <a href="/cart" class="toCart added-to-cart" style="color: rgb(32, 73, 134);">Перейти в корзину</a>
+                                    <a href="/cart" class="toCart added-to-cart" style="color: rgb(32, 73, 134);">Заказать</a>
                                 <?php endif; ?>
                             </div>
 
                             </tr>
                         </table>
-                        <span class="b_btm"></span>                       
+                        <span class="b_btm"></span> 
+                        <?php if ($categoryProducts[$i]['is_new']): ?> 
+                            <img src="/upload/new.png" alt="" style="position: absolute;top: 0;right: 0;height: 8%;"/> 
+                        <?php endif; ?>
 
                     </div>  
                     <?php
@@ -62,8 +68,9 @@
                 <?php endif; ?>
             <?php endfor; ?>
             <!-- end grids_of_3 -->
-        <?php echo $pagination->get(); ?>
+
         </div>
+        <?php echo $pagination->get(); ?>
     </div>
 </div>
 <?php

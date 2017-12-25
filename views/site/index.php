@@ -12,7 +12,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script type="text/javascript" src="/template/js/jquery.cslider.js"></script>
 <script type="text/javascript">
     $(function () {
-        $('#da-slider').cslider();
+        $('#da-slider').cslider({interval: 8000});
     });
 </script>
 <!-- Owl Carousel Assets -->
@@ -98,6 +98,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
         <?php endforeach; ?>
     </div>
+    <div class="toCatalog"> <a href="/catalog" >Открыть каталог</a></div>
     <!----//End-img-cursual---->
 </div>
 <!-- start main1 -->

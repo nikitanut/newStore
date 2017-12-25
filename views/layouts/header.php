@@ -25,7 +25,7 @@
                         8 (964) 299 82-64
                     </div>
                     <div class="social-networks">
-                        <a href="http://vk.com/prokat83" target="_blank"><img src="/upload/vk.png" alt=""></a>                    
+                        <a href="https://vk.com/prokat83" target="_blank"><img src="/upload/vk.png" alt=""></a>                    
                         <a href="https://www.instagram.com/prokat83/" target="_blank"><img src="/upload/ins.png" alt=""></a>
                     </div>   
                     <div class="h_icon">

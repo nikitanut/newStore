@@ -1,7 +1,8 @@
 <?php include ROOT . '/views/layouts/header.php'; ?>
 <script type="text/javascript" src="/template/js/moment-with-locales.min.js"></script>
 <link rel="stylesheet" href="/template/css/bootstrap-datetimepicker.min.css"/>
-<?php if ($productsInCart): ?>
+<div class="prod_wrap">
+    <?php if ($productsInCart): ?>
     <form action="/cart/checkout" method="post" onsubmit="return checkForm(this)">  
         <div class="cart_wrap">
             <section class="cart">
@@ -66,7 +67,7 @@
                 <input name="name" id="applicationName" maxlength="50" placeholder="ФИО" spellcheck="false" required />
                 <input name="telephone" type="tel" id="applicationTelephone" placeholder="Ваш телефон" spellcheck="false" required />            
                 <input name="email" type="email" id="applicationEmail" maxlength="30" placeholder="Ваш e-mail" spellcheck="false"/>
-                <input name="address"  id="applicationAddress" maxlength="30" placeholder="Адрес доставки" spellcheck="false" required/>
+                <input name="address"  id="applicationAddress" maxlength="100" placeholder="Адрес доставки" spellcheck="false" required/>
                 <textarea name="comment" id="userComment" rows="10" placeholder="Комментарий"></textarea>
                 <button type="submit" class="applicationButton" name="submit"> Забронировать </button>
             </div>
@@ -86,7 +87,7 @@
             $('.alertMes').remove();
             $('.list').each(function (i) { // Проверка каждого выпадающего списка
                 if ($(this).val() === null) { // Если хотя бы один из списков null
-                    $(this).after('<h1 class="alertMes" style="color:red; line-height:0; font-size: 0.5em"><br>Заполните поле</h1>');  // Вывести ошибку
+                    $(this).after('<h1 class="alertMes" style="color:red; text-align: center; font-size: 0.5em"><br>Заполните поле</h1>');  // Вывести ошибку
                     a = false; // Отменить submit
                 }
             });
@@ -132,4 +133,5 @@
     </script> 
 
 </form>
+</div>
 <?php include ROOT . '/views/layouts/footer.php'; ?>
