@@ -1,8 +1,9 @@
 <?php include ROOT . '/views/layouts/header.php'; ?>
 <script type="text/javascript" src="/template/js/moment-with-locales.min.js"></script>
 <link rel="stylesheet" href="/template/css/bootstrap-datetimepicker.min.css"/>
-<div class="prod_wrap">
+
     <?php if ($productsInCart): ?>
+<div class="prod_wrap">
     <form action="/cart/checkout" method="post" onsubmit="return checkForm(this)">  
         <div class="cart_wrap">
             <section class="cart">
@@ -71,9 +72,49 @@
                 <button type="submit" class="applicationButton" name="submit"> Забронировать </button>
             </div>
         </div>
+        </div>
     <?php else: ?>
         <h3 align="center">Корзина пуста</h3>
         <div class="back"><a href="/catalog">Вернуться к покупкам</a></div>
+        <?php if (count($sliderProducts) != 0): ?>
+<div class="main_bg1">
+    <div class="wrap">	
+        <div class="main1">
+            <h2>Рекомендуемые товары</h2>        
+        </div>
+    </div>
+</div>
+    <div class="main_bg">
+        <div class="prod_wrap">	
+            <div class="main">
+                <!-- start grids_of_3 -->
+                <?php
+                for ($i = 0; $i < count($sliderProducts); $i++):  // Перебор массива с товарами для вывода
+                    if ($i % 4 == 0): // Если новая строка, то вставить grids_of_3 (позиции для 3х товаров)
+                        ?> 
+                        <div class="grids_of_3"> 
+                        <?php endif; ?>
+                        <div class="grid1_of_3">
+                            <a href="/product/<?php echo $sliderProducts[$i]['id']; ?>">
+                                <h3><?php echo $sliderProducts[$i]['name']; ?></h3>
+                                <img src="<?php echo Product::getImage($sliderProducts[$i]['id']); ?>" alt="" />                        
+                            </a>                                        
+                            <span class="b_btm"></span>
+                        </div>
+                        <?php
+                        if ((($i + 1) % 4 == 0 && $i != 0)            // Если товар - последний в grids_of_3
+                                || ($i + 1 == count($sliderProducts))): // или последний в массиве, то сделать отступ
+                            ?>
+                            <div class="clear"></div>                   
+                        <?php endif; ?>
+                        <?php if (($i + 1) % 4 == 0): // Если товар последний в grids_of_3, то закрыть тег  ?> 
+                        </div>
+                    <?php endif; ?>
+                <?php endfor; ?>
+            </div>
+        </div>
+    </div>	
+<?php endif; ?>
     <?php endif; ?>
     <script type="text/javascript" src="/template/js/maskedinput.js"></script>
 
@@ -132,5 +173,5 @@
     </script> 
 
 </form>
-</div>
+
 <?php include ROOT . '/views/layouts/footer.php'; ?>

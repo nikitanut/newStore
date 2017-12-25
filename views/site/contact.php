@@ -23,7 +23,7 @@
                 </li>
                 <li>
                     <label for="email">Email:</label>
-                    <input type="email" name="userEmail" placeholder="E-mail" required="" value="<?php echo $userEmail; ?>"/>
+                    <input type="email" name="userEmail" placeholder="ivanov@gmail.com" required="" value="<?php echo $userEmail; ?>"/>
                 </li>
                 <li>
                     <label for="message">Сообщение:</label>
@@ -34,10 +34,10 @@
                 </li>
 
             </ul>
-
+<?php endif; ?>
         </form>
     </div>
 
-<?php endif; ?>
+
 
 <?php include ROOT . '/views/layouts/footer.php'; ?>

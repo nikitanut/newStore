@@ -68,6 +68,8 @@ class CartController
             // Получаем массив со стоимостью
             $prices = Product::getPriceListByProducts($products);
         }
+        
+        $sliderProducts = Product::getRecommendedProducts();
 
         // Подключаем вид
         require_once(ROOT . '/views/cart/index.php');

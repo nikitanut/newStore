@@ -6,10 +6,8 @@
             <file>file:/C:/Program%20Files%20(x86)/Ampps/www/views/cart/index.php</file>
             <file>file:/C:/Program%20Files%20(x86)/Ampps/www/views/product/view.php</file>
             <file>file:/C:/Program%20Files%20(x86)/Ampps/www/template/css/style.css</file>
-            <file>file:/C:/Program%20Files%20(x86)/Ampps/www/components/Pagination.php</file>
-            <file>file:/C:/Program%20Files%20(x86)/Ampps/www/views/layouts/header.php</file>
-            <file>file:/C:/Program%20Files%20(x86)/Ampps/www/views/catalog/category.php</file>
-            <file>file:/C:/Program%20Files%20(x86)/Ampps/www/views/site/index.php</file>
+            <file>file:/C:/Program%20Files%20(x86)/Ampps/www/controllers/CatalogController.php</file>
+            <file>file:/C:/Program%20Files%20(x86)/Ampps/www/views/site/contact.php</file>
         </group>
     </open-files>
 </project-private>
