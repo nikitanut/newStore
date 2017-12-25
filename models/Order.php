@@ -10,6 +10,7 @@ class Order
      * Сохранение заказа 
      * @param string $userName <p>Имя</p>
      * @param string $userPhone <p>Телефон</p>
+     * @param string $address <p>Адрес</p>
      * @param string $userComment <p>Комментарий</p>
      * @param integer $userId <p>id пользователя</p>
      * @param string $date <p>Дата получения</p>
@@ -17,14 +18,14 @@ class Order
      * @param array $products <p>Массив с товарами</p>
      * @return boolean <p>Результат выполнения метода</p>
      */
-    public static function save($userName, $userPhone, $userComment, $userId, $date, $products)
+    public static function save($userName, $userPhone, $address, $userComment, $userId, $date, $products)
     {
         // Соединение с БД
         $db = Db::getConnection();
 
         // Текст запроса к БД
-        $sql = 'INSERT INTO orders (user_name, user_phone, user_comment, user_id, date, products) '
-                . 'VALUES (:user_name, :user_phone, :user_comment, :user_id, :date, :products)';
+        $sql = 'INSERT INTO orders (user_name, user_phone, address, user_comment, user_id, date, products) '
+                . 'VALUES (:user_name, :user_phone, :address, :user_comment, :user_id, :date, :products)';
 
      //   $products = json_encode($products);
         $products = json_encode($products, JSON_UNESCAPED_UNICODE);
@@ -34,6 +35,7 @@ class Order
         $result = $db->prepare($sql);
         $result->bindParam(':user_name', $userName, PDO::PARAM_STR);
         $result->bindParam(':user_phone', $userPhone, PDO::PARAM_STR);
+        $result->bindParam(':address', $address, PDO::PARAM_STR);
         $result->bindParam(':user_comment', $userComment, PDO::PARAM_STR);
         $result->bindParam(':user_id', $userId, PDO::PARAM_INT);
         $result->bindParam(':date', $date, PDO::PARAM_STR);
@@ -52,13 +54,14 @@ class Order
         $db = Db::getConnection();
 
         // Получение и возврат результатов
-        $result = $db->query('SELECT id, user_name, user_phone, date, status FROM orders ORDER BY id DESC');
+        $result = $db->query('SELECT id, user_name, user_phone, address, date, status FROM orders ORDER BY id DESC');
         $ordersList = array();
         $i = 0;
         while ($row = $result->fetch()) {
             $ordersList[$i]['id'] = $row['id'];
             $ordersList[$i]['user_name'] = $row['user_name'];
             $ordersList[$i]['user_phone'] = $row['user_phone'];
+            $ordersList[$i]['address'] = $row['address'];
             $ordersList[$i]['date'] = $row['date'];
             $ordersList[$i]['status'] = $row['status'];
             $i++;
@@ -140,6 +143,7 @@ class Order
      * @param integer $id <p>id товара</p>
      * @param string $userName <p>Имя клиента</p>
      * @param string $userPhone <p>Телефон клиента</p>
+     * @param string $address <p>Адрес</p>
      * @param string $userComment <p>Комментарий клиента</p>
      * @param string $curr_date <p>Дата оформления</p>
      * @param string $date <p>Дата получения</p>
@@ -147,7 +151,7 @@ class Order
      * @param integer $status <p>Статус <i>(включено "1", выключено "0")</i></p>
      * @return boolean <p>Результат выполнения метода</p>
      */
-    public static function updateOrderById($id, $userName, $userPhone, $userComment, $date, $status)
+    public static function updateOrderById($id, $userName, $userPhone, $address, $userComment, $date, $status)
     {
         // Соединение с БД
         $db = Db::getConnection();
@@ -157,6 +161,7 @@ class Order
             SET 
                 user_name = :user_name, 
                 user_phone = :user_phone, 
+                address = :address,
                 user_comment = :user_comment, 
                 date = :date,
                 status = :status 
@@ -167,6 +172,7 @@ class Order
         $result->bindParam(':id', $id, PDO::PARAM_INT);
         $result->bindParam(':user_name', $userName, PDO::PARAM_STR);
         $result->bindParam(':user_phone', $userPhone, PDO::PARAM_STR);
+        $result->bindParam(':address', $address, PDO::PARAM_STR);
         $result->bindParam(':user_comment', $userComment, PDO::PARAM_STR);
         $result->bindParam(':date', $date, PDO::PARAM_STR);
         $result->bindParam(':status', $status, PDO::PARAM_INT);

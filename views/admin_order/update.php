@@ -24,10 +24,13 @@
                     <form action="#" method="post">
 
                         <p>Имя клиента</p>
-                        <input type="text" name="userName" placeholder="" value="<?php echo $order['user_name']; ?>">
+                        <input type="text" name="userName" placeholder="" value="<?php echo $order['user_name']; ?>" required>
 
                         <p>Телефон клиента</p>
-                        <input type="text" name="userPhone" placeholder="" value="<?php echo $order['user_phone']; ?>">
+                        <input type="text" name="userPhone" placeholder="" value="<?php echo $order['user_phone']; ?>" required>
+                        
+                        <p>Адрес</p>
+                        <input type="text" name="address" placeholder="" value="<?php echo $order['address']; ?>" required>
 
                         <p>Комментарий клиента</p>
                         <input type="text" name="userComment" placeholder="" value="<?php echo $order['user_comment']; ?>">

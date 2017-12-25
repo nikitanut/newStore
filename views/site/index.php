@@ -50,8 +50,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     });
 </script>
 
-
-
 <!-- start slider -->
 <div id="da-slider" class="da-slider">
     <div class="da-slide">
@@ -93,8 +91,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <div class="cau_left">                
                     <img class="lazyOwl" data-src="/upload/images/products/categories/<?php echo $category['id'] ?>.jpg" alt="Lazy Owl Image">
                 </div>
-
-
             </div>
         <?php endforeach; ?>
     </div>
@@ -102,6 +98,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!----//End-img-cursual---->
 </div>
 <!-- start main1 -->
+<?php if (count($sliderProducts) != 0): ?>
 <div class="main_bg1">
     <div class="wrap">	
         <div class="main1">
@@ -109,15 +106,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
     </div>
 </div>
-<div class="main_bg">
-    <div class="prod_wrap">	
-        <div class="main">
-            <!-- start grids_of_3 -->
-            <?php if (count($sliderProducts) == 0): ?>
-                <div class="grids_of_3"></div>
-                <!-- TODO. Если нет товаров, то чё-нибудь вывести -->
-                <div class="clear"></div>
-            <?php else: ?>
+    <div class="main_bg">
+        <div class="prod_wrap">	
+            <div class="main">
+                <!-- start grids_of_3 -->
                 <?php
                 for ($i = 0; $i < count($sliderProducts); $i++):  // Перебор массива с товарами для вывода
                     if ($i % 4 == 0): // Если новая строка, то вставить grids_of_3 (позиции для 3х товаров)
@@ -128,8 +120,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <a href="/product/<?php echo $sliderProducts[$i]['id']; ?>">
                                 <h3><?php echo $sliderProducts[$i]['name']; ?></h3>
                                 <img src="<?php echo Product::getImage($sliderProducts[$i]['id']); ?>" alt="" />                        
-                            </a>
-                            <!--<div class="price"> <h4>$<?php //echo $sliderItem['price'];     ?></h4> </div>  -->                                          
+                            </a>                                        
                             <span class="b_btm"></span>
                         </div>
                         <?php
@@ -142,9 +133,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         </div>
                     <?php endif; ?>
                 <?php endfor; ?>
-            <?php endif; ?>
+            </div>
         </div>
-    </div>
-</div>	
-<?php
-include ROOT . '/views/layouts/footer.php';
+    </div>	
+<?php endif; ?>
+<?php include ROOT . '/views/layouts/footer.php';

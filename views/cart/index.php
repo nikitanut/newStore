@@ -56,7 +56,6 @@
             </section>
             <br><br>        
 
-
             <script src="/template/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>  
             <h3 align="center">Выберите желаемую дату доставки</h3>
             <center><input type="text" id="datetimepicker" name="datetimepicker"></center>

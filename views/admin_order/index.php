@@ -34,6 +34,7 @@
                         <td><?php echo $order['id']; ?></td>                
                         <td><?php echo $order['user_name']; ?></td>
                         <td><?php echo $order['user_phone']; ?></td>
+                        <td><?php echo $order['address']; ?></td>
                         <td><?php echo $order['date']; ?></td>
                         <td><?php echo Order::getStatusText($order['status']); ?></td>    
                         <td><a href="/admin/order/view/<?php echo $order['id']; ?>" title="Смотреть"><i class="fa fa-eye"></i></a></td>

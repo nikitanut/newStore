@@ -3,10 +3,13 @@
 class Price {
 
     public static function getPriceList() {
-
+        // Соединение с БД
         $db = Db::getConnection();
 
+        // Текст запроса к БД
         $result = $db->query('SELECT prod_id, time, price FROM price ORDER BY prod_id, price ASC');
+        
+        // Получить массив товаров
         $priceList = array();
         $i = 0;
         while ($row = $result->fetch()) {
@@ -19,6 +22,7 @@ class Price {
     }
 
     public static function createPrice($prod_id, $time, $price) {
+        // Соединение с БД
         $db = Db::getConnection();
 
         // Текст запроса к БД
@@ -27,7 +31,7 @@ class Price {
                 . 'VALUES '
                 . '(:prod_id, :time, :price)';
 
-        // Получение и возврат результатов. Используется подготовленный запрос
+        // Получение и возврат результатов
         $result = $db->prepare($sql);
         $result->bindParam(':prod_id', $prod_id, PDO::PARAM_INT);
         $result->bindParam(':time', $time, PDO::PARAM_STR);
@@ -36,9 +40,13 @@ class Price {
     }
 
     public static function updatePrice($prod_id, $time, $price, $prices) {
+        // Соединение с БД
         $db = Db::getConnection();
 
+        // Текст запроса к БД
         $sql = "UPDATE price SET time=:time, price=:price WHERE prod_id=:prod_id AND price=:prices";
+        
+        // Получение и возврат результатов
         $result = $db->prepare($sql);
         $result->bindParam(':prod_id', $prod_id, PDO::PARAM_INT);
         $result->bindParam(':time', $time, PDO::PARAM_STR);
@@ -49,8 +57,10 @@ class Price {
     }
 
     public static function getPriceByIdAndPrice($prod_id, $price) {
+        // Соединение с БД
         $db = Db::getConnection();
 
+        // Текст запроса к БД
         $sql = 'SELECT * FROM price WHERE prod_id=:prod_id and price=:price';
 
         $result = $db->prepare($sql);
@@ -79,31 +89,27 @@ class Price {
         $result->bindParam(':price', $price, PDO::PARAM_INT);
         return $result->execute();
     }
-    
-        public static function getPriceListByProducts($products)
-    {
+
+    public static function getPriceListByProducts($products) {
         // Соединение с БД
         $db = Db::getConnection();
 
-        
         $where = ""; // Строка с WHERE
-        for ($i = 0; $i <count($products); $i++)
-        {
-            $where .= "prod_id = :prod_id".$i;
-            if ($i+1 != count($products)) // Если последний товар, то не добавлять OR в запрос
+        for ($i = 0; $i < count($products); $i++) {
+            $where .= "prod_id = :prod_id" . $i;
+            if ($i + 1 != count($products)) // Если последний товар, то не добавлять OR в запрос
                 $where .= " OR ";
         }
         // Текст запроса к БД
-        $sql = 'SELECT prod_id, time, price FROM price WHERE '. $where . ' ORDER BY price';
+        $sql = 'SELECT prod_id, time, price FROM price WHERE ' . $where . ' ORDER BY price';
         // Используется подготовленный запрос
         $result = $db->prepare($sql);
-        for ($i=0; $i <count($products); $i++)
-        {
-            $result->bindParam(':prod_id'.$i, $products[$i]['id'], PDO::PARAM_INT);
+        for ($i = 0; $i < count($products); $i++) {
+            $result->bindParam(':prod_id' . $i, $products[$i]['id'], PDO::PARAM_INT);
         }
         // Выполнение команды
         $result->execute();
-        
+
         // Получение и возврат результатов
         $i = 0;
         $prices = array();
@@ -121,8 +127,7 @@ class Price {
      * @param type $products <p>Массив с товарами</p>
      * @return type <p>Массив с ценами</p>
      */
-    public static function getPriceListById($id)
-    {
+    public static function getPriceListById($id) {
         // Соединение с БД
         $db = Db::getConnection();
         // Текст запроса к БД
@@ -132,7 +137,7 @@ class Price {
         $result->bindParam(':prod_id', $id, PDO::PARAM_INT);
         // Выполнение команды
         $result->execute();
-        
+
         // Получение и возврат результатов
         $i = 0;
         $prices = array();

@@ -25,15 +25,8 @@ class Cart
             // То заполним наш массив товарами
             $productsInCart = $_SESSION['products'];
         }
-
-        // Проверяем есть ли уже такой товар в корзине 
-     //   if (array_key_exists($id, $productsInCart)) {
-            // Если такой товар есть в корзине, но был добавлен еще раз, увеличим количество на 1
-     //       $productsInCart[$id] ++;
-     //   } else {
-            // Если нет, добавляем id нового товара в корзину с количеством 1
             $productsInCart[$id] = "1 день";
-     //   }
+            
         // Записываем массив с товарами в сессию
         $_SESSION['products'] = $productsInCart;
 
@@ -74,31 +67,7 @@ class Cart
         }
         return false;
     }
-
-    /**
-     * Получаем общую стоимость переданных товаров
-     * @param array $products <p>Массив с информацией о товарах</p>
-     * @return integer <p>Общая стоимость</p>
-     
-    public static function getTotalPrice($products)
-    {
-        // Получаем массив с идентификаторами и количеством товаров в корзине
-        $productsInCart = self::getProducts();
-
-        // Подсчитываем общую стоимость
-        $total = 0;
-        if ($productsInCart) {
-            // Если в корзине не пусто
-            // Проходим по переданному в метод массиву товаров
-            foreach ($products as $item) {
-                // Находим общую стоимость: цена товара * количество товара
-                $total += $item['price'] * $productsInCart[$item['id']];
-            }
-        }
-
-        return $total;
-    }*/
-
+    
     /**
      * Очищает корзину
      */

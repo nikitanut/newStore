@@ -51,7 +51,7 @@ class CartController
      */
     public function actionIndex()
     {
-        // Список категорий для левого меню
+        // Список категорий для header
         $categories = Category::getCategoriesList();
 
         // Получим товары в корзине
@@ -67,9 +67,6 @@ class CartController
 
             // Получаем массив со стоимостью
             $prices = Product::getPriceListByProducts($products);
-            
-            // Получаем общую стоимость товаров
-            //$totalPrice = Cart::getTotalPrice($products);
         }
 
         // Подключаем вид
@@ -90,16 +87,12 @@ class CartController
             header("Location: /");
         }
 
-        // Список категорий для левого меню
+        // Список категорий для header
         $categories = Category::getCategoriesList();
 
         // Находим общую стоимость
         $productsIds = array_keys($productsInCart);
         $products = Product::getProductsByIds($productsIds);
-        //$totalPrice = Cart::getTotalPrice($products);
-
-        // Количество товаров
-        // $totalQuantity = Cart::countItems();
 
         // Поля для формы
         $userName = false;
@@ -109,22 +102,18 @@ class CartController
 
         // Статус успешного оформления заказа
         $result = false;
-   //     $userName = $user['name'];
         $userId = false;
         
-        
-
         // Обработка формы
         if (isset($_POST['submit'])) {
             // Если форма отправлена
             // Получаем данные из формы
             $userName = $_POST['name'];
-            //$userPhone = preg_replace("/[^0-9]/", '', $_POST['telephone']); // Телефон в формате 89991112233
             $userPhone = $_POST['telephone'];            
             $date = date('Y-m-d', strtotime($_POST['datetimepicker']));
             $userEmail=$_POST['email'];
             $userComment = $_POST['comment'];
-            $userAddress = $_POST['address'];
+            $address = $_POST['address'];
             $index_price = array(); 
             for ($i = 0; $i < count($productsIds); $i++){
                $index_price[$productsIds[$i]] = $_POST['time'.$productsIds[$i]]; // создание массива [id] = time
@@ -132,7 +121,7 @@ class CartController
             $userId = User::checkUserData($userPhone);
             
             if (!$userId){            
-                User::register($userPhone, $userName, $userEmail, $userAddress);
+                User::register($userPhone, $userName, $userEmail);
                 $userId = User::checkUserData($userPhone);
             }
            
@@ -142,7 +131,7 @@ class CartController
             if ($errors == false) {
                 // Если ошибок нет
                 // Сохраняем заказ в базе данных
-                $result = Order::save($userName, $userPhone, $userComment, $userId, $date, $index_price);
+                $result = Order::save($userName, $userPhone, $address, $userComment, $userId, $date, $index_price);
                 if ($result) { 
                     // Если заказ успешно сохранен
                     // Оповещаем администратора о новом заказе по почте                

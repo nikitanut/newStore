@@ -36,6 +36,10 @@
                     <td><?php echo $order['user_phone']; ?></td>
                 </tr>
                 <tr>
+                    <td>Адрес</td>
+                    <td><?php echo $order['address']; ?></td>
+                </tr>
+                <tr>
                     <td>Комментарий клиента</td>
                     <td><?php echo $order['user_comment']; ?></td>
                 </tr>
@@ -61,13 +65,13 @@
                 <tr>
                     <th>ID товара</th>
                     <th>Название</th>
-                    <th>Количество</th>
+                    <th>Срок аренды</th>
                 </tr>
                 <?php foreach ($products as $product): ?>
                     <tr>
                         <td><?php echo $product['id']; ?></td>
                         <td><?php echo $product['name']; ?></td>
-                        <td><?php echo $productsQuantity[$product['id']]; ?></td>
+                        <td><?php echo $productsTime[$product['id']]; ?></td>
                     </tr>
                 <?php endforeach; ?>
             </table>

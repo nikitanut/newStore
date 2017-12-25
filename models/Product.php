@@ -9,53 +9,6 @@ class Product
     const SHOW_BY_DEFAULT = 8;
 
     /**
-     * Возвращает массив последних товаров
-     * @param type $count [optional] <p>Количество</p>
-     * @param type $page [optional] <p>Номер текущей страницы</p>
-     * @return array <p>Массив с товарами</p>
-     */
-    public static function getLatestProducts($count = self::SHOW_BY_DEFAULT, $page = 1)
-    {
-        // Соединение с БД
-        $db = Db::getConnection();
-        
-        $count = intval($count);
-        $page = intval($page);
-        // Смещение (для запроса)
-        $offset = $page * $count;
-        
-        // Текст запроса к БД
-        $sql = 'SELECT id, name, is_new FROM products '
-                . 'WHERE status = "1"'
-                . 'ORDER BY id DESC '                
-                . 'LIMIT :count '
-                . 'OFFSET :offset';
-        
-        // Используется подготовленный запрос
-        $result = $db->prepare($sql);
-        $result->bindParam(':count', $count, PDO::PARAM_INT);
-        $result->bindParam(':offset', $offset, PDO::PARAM_INT);
-        
-        // Указываем, что хотим получить данные в виде массива
-        $result->setFetchMode(PDO::FETCH_ASSOC);
-        
-        // Выполнение команды
-        $result->execute();
-        
-        // Получение и возврат результатов
-        $i = 0;
-        $productsList = array();
-        while ($row = $result->fetch()) {
-            $productsList[$i]['id'] = $row['id'];
-            $productsList[$i]['name'] = $row['name'];
-            $productsList[$i]['is_new'] = $row['is_new'];
-            $i++;
-        }
-
-        return $productsList;
-    }
-    
-    /**
      * Возвращает список товаров в указанной категории
      * @param type $categoryId <p>id категории</p>
      * @param type $page [optional] <p>Номер страницы</p>
@@ -105,10 +58,9 @@ class Product
     {
         // Соединение с БД
         $db = Db::getConnection();
-
         
         $where = ""; // Строка с WHERE
-        for ($i = 0; $i <count($products); $i++)
+        for ($i = 0; $i < count($products); $i++)
         {
             $where .= "prod_id = :prod_id".$i;
             if ($i+1 != count($products)) // Если последний товар, то не добавлять OR в запрос
@@ -118,7 +70,7 @@ class Product
         $sql = 'SELECT prod_id, time, price FROM price WHERE '. $where . ' ORDER BY price';
         // Используется подготовленный запрос
         $result = $db->prepare($sql);
-        for ($i=0; $i <count($products); $i++)
+        for ($i = 0; $i < count($products); $i++)
         {
             $result->bindParam(':prod_id'.$i, $products[$i]['id'], PDO::PARAM_INT);
         }
@@ -264,7 +216,8 @@ class Product
         // Получение и возврат результатов
         $result = $db->query('SELECT id, name, is_new FROM products '
                 . 'WHERE status = "1" AND is_recommended = "1" '
-                . 'ORDER BY id DESC');
+                . 'ORDER BY id DESC '
+                . 'LIMIT 8');
         $i = 0;
         $productsList = array();
         while ($row = $result->fetch()) {
@@ -340,7 +293,6 @@ class Product
                 category_id = :category_id, 
                 availability = :availability, 
                 description = :description, 
-                characteristics = :characteristics,
                 is_new = :is_new, 
                 is_recommended = :is_recommended, 
                 status = :status
@@ -353,7 +305,6 @@ class Product
         $result->bindParam(':category_id', $options['category_id'], PDO::PARAM_INT);
         $result->bindParam(':availability', $options['availability'], PDO::PARAM_INT);
         $result->bindParam(':description', $options['description'], PDO::PARAM_STR);
-        $result->bindParam(':characteristics', $options['characteristics'], PDO::PARAM_STR);
         $result->bindParam(':is_new', $options['is_new'], PDO::PARAM_INT);
         $result->bindParam(':is_recommended', $options['is_recommended'], PDO::PARAM_INT);
         $result->bindParam(':status', $options['status'], PDO::PARAM_INT);
@@ -373,9 +324,9 @@ class Product
         // Текст запроса к БД
         $sql = 'INSERT INTO products '
                 . '(name, category_id, availability,'
-                . 'description, characteristics, is_new, is_recommended, status)'
+                . 'description, is_new, is_recommended, status)'
                 . 'VALUES '
-                . '(:name, :category_id, :availability, :description, :characteristics, :is_new, :is_recommended, :status)';
+                . '(:name, :category_id, :availability, :description, :is_new, :is_recommended, :status)';
 
         // Получение и возврат результатов. Используется подготовленный запрос
         $result = $db->prepare($sql);
@@ -383,7 +334,6 @@ class Product
         $result->bindParam(':category_id', $options['category_id'], PDO::PARAM_INT);
         $result->bindParam(':availability', $options['availability'], PDO::PARAM_INT);
         $result->bindParam(':description', $options['description'], PDO::PARAM_STR);
-        $result->bindParam(':characteristics', $options['characteristics'], PDO::PARAM_STR);
         $result->bindParam(':is_new', $options['is_new'], PDO::PARAM_INT);
         $result->bindParam(':is_recommended', $options['is_recommended'], PDO::PARAM_INT);
         $result->bindParam(':status', $options['status'], PDO::PARAM_INT);

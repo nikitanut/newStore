@@ -10,7 +10,9 @@
             <!-- start grids_of_3 -->
             <?php if (count($categoryProducts) == 0): ?>
                 <div class="grids_of_3"></div>
-                <!-- TODO. Если нет товаров, то чё-нибудь вывести -->
+                <div class="prod_wrap">
+                    <h3 style="text-align: center;">В данной категории товаров пока нет</h3>
+                </div>
                 <div class="clear"></div>
             <?php endif; ?>
             <?php

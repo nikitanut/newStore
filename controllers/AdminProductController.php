@@ -11,7 +11,7 @@ class AdminProductController extends AdminBase {
      */
     public function actionIndex() {
         // Проверка доступа
-        //self::checkAdmin();
+        self::checkAdmin();
         // Получаем список товаров
         $productsList = Product::getProductsList();
         $categoryList = Category::getCategoriesListAdmin();
@@ -34,8 +34,7 @@ class AdminProductController extends AdminBase {
         // Обработка формы
         if (isset($_POST['submit'])) {
             // Если форма отправлена
-            // Получаем данные из формы
-            //$options['id'] = $_POST['id'];
+            // Получаем данные из формы            
             $options['name'] = $_POST['name'];
             $options['category_id'] = $_POST['category_id'];
             $options['availability'] = $_POST['availability'];
@@ -136,7 +135,7 @@ class AdminProductController extends AdminBase {
             $options['is_new'] = $_POST['is_new'];
             $options['is_recommended'] = $_POST['is_recommended'];
             $options['status'] = $_POST['status'];
-            //ПЕРЕПИСАТЬ
+            
             // Сохраняем изменения
             if (Product::updateProductById($id, $options)) {
                 for ($i = 0; $i < count($prices); $i++) {
@@ -170,7 +169,7 @@ class AdminProductController extends AdminBase {
      */
     public function actionDelete($id) {
         // Проверка доступа
-        //self::checkAdmin();
+        self::checkAdmin();
         // Обработка формы
         if (isset($_POST['submit'])) {
             // Если форма отправлена

@@ -13,7 +13,7 @@
             </div>
 
             <a href="/admin/product/create" class="btn btn-default back"><i class="fa fa-plus"></i> Добавить товар</a>
-            
+
             <h4>Список товаров</h4>
 
             <br/>
@@ -34,14 +34,13 @@
                     <tr>
                         <td><?php echo $product['id']; ?></td>                     
                         <td><?php echo $product['name']; ?></td>
-                        <td><?php foreach ($categoryList as $categories): 
-                                //$categories = Category::getCategoriesList();
-                                  if ($product['category_id']==$categories['id']){ 
-                                  echo $categories['name'];}
-                                  //else {
-                                  //    echo $product['category_id'];
-                                  //}
-                              endforeach;?></td>
+                        <td><?php
+                            foreach ($categoryList as $categories):
+                                if ($product['category_id'] == $categories['id']) {
+                                    echo $categories['name'];
+                                }
+                            endforeach;
+                            ?></td>
                         <td><?php echo $product['availability']; ?></td>
                         <td><?php echo $product['is_new']; ?></td>
                         <td><?php echo $product['is_recommended']; ?></td>
@@ -49,7 +48,7 @@
                         <td><a href="/admin/product/update/<?php echo $product['id']; ?>" title="Редактировать"><i class="fa fa-pencil-square-o"></i></a></td>
                         <td><a href="/admin/product/delete/<?php echo $product['id']; ?>" title="Удалить"><i class="fa fa-times"></i></a></td>
                     </tr>
-                <?php endforeach; ?>
+<?php endforeach; ?>
             </table>
 
         </div>

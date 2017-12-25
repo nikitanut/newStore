@@ -42,30 +42,29 @@ class AdminPriceController extends AdminBase {
                 $errors[] = 'Заполните цену';
             }
 
-
             if ($errors == false) {
                 // Если ошибок нет
-                // Добавляем новую категорию
+                // Добавляем новую цену
                 Price::createPrice($prod_id, $time, $price);
 
-                // Перенаправляем пользователя на страницу управлениями категориями
+                // Перенаправляем пользователя на страницу управлениями ценами
                 header("Location: /admin/price");
             }
         }
-
+        
         require_once(ROOT . '/views/admin_price/create.php');
         return true;
     }
 
     /**
-     * Action для страницы "Редактировать категорию"
+     * Action для страницы "Редактировать Цену"
      */
     public function actionUpdate($prod_id, $price) {
         // Проверка доступа
         self::checkAdmin();
 
 
-        // Получаем данные о конкретной категории
+        // Получаем данные о конкретной цене
         $product = Product::getProductById($prod_id);
         $prices = Price::getPriceByIdAndPrice($prod_id, $price);
 
@@ -90,7 +89,7 @@ class AdminPriceController extends AdminBase {
     }
 
     /**
-     * Action для страницы "Удалить категорию"
+     * Action для страницы "Удалить цену"
      */
     public function actionDelete($prod_id, $price) {
         // Проверка доступа
@@ -98,10 +97,10 @@ class AdminPriceController extends AdminBase {
         // Обработка формы
         if (isset($_POST['submit'])) {
             // Если форма отправлена
-            // Удаляем категорию
+            // Удаляем цену
             Price::deletePriceById($prod_id, $price);
 
-            // Перенаправляем пользователя на страницу управлениями товарами
+            // Перенаправляем пользователя на страницу управлениями ценами
             header("Location: /admin/price");
         }
 

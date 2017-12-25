@@ -5,30 +5,27 @@
  */
 class User
 {
-
     /**
      * Регистрация пользователя 
      * @param string $number <p>Телефон</p>
      * @param string $name <p>Имя</p>
      * @param string $email <p>E-mail</p>
-     * @param string $address <p>Адрес доставки</p>
      * @return boolean <p>Результат выполнения метода</p>
      */
-    public static function register($number, $name, $email, $address)
+    public static function register($number, $name, $email)
     {
         // Соединение с БД
         $db = Db::getConnection();
 
         // Текст запроса к БД
-        $sql = 'INSERT INTO users (number, name, email, address) '
-                . 'VALUES (:number, :name, :email, :address)';
+        $sql = 'INSERT INTO users (number, name, email) '
+                . 'VALUES (:number, :name, :email)';
 
         // Получение и возврат результатов. Используется подготовленный запрос
         $result = $db->prepare($sql);
         $result->bindParam(':number', $number, PDO::PARAM_STR);
         $result->bindParam(':name', $name, PDO::PARAM_STR);
         $result->bindParam(':email', $email, PDO::PARAM_STR);
-        $result->bindParam(':address', $address, PDO::PARAM_STR);
         return $result->execute();
     }
 
@@ -37,17 +34,16 @@ class User
      * @param integer $id <p>id пользователя</p>
      * @param string $number <p>Телефон</p>
      * @param string $name <p>Имя</p>
-     * @param string $vk_link <p>Пароль</p>
      * @return boolean <p>Результат выполнения метода</p>
      */
-    public static function edit($id, $number, $name, $address)
+    public static function edit($id, $number, $name)
     {
         // Соединение с БД
         $db = Db::getConnection();
 
         // Текст запроса к БД
         $sql = "UPDATE users 
-            SET number = :number, name = :name, address = :address 
+            SET number = :number, name = :name
             WHERE id = :id";
 
         // Получение и возврат результатов. Используется подготовленный запрос
@@ -55,7 +51,6 @@ class User
         $result->bindParam(':id', $id, PDO::PARAM_INT);
         $result->bindParam(':number', $number, PDO::PARAM_STR);
         $result->bindParam(':name', $name, PDO::PARAM_STR);
-        $result->bindParam(':address', $address, PDO::PARAM_STR);
         return $result->execute();
     }
     /**
@@ -71,7 +66,6 @@ class User
         return false;
     }
     /**
-     * ПЕРЕДЕЛАТЬ!!!
      * Проверяем существует ли пользователь с заданным $number
      * @param string $number <p>Номер</p>
      * @return mixed : integer user id or false
@@ -176,17 +170,6 @@ class User
     }
 
     /**
-     * Проверяет является ли пользователь гостем
-     * @return boolean <p>Результат выполнения метода</p>
-     */
-    public static function isGuest()
-    {
-        if (isset($_SESSION['user'])) {
-            return false;
-        }
-        return true;
-    }
-    /**
      * Проверяет телефон: не меньше, чем 10 символов
      * @param string $phone <p>Телефон</p>
      * @return boolean <p>Результат выполнения метода</p>
@@ -211,30 +194,7 @@ class User
         }
         return false;
     }
-
-    /**
-     * Проверяет не занят ли email другим пользователем
-     * @param type $email <p>E-mail</p>
-     * @return boolean <p>Результат выполнения метода</p>
-     */
-    public static function checkEmailExists($email)
-    {
-        // Соединение с БД        
-        $db = Db::getConnection();
-
-        // Текст запроса к БД
-        $sql = 'SELECT COUNT(*) FROM users WHERE email = :email';
-
-        // Получение результатов. Используется подготовленный запрос
-        $result = $db->prepare($sql);
-        $result->bindParam(':email', $email, PDO::PARAM_STR);
-        $result->execute();
-
-        if ($result->fetchColumn())
-            return true;
-        return false;
-    }
-
+    
     /**
      * Возвращает пользователя с указанным id
      * @param integer $id <p>id пользователя</p>

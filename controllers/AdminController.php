@@ -10,8 +10,7 @@ class AdminController extends AdminBase
      * Action для стартовой страницы "Панель администратора"
      */
     public function actionIndex()
-    {
-           
+    {           
         // Проверка доступа
         self::checkAdmin();
 

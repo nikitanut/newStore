@@ -12,11 +12,8 @@ class CatalogController
      */
     public function actionIndex()
     {
-        // Список категорий для левого меню
+        // Список категорий для header
         $categories = Category::getCategoriesList();
-
-        // Список последних товаров
-        $latestProducts = Product::getLatestProducts();
 
         // Подключаем вид
         require_once(ROOT . '/views/catalog/index.php');
@@ -28,7 +25,7 @@ class CatalogController
      */
     public function actionCategory($categoryId, $page = 1)
     {
-        // Список категорий для левого меню
+        // Список категорий для header
         $categories = Category::getCategoriesList();
         
         $categoryname = Category::getCategoryById($categoryId);
@@ -42,7 +39,7 @@ class CatalogController
         // Список товаров в массиве
         $productsInCart = Cart::getProducts();
         
-        // Общее количеcтсво товаров (необходимо для постраничной навигации)
+        // Общее количеcтво товаров (необходимо для постраничной навигации)
         $total = Product::getTotalProductsInCategory($categoryId);
 
         // Создаем объект Pagination - постраничная навигация

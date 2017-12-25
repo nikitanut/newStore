@@ -50,13 +50,7 @@
 
                                 <p>Изображение товара</p>
                                 <img src="<?php echo Product::getImage($product['id']); ?>" width="35%" alt="" />
-                                <input type="file" name="image" placeholder="" value="<?php //echo $product['image'];                       ?>">
-                            </div>
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="login-form">
-                                <p>Характеристики</p>
-                                <textarea name="characteristics" style="margin-bottom: 5px; height: 250px; width: 100%;"><?php echo $product['characteristics'] ?></textarea>
+                                <input type="file" name="image" placeholder="">
                             </div>
                         </div>
                         <div class="col-lg-8">

@@ -9,7 +9,7 @@
                 <div class="left_content">
                     <div class="span1_of_1">
                         <h3><?php echo $product['name']; ?></h3>
-                        <img src="<?php echo Product::getImage($product['id']); ?>" class="image" alt="Батут" title="Батут"/>
+                        <img src="<?php echo Product::getImage($product['id']); ?>" class="image" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>"/>
                     </div>
                     <!-- start span1_of_1 -->
                     <div class="span1_of_1_des">                        
@@ -27,10 +27,12 @@
                         </div>
                     </div>                   
                     
+                    <?php if ($product['description']):?>
                     <fieldset>
                         <legend>Описание</legend>
                     <p class="para top"><?php echo substr(nl2br(htmlspecialchars(trim($product['description']))), 0); ?></p>
                     </fieldset>
+                    <?php endif;?>
                 </div>
                 <div class="clear"></div>
             </div>	

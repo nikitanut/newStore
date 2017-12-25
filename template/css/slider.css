@@ -81,15 +81,7 @@
 .da-slide .da-img{
     text-align: center;
     width: 30%;
-    top: 10%;
-    
-    /* DELETE
- text-align: center;
-	width: 30%;
-	top: 70px;
-	height: 256px;
-	line-height: 320px;
-	left: 110%; /*60%*/
+    top: 10%;    
 }
 .da-slide .da-img img{
     max-height: 27em;
@@ -790,8 +782,3 @@
         height: 280px;
     }
 }
-/*@media only screen and (max-width: 720px){
-    .da-slide .da-img{
-        top:32%;
-    }
-}*/

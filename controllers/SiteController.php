@@ -11,11 +11,8 @@ class SiteController
      */
     public function actionIndex()
     {
-        // Список категорий для левого меню
+        // Список категорий для header
         $categories = Category::getCategoriesList();
-
-        // Список последних товаров
-        $latestProducts = Product::getLatestProducts();
 
         // Список товаров для слайдера
         $sliderProducts = Product::getRecommendedProducts();
@@ -30,8 +27,11 @@ class SiteController
      */
     public function actionContact()
     {
-
+        // Список категорий для header
+        $categories = Category::getCategoriesList();
+        
         // Переменные для формы
+        $userName = false;
         $userEmail = false;
         $userText = false;
         $result = false;
@@ -40,6 +40,7 @@ class SiteController
         if (isset($_POST['submit'])) {
             // Если форма отправлена 
             // Получаем данные из формы
+            $userName = $_POST['name'];
             $userEmail = $_POST['userEmail'];
             $userText = $_POST['userText'];
 
@@ -72,6 +73,7 @@ class SiteController
      */
     public function actionCondition()
     {
+        // Список категорий для header
         $categories = Category::getCategoriesList();
         // Подключаем вид
         require_once(ROOT . '/views/condition/index.php');

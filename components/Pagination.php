@@ -93,12 +93,12 @@ class Pagination {
             if (!is_null($links)) {
                 # Если текущая страница не первая
                 if ($this->current_page > 1)
-                # Создаём ссылку "На первую"
+                # Создаём ссылку "На предыдущую"
                     $links = $this->generateHtml($this->current_page - 1, '&lt;') . $links;
 
                 # Если текущая страница не первая
                 if ($this->current_page < $this->amount)
-                # Создаём ссылку "На последнюю"
+                # Создаём ссылку "На следующую"
                     $links .= $this->generateHtml($this->current_page + 1, '&gt;');
             }
 
