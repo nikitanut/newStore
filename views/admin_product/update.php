@@ -49,18 +49,9 @@
                                 <br/><br/><br/>
 
                                 <p>Изображение товара</p>
-                                <img src="<?php echo Product::getImage($product['id']); ?>" width="35%" alt="" />
+                                <img src="<?php echo Product::getImage($product['id']); ?>" height="175px" alt="" />
                                 <input type="file" name="image" placeholder="">
-                            </div>
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="login-form">
-                                <p>Детальное описание</p>
-                                <textarea name="description" style="margin-bottom: 5px; height: 250px; width: 100%;"><?php echo $product['description'] ?></textarea>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="login-form">
+                                
                                 <p>Новинка</p>
                                 <select name="is_new">
                                     <option value="1" <?php if ($product['is_new'] == 1) echo ' selected="selected"'; ?>>Да</option>
@@ -82,6 +73,12 @@
                                     <option value="1" <?php if ($product['status'] == 1) echo ' selected="selected"'; ?>>Отображается</option>
                                     <option value="0" <?php if ($product['status'] == 0) echo ' selected="selected"'; ?>>Скрыт</option>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="login-form">
+                                <p>Детальное описание</p>
+                                <textarea name="description" style="margin-bottom: 5px; height: 403px; width: 100%;"><?php echo $product['description'] ?></textarea>
                             </div>
                         </div>
                         <br/><br/>

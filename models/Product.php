@@ -216,8 +216,7 @@ class Product
         // Получение и возврат результатов
         $result = $db->query('SELECT id, name, is_new FROM products '
                 . 'WHERE status = "1" AND is_recommended = "1" '
-                . 'ORDER BY id DESC '
-                . 'LIMIT 8');
+                . 'ORDER BY id DESC');
         $i = 0;
         $productsList = array();
         while ($row = $result->fetch()) {

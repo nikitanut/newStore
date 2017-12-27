@@ -88,22 +88,23 @@
         <div class="prod_wrap">	
             <div class="main">
                 <!-- start grids_of_3 -->
-                <?php
-                for ($i = 0; $i < count($sliderProducts); $i++):  // Перебор массива с товарами для вывода
+                <?php  $recommendedProducts= array_rand($sliderProducts, 8);
+                for ($i = 0; $i < count($recommendedProducts); $i++):  // Перебор массива с товарами для вывода
+                    
                     if ($i % 4 == 0): // Если новая строка, то вставить grids_of_3 (позиции для 3х товаров)
                         ?> 
                         <div class="grids_of_3"> 
                         <?php endif; ?>
                         <div class="grid1_of_3">
-                            <a href="/product/<?php echo $sliderProducts[$i]['id']; ?>">
-                                <h3><?php echo $sliderProducts[$i]['name']; ?></h3>
-                                <img src="<?php echo Product::getImage($sliderProducts[$i]['id']); ?>" alt="" />                        
+                            <a href="/product/<?php echo $sliderProducts[$recommendedProducts[$i]]['id']; ?>">
+                                <h3><?php echo $sliderProducts[$recommendedProducts[$i]]['name']; ?></h3>
+                                <img src="<?php echo Product::getImage($sliderProducts[$recommendedProducts[$i]]['id']); ?>" alt="" />                        
                             </a>                                        
                             <span class="b_btm"></span>
                         </div>
                         <?php
                         if ((($i + 1) % 4 == 0 && $i != 0)            // Если товар - последний в grids_of_3
-                                || ($i + 1 == count($sliderProducts))): // или последний в массиве, то сделать отступ
+                                || ($i + 1 == count($recommendedProducts))): // или последний в массиве, то сделать отступ
                             ?>
                             <div class="clear"></div>                   
                         <?php endif; ?>

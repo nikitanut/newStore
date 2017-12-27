@@ -58,18 +58,7 @@
                                 <p>Изображение товара</p>
                                 <img src="<?php  echo Product::getImage(0);      ?>" width="200" alt="" />
                                 <input type="file" name="image" placeholder="" value="">
-
-                            </div>
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="login-form">
-                                <p>Детальное описание</p>
-                                <textarea name="description" style="margin-bottom: 5px; height: 250px; width: 100%;"></textarea>
-                            </div>
-                        </div>
-                        <br><br><br>
-                        <div class="col-lg-4">
-                            <div class="login-form">
+                                
                                 <p>Новинка</p>
                                 <select name="is_new">
                                     <option value="1">Да</option>
@@ -91,10 +80,17 @@
                                     <option value="1" selected="selected">Отображается</option>
                                     <option value="0">Скрыт</option>
                                 </select>
+
                             </div>
                         </div>
+                        <div class="col-lg-8">
+                            <div class="login-form">
+                                <p>Детальное описание</p>
+                                <textarea name="description" style="margin-bottom: 5px; height: 403px; width: 100%;"></textarea>
+                            </div>
+                        </div>
+                        <br><br><br>
 
-                        <br/><br/>
                         <div class="col-lg-4">
                             <div class="login-form" class="form-group">
                                 <p>Время аренды</p>
