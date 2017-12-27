@@ -3,6 +3,6 @@
 return array(
     'host' => 'localhost',
     'dbname' => 'Shop',
-    'user' => 'root',
+    'user' => 'prokat',
     'password' => 'mysql',            
 );
