@@ -55,10 +55,11 @@ class SiteController
             if ($errors == false) {
                 // Если ошибок нет
                 // Отправляем письмо администратору 
-                $adminEmail = 'noresponse@prokat83.ru';
+                $adminEmail = 'nikitanut@gmail.com';
                 $message = "Текст: {$userText}. От {$userEmail}";
                 $subject = 'Тема письма';
-                $result = mail($adminEmail, $subject, $message);
+                $headers = 'From: noresponse@prokat83.ru' . "\r\n";
+                $result = mail($adminEmail, $subject, $message, $headers);
                 $result = true;
             }
         }
