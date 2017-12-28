@@ -137,10 +137,10 @@ class CartController
                 if ($result) { 
                     // Если заказ успешно сохранен
                     // Оповещаем администратора о новом заказе по почте                
-                    $adminEmail = 'nikitanut@gmail.com';
+                    $adminEmail = 'noresponse@prokat83.ru';
                     $message = '<a href="/">Список заказов</a>';
                     $subject = 'Новый заказ!';
-                    //mail($adminEmail, $subject, $message);
+                    mail($adminEmail, $subject, $message);
 
                     // Очищаем корзину
                     Cart::clear(); 
