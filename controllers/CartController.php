@@ -137,7 +137,8 @@ class CartController
                     $adminEmail = 'nikitanut@gmail.com';
                     $message = '<a href="/">Список заказов</a>';
                     $subject = 'Новый заказ!';
-                    $headers = 'From: noresponse@prokat83.ru' . "\r\n";
+                    $headers = 'From: noresponse@prokat83.ru' . "\r\n"
+                            . "Content-Type: text/html; charset=ISO-8859-1\r\n";
                     mail($adminEmail, $subject, $message, $headers);
                     
 

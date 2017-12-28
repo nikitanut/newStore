@@ -41,9 +41,7 @@ class Order
         $result->bindParam(':date', $date, PDO::PARAM_STR);
         $result->bindParam(':products', $products, PDO::PARAM_STR);
 
-        $response = $result->execute();
-        print_r($db->errorInfo());
-        return $response;
+        return $result->execute();
     }
 
     /**

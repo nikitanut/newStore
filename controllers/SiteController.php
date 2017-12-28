@@ -58,7 +58,8 @@ class SiteController
                 $adminEmail = 'nikitanut@gmail.com';
                 $message = "Текст: {$userText}. От {$userEmail}";
                 $subject = 'Тема письма';
-                $headers = 'From: noresponse@prokat83.ru' . "\r\n";
+                $headers = 'From: noresponse@prokat83.ru' . "\r\n"
+                        . "Content-Type: text/html; charset=ISO-8859-1\r\n";
                 $result = mail($adminEmail, $subject, $message, $headers);
                 $result = true;
             }
