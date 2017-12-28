@@ -2,7 +2,7 @@
 
 return array(
     'host' => 'localhost',
-    'dbname' => 'Shop',
+    'dbname' => 'shop',
     'user' => 'prokat',
     'password' => 'mysql',            
 );
