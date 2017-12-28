@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Дек 27 2017 г., 19:06
+-- Время создания: Дек 28 2017 г., 19:25
 -- Версия сервера: 5.6.35
 -- Версия PHP: 5.6.30
 
@@ -75,7 +75,16 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `date` date DEFAULT NULL,
   `products` text,
   `status` tinyint(4) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_name`, `user_phone`, `address`, `user_comment`, `user_id`, `curr_date`, `date`, `products`, `status`) VALUES
+(1, 'Nikita Nuttunen', '89111763684', 'Leningradskaya obl., Volosovskyi r-n, der. Torosovo, d 6,, kv. 40', '', 2, '2017-12-28 19:04:19', '2017-12-29', '{"18":"1 неделя"}', 1),
+(2, 'Nikita Nuttunen', '89111763684', 'Leningradskaya obl., Volosovskyi r-n, der. Torosovo, d 6,, kv. 40', '', 2, '2017-12-28 19:11:27', '2017-12-29', '{"17":"1 неделя"}', 1),
+(3, 'Nikita Nuttunen', '89111763684', 'Leningradskaya obl., Volosovskyi r-n, der. Torosovo, d 6,, kv. 40', '', 2, '2017-12-28 19:18:41', '2017-12-29', '{"8":"1 неделя"}', 1);
 
 -- --------------------------------------------------------
 
@@ -1215,7 +1224,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT для таблицы `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT для таблицы `products`
 --
