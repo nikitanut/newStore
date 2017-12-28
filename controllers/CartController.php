@@ -126,14 +126,11 @@ class CartController
                 User::register($userPhone, $userName, $userEmail);
                 $userId = User::checkUserData($userPhone);
             }
-           
-            // Флаг ошибок
-            $errors = false;
-
-            if ($errors == false) {
+            
                 // Если ошибок нет
                 // Сохраняем заказ в базе данных
                 $result = Order::save($userName, $userPhone, $address, $userComment, $userId, $date, $index_price);
+                
                 if ($result) { 
                     // Если заказ успешно сохранен
                     // Оповещаем администратора о новом заказе по почте                
@@ -147,7 +144,7 @@ class CartController
                     // Очищаем корзину
                     Cart::clear(); 
                 }
-            }
+            
         }
 
         // Подключаем вид
