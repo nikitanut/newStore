@@ -1212,10 +1212,8 @@ margin: 0.2%;
         color: graytext;
     }
     
-    .contact_form{
-        margin-top: 30px;
-        text-align: center;
-        font-size: 2em;
+    .contact_form{       
+        padding: 0% 20% 0% 30%;
     }
     .contact_form h2, .contact_form label {font-family:Georgia, Times, "Colibri", serif;}
     .form_hint, .required_notification {font-size: 11px;}

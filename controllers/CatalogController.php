@@ -14,6 +14,13 @@ class CatalogController
     {
         // Список категорий для header
         $categories = Category::getCategoriesList();
+        
+        $categoriesByName = Category::getCategoriesList();
+        
+        usort($categoriesByName, function ($a, $b){
+            if ($a['name'] == $b['name']) return 0; 
+            return $a['name'] > $b['name'] ? 1 : -1;
+        });
 
         // Подключаем вид
         require_once(ROOT . '/views/catalog/index.php');

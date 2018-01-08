@@ -5,21 +5,21 @@
     <div class="prod_wrap">	
         <div class="main">
             <!-- start grids_of_3 -->
-            <?php for ($i = 0; $i < count($categories); $i++):  // Перебор массива с категориями для вывода
+            <?php for ($i = 0; $i < count($categoriesByName); $i++):  // Перебор массива с категориями для вывода
                 if ($i % 4 == 0): // Если новая строка, то вставить grids_of_3 (позиции для 3х категорий)
                     ?> 
                     <div class="grids_of_3"> 
     <?php endif; ?>
                     <div class="grid1_of_3">
                         <a
-                            href="/category/<?php echo $categories[$i]['id']; ?>">
-                            <h3><?php echo $categories[$i]['name']; ?></h3>
+                            href="/category/<?php echo $categoriesByName[$i]['id']; ?>">
+                            <h3><?php echo $categoriesByName[$i]['name']; ?></h3>
 
-                            <img src="<?php echo Product::getCategoryImage($categories[$i]['id']); ?>" alt=""/> 
+                            <img src="<?php echo Product::getCategoryImage($categoriesByName[$i]['id']); ?>" alt=""/> 
                         </a>
                     </div>  
                     <?php if ((($i + 1) % 4 == 0 && $i != 0)            // Если категория - последняя в grids_of_3
-                            || ($i + 1 == count($categories))): // или последняя в массиве, то сделать отступ
+                            || ($i + 1 == count($categoriesByName))): // или последняя в массиве, то сделать отступ
                         ?>
                         <div class="clear"></div>                   
                 <?php endif; ?>
