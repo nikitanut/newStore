@@ -112,7 +112,7 @@ class CartController {
             }
             $adminEmail = 'prokat83@inbox.ru';
             $headers = 'From: noresponse@prokat83.ru' . "\r\n"
-                    . "Content-Type: text/html; charset=ISO-8859-1\r\n";
+                    . "Content-Type: text/html; charset=UTF-8\r\n";// charset=ISO-8859-1\r\n";
             try {
                 // Если ошибок нет
                 // Сохраняем заказ в базе данных

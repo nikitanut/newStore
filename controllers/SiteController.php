@@ -24,7 +24,7 @@ class SiteController
         } catch (Exception $exc) {
             $adminEmail = 'prokat83@inbox.ru';
             $headers = 'From: noresponse@prokat83.ru' . "\r\n"
-                        . "Content-Type: text/html; charset=ISO-8859-1\r\n";
+                        . "Content-Type: text/html; charset=UTF-8\r\n";
             $message = 'Отсутствует подключение к базе данных: ' . $exc->getTraceAsString();
             $subject = 'Ошибка!';                
             mail($adminEmail, $subject, $message, $headers);
@@ -69,7 +69,7 @@ class SiteController
                 $message = "Текст: {$userText}. От {$userEmail}";
                 $subject = 'Тема письма';
                 $headers = 'From: noresponse@prokat83.ru' . "\r\n"
-                        . "Content-Type: text/html; charset=ISO-8859-1\r\n";
+                        . "Content-Type: text/html; charset=UTF-8\r\n";
                 $result = mail($adminEmail, $subject, $message, $headers);
             }
         }
