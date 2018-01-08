@@ -42,6 +42,8 @@ class SiteController
         // Список категорий для header
         $categories = Category::getCategoriesList();
         
+        $result = false;
+        
         // Обработка формы
         if (isset($_POST['submit'])) {
             // Если форма отправлена 

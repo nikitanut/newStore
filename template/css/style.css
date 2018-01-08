@@ -1599,4 +1599,7 @@ margin: 0.2%;
     body{
         min-width: 800px;
     }
+    .item h3 {
+    font-size: 1.2em;
+    }
 }

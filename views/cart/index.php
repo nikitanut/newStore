@@ -122,7 +122,7 @@
 
     <script>
         jQuery(function ($) {
-            $("#applicationTelephone").mask("8(999)999-99-99");
+            $("#applicationTelephone").mask("8(999) 999 99 99");
         });
         $("form").submit(function () { //Перед submit
             var a = true;
@@ -137,6 +137,19 @@
                 $("#datetimepicker").before('<br><h1 class="alertMes" style="color:red; line-height:0; margin-bottom: 1em; font-size: 1.3em";><br>Заполните поле</h1>');  // Вывести ошибку
                 a = false; // Отменить submit
             }
+            if ($("#applicationName").val() === "") { // Если не ввели имя
+                $("#applicationName").before('<br><h1 class="alertMes" style="color:red; line-height:0; margin-bottom: 1em; font-size: 1.3em";><br>Заполните поле</h1>');  // Вывести ошибку
+                a = false; // Отменить submit
+            }
+            if ($("#applicationTelephone").val() === "") { // Если не ввели имя
+                $("#applicationTelephone").before('<br><h1 class="alertMes" style="color:red; line-height:0; margin-bottom: 1em; font-size: 1.3em";><br>Заполните поле</h1>');  // Вывести ошибку
+                a = false; // Отменить submit
+            }
+            if ($("#applicationAddress").val() === "") { // Если не ввели имя
+                $("#applicationAddress").before('<br><h1 class="alertMes" style="color:red; line-height:0; margin-bottom: 1em; font-size: 1.3em";><br>Заполните поле</h1>');  // Вывести ошибку
+                a = false; // Отменить submit
+            }            
+            
             if (!a) {
                 window.scrollTo(0, 0);
                 return false;
