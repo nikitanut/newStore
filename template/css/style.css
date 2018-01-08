@@ -984,6 +984,7 @@ p.para{
 .left_content{
     width: 90%;
     margin: auto;
+    padding-top: 1%;
 }
 .left_sidebar{
     width: 22.3333%;

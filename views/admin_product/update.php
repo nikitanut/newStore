@@ -116,7 +116,7 @@
                                 ?>
                             </div>
                         </div>
-                        <div class="col-lg-10" style="margin-left:10%; margin-top:2%;">
+                        <div class="col-lg-10" style="width: 50%; margin-left: 25%;">
                             <input type="submit" name="submit" class="btn btn-default" value="Сохранить">
                         </div>
                     </form>

@@ -4,7 +4,6 @@
         <title>Центр проката г. Нарьян-Мар</title>
         <link href="/template/css/style.css" rel="stylesheet" type="text/css" media="all" />
         <link rel="shortcut icon" href="/upload/logo.png" type="image/x-icon">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>        
         <script type="text/javascript" src="/template/js/jquery-2.2.4.min.js"></script>	
         <link href="/template/css/slider.css" rel="stylesheet" type="text/css" media="all" />
@@ -12,6 +11,42 @@
     </head>
 
     <body>
+        <!-- Yandex.Metrika counter --> 
+        <script type="text/javascript" >
+            (function (d, w, c) {
+                (w[c] = w[c] || []).push(function () {
+                    try {
+                        w.yaCounter47227917 = new Ya.Metrika({
+                            id: 47227917,
+                            clickmap: true,
+                            trackLinks: true,
+                            accurateTrackBounce: true,
+                            webvisor: true,
+                            trackHash: true
+                        });
+                    } catch (e) {
+                    }
+                });
+
+                var n = d.getElementsByTagName("script")[0],
+                        s = d.createElement("script"),
+                        f = function () {
+                            n.parentNode.insertBefore(s, n);
+                        };
+                s.type = "text/javascript";
+                s.async = true;
+                s.src = "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/watch.js";
+
+                if (w.opera == "[object Opera]") {
+                    d.addEventListener("DOMContentLoaded", f, false);
+                } else {
+                    f();
+                }
+            })(document, window, "yandex_metrika_callbacks");
+        </script> 
+        <noscript><div><img src="https://mc.yandex.ru/watch/47227917" style="position:absolute; left:-9999px;" alt="" /></div></noscript> 
+        <!-- /Yandex.Metrika counter -->
+
         <!-- start header -->
         <div class="header_bg">    
             <div class="wrap">

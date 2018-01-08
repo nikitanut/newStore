@@ -117,7 +117,7 @@
                                 <span style='padding-left:10px;'> </span>
                             </div>
                         </div>
-                        <div class="col-lg-10">
+                        <div class="col-lg-10" style="width: 50%; margin-left: 20%;">
                         <input type="submit" name="submit" class="btn btn-default" value="Сохранить" style="margin-left: 10%">
                         </div>
                     </form>

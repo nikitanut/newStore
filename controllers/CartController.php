@@ -112,18 +112,23 @@ class CartController {
             }
             $adminEmail = 'nikitanut@gmail.com';
             $headers = 'From: noresponse@prokat83.ru' . "\r\n"
-                        . "Content-Type: text/html; charset=ISO-8859-1\r\n";
+                    . "Content-Type: text/html; charset=ISO-8859-1\r\n";
             try {
                 // Если ошибок нет
                 // Сохраняем заказ в базе данных
                 Order::save($userName, $userPhone, $address, $userComment, $userId, $date, $index_price);
+                $date = date('d.m.Y', strtotime($date));
+                $message = '';
+                for ($i = 0; $i < count($productsIds); $i++) {
+                    $message .= ($i + 1) . '. ' . $products[$i]['name'] . ' - ' . $index_price[$productsIds[$i]] . '<br/>';
+                }
+                $message = 'Имя: ' . $userName . '<br/> Телефон: ' . $userPhone . '<br/> Адрес доставки: ' . $address . '<br/> Комментарии к заказу: ' . $userComment . '<br/> Желаемая дата доставки: ' . $date . ' <br/><br/>' . $message;
+                $subject = 'Новый заказ!';
+                /*$headers = 'From: noresponse@prokat83.ru' . "\r\n"
+                        . "Content-Type: text/html; charset=utf-8";*/
 
                 // Если заказ успешно сохранен
-                // Оповещаем администратора о новом заказе по почте                
-                
-                $message = '<a href="/">Список заказов</a>';
-                $subject = 'Новый заказ!';
-                
+                // Оповещаем администратора о новом заказе по почте   
                 mail($adminEmail, $subject, $message, $headers);
 
                 // Очищаем корзину
