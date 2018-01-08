@@ -11,7 +11,8 @@ class SiteController
      */
     public function actionIndex()
     {
-        // Список категорий для header
+        try {
+            // Список категорий для header
         $categories = Category::getCategoriesList();
 
         // Список товаров для слайдера
@@ -19,7 +20,18 @@ class SiteController
 
         // Подключаем вид
         require_once(ROOT . '/views/site/index.php');
-        return true;
+        return true;            
+        } catch (Exception $exc) {
+            $adminEmail = 'nikitanut@gmail.com';
+            $headers = 'From: noresponse@prokat83.ru' . "\r\n"
+                        . "Content-Type: text/html; charset=ISO-8859-1\r\n";
+            $message = 'Отсутствует подключение к базе данных: ' . $exc->getTraceAsString();
+            $subject = 'Ошибка!';                
+            mail($adminEmail, $subject, $message, $headers);
+            echo 'К сожалению, на данный момент имеются неполадки в работе сайта. Попробуйте зайти позднее.';
+        }
+
+        
     }
 
     /**
@@ -30,12 +42,6 @@ class SiteController
         // Список категорий для header
         $categories = Category::getCategoriesList();
         
-        // Переменные для формы
-        $userName = false;
-        $userEmail = false;
-        $userText = false;
-        $result = false;
-
         // Обработка формы
         if (isset($_POST['submit'])) {
             // Если форма отправлена 
@@ -61,7 +67,6 @@ class SiteController
                 $headers = 'From: noresponse@prokat83.ru' . "\r\n"
                         . "Content-Type: text/html; charset=ISO-8859-1\r\n";
                 $result = mail($adminEmail, $subject, $message, $headers);
-                $result = true;
             }
         }
 

@@ -99,7 +99,7 @@ class Product
         // Соединение с БД
         $db = Db::getConnection();
         // Текст запроса к БД
-        $sql = 'SELECT prod_id, time, price FROM price WHERE prod_id = :prod_id';
+        $sql = 'SELECT prod_id, time, price FROM price WHERE prod_id = :prod_id ORDER BY price';
         // Используется подготовленный запрос
         $result = $db->prepare($sql);
         $result->bindParam(':prod_id', $id, PDO::PARAM_INT);

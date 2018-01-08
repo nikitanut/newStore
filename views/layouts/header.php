@@ -2,10 +2,10 @@
 <html>
     <head>
         <title>Центр проката г. Нарьян-Мар</title>
+        <link href="/template/css/style.css" rel="stylesheet" type="text/css" media="all" />
         <link rel="shortcut icon" href="/upload/logo.png" type="image/x-icon">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link href="/template/css/style.css" rel="stylesheet" type="text/css" media="all" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>        
         <script type="text/javascript" src="/template/js/jquery-2.2.4.min.js"></script>	
         <link href="/template/css/slider.css" rel="stylesheet" type="text/css" media="all" />
         <script src="/template/js/bootstrap.min.js" type="text/javascript"></script>  
@@ -22,7 +22,7 @@
                     <div class="logoname">
                         <a href="/">ЦЕНТР ПРОКАТА</a></div>
                     <div class="number">Работаем с 10:00 до 20:00<br>
-                        8 (964) 299 82-64
+                        8 (964) 299-82-64
                     </div>
                     <div class="social-networks">
                         <a href="https://vk.com/prokat83" target="_blank"><img src="/upload/vk.png" alt=""></a>                    

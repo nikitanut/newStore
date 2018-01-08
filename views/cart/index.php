@@ -1,6 +1,7 @@
 <?php include ROOT . '/views/layouts/header.php'; ?>
 <script type="text/javascript" src="/template/js/moment-with-locales.min.js"></script>
 <link rel="stylesheet" href="/template/css/bootstrap-datetimepicker.min.css"/>
+<script src="/template/js/jquery.maskedinput.js" type="text/javascript"></script>
 
     <?php if ($productsInCart): ?>
 <div class="prod_wrap">
@@ -121,7 +122,7 @@
 
     <script>
         jQuery(function ($) {
-            $("#applicationTelephone").mask("8 (999) 999-99-99");
+            $("#applicationTelephone").mask("8(999)999-99-99");
         });
         $("form").submit(function () { //Перед submit
             var a = true;

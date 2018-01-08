@@ -4,16 +4,14 @@
  * Контроллер CartController
  * Корзина
  */
-class CartController
-{
+class CartController {
 
     /**
      * Action для добавления товара в корзину синхронным запросом<br/>
      * (для примера, не используется)
      * @param integer $id <p>id товара</p>
      */
-    public function actionAdd($id)
-    {
+    public function actionAdd($id) {
         // Добавляем товар в корзину
         Cart::addProduct($id);
 
@@ -26,19 +24,17 @@ class CartController
      * Action для добавления товара в корзину при помощи асинхронного запроса (ajax)
      * @param integer $id <p>id товара</p>
      */
-    public function actionAddAjax($id)
-    {
+    public function actionAddAjax($id) {
         // Добавляем товар в корзину и печатаем результат: количество товаров в корзине
         echo Cart::addProduct($id);
         return true;
     }
-    
+
     /**
      * Action для добавления товара в корзину синхронным запросом
      * @param integer $id <p>id товара</p>
      */
-    public function actionDelete($id)
-    {
+    public function actionDelete($id) {
         // Удаляем заданный товар из корзины
         Cart::deleteProduct($id);
 
@@ -49,14 +45,13 @@ class CartController
     /**
      * Action для страницы "Корзина"
      */
-    public function actionIndex()
-    {
+    public function actionIndex() {
         // Список категорий для header
         $categories = Category::getCategoriesList();
 
         // Получим товары в корзине
         $productsInCart = Cart::getProducts();
-        
+
         if ($productsInCart) {
             // Если в корзине есть товары, получаем полную информацию о товарах для списка
             // Получаем массив только с идентификаторами товаров
@@ -68,7 +63,7 @@ class CartController
             // Получаем массив со стоимостью
             $prices = Product::getPriceListByProducts($products);
         }
-        
+
         $sliderProducts = Product::getRecommendedProducts();
 
         // Подключаем вид
@@ -79,9 +74,8 @@ class CartController
     /**
      * Action для страницы "Оформление покупки"
      */
-    public function actionCheckout()
-    {
-        // Получием данные из корзины      
+    public function actionCheckout() {
+        // Получаем данные из корзины      
         $productsInCart = Cart::getProducts();
 
         // Если товаров нет, отправляем пользователи искать товары на главную
@@ -96,56 +90,50 @@ class CartController
         $productsIds = array_keys($productsInCart);
         $products = Product::getProductsByIds($productsIds);
 
-        // Поля для формы
-        $userName = false;
-        $userPhone = false;
-        $userEmail = false;
-        $userComment = false;
-
-        // Статус успешного оформления заказа
-        $result = false;
-        $userId = false;
-        
         // Обработка формы
         if (isset($_POST['submit'])) {
             // Если форма отправлена
             // Получаем данные из формы
             $userName = $_POST['name'];
-            $userPhone = $_POST['telephone'];            
+            $userPhone = $_POST['telephone'];
             $date = date('Y-m-d', strtotime($_POST['datetimepicker']));
-            $userEmail=$_POST['email'];
+            $userEmail = $_POST['email'];
             $userComment = $_POST['comment'];
             $address = $_POST['address'];
-            $index_price = array(); 
-            for ($i = 0; $i < count($productsIds); $i++){
-               $index_price[$productsIds[$i]] = $_POST['time'.$productsIds[$i]]; // создание массива [id] = time
-            } 
+            $index_price = array();
+            for ($i = 0; $i < count($productsIds); $i++) {
+                $index_price[$productsIds[$i]] = $_POST['time' . $productsIds[$i]]; // создание массива [id] = time
+            }
             $userId = User::checkUserData($userPhone);
-            
-            if (!$userId){            
+
+            if (!$userId) {
                 User::register($userPhone, $userName, $userEmail);
                 $userId = User::checkUserData($userPhone);
             }
-            
+            $adminEmail = 'nikitanut@gmail.com';
+            $headers = 'From: noresponse@prokat83.ru' . "\r\n"
+                        . "Content-Type: text/html; charset=ISO-8859-1\r\n";
+            try {
                 // Если ошибок нет
                 // Сохраняем заказ в базе данных
-                $result = Order::save($userName, $userPhone, $address, $userComment, $userId, $date, $index_price);
-                
-                if ($result) { 
-                    // Если заказ успешно сохранен
-                    // Оповещаем администратора о новом заказе по почте                
-                    $adminEmail = 'nikitanut@gmail.com';
-                    $message = '<a href="/">Список заказов</a>';
-                    $subject = 'Новый заказ!';
-                    $headers = 'From: noresponse@prokat83.ru' . "\r\n"
-                            . "Content-Type: text/html; charset=ISO-8859-1\r\n";
-                    mail($adminEmail, $subject, $message, $headers);
-                    
+                Order::save($userName, $userPhone, $address, $userComment, $userId, $date, $index_price);
 
-                    // Очищаем корзину
-                    Cart::clear(); 
-                }
-            
+                // Если заказ успешно сохранен
+                // Оповещаем администратора о новом заказе по почте                
+                
+                $message = '<a href="/">Список заказов</a>';
+                $subject = 'Новый заказ!';
+                
+                mail($adminEmail, $subject, $message, $headers);
+
+                // Очищаем корзину
+                Cart::clear();
+            } catch (Exception $exc) {
+                echo 'К сожалению, заказ не осуществлён. Попробуйте позже.';
+                $message = 'Пользователь не смог заказать товар! ' . $exc->getTraceAsString();
+                $subject = 'Ошибка!';
+                mail($adminEmail, $subject, $message, $headers);
+            }
         }
 
         // Подключаем вид
