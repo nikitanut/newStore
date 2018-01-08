@@ -22,7 +22,7 @@ class SiteController
         require_once(ROOT . '/views/site/index.php');
         return true;            
         } catch (Exception $exc) {
-            $adminEmail = 'nikitanut@gmail.com';
+            $adminEmail = 'prokat83@inbox.ru';
             $headers = 'From: noresponse@prokat83.ru' . "\r\n"
                         . "Content-Type: text/html; charset=ISO-8859-1\r\n";
             $message = 'Отсутствует подключение к базе данных: ' . $exc->getTraceAsString();
@@ -65,7 +65,7 @@ class SiteController
             if ($errors == false) {
                 // Если ошибок нет
                 // Отправляем письмо администратору 
-                $adminEmail = 'nikitanut@gmail.com';
+                $adminEmail = 'prokat83@inbox.ru';
                 $message = "Текст: {$userText}. От {$userEmail}";
                 $subject = 'Тема письма';
                 $headers = 'From: noresponse@prokat83.ru' . "\r\n"

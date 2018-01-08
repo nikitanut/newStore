@@ -70,7 +70,9 @@
                 <?php foreach ($products as $product): ?>
                     <tr>
                         <td><?php echo $product['id']; ?></td>
-                        <td><?php echo $product['name']; ?></td>
+                        <td>
+                            <a href="/product/<?php echo $product['id']?>" target="_blank"><?php echo $product['name']; ?></a>
+                        </td>
                         <td><?php echo $productsTime[$product['id']]; ?></td>
                     </tr>
                 <?php endforeach; ?>

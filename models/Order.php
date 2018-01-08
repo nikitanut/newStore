@@ -85,7 +85,7 @@ class Order
                 return 'В обработке';
                 break;
             case '3':
-                return 'Доставляется';
+                return 'Используется';
                 break;
             case '4':
                 return 'Закрыт';

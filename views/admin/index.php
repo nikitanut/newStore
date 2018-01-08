@@ -25,13 +25,15 @@
                 <li><a href="/user/logout">Выход</a>
             </ul>
 
+            <!--Yandex.Metrika informer --> 
+            <ul>
+                <a href="https://metrika.yandex.ru/stat/?id=47227917&amp;from=informer" 
+                   target="_blank" rel="nofollow"><img src="https://metrika-informer.com/informer/47227917/2_1_FFFFFFFF_EFEFEFFF_0_pageviews" 
+                                                    style="width:80px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры)" class="ym-advanced-informer" data-cid="47227917" data-lang="ru" /></a> 
+            </ul>
+            <!-- /Yandex.Metrika informer -->
+
         </div>
     </div>
-
-    <!--Yandex.Metrika informer --> 
-    <a href="https://metrika.yandex.ru/stat/?id=47227917&amp;from=informer" 
-       target="_blank" rel="nofollow"><img src="https://metrika-informer.com/informer/47227917/2_1_FFFFFFFF_EFEFEFFF_0_pageviews" 
-                                        style="width:80px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры)" class="ym-advanced-informer" data-cid="47227917" data-lang="ru" /></a> 
-    <!-- /Yandex.Metrika informer -->
 </section>
 

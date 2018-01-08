@@ -42,7 +42,7 @@
                         <select name="status">
                             <option value="1" <?php if ($order['status'] == 1) echo ' selected="selected"'; ?>>Новый заказ</option>
                             <option value="2" <?php if ($order['status'] == 2) echo ' selected="selected"'; ?>>В обработке</option>
-                            <option value="3" <?php if ($order['status'] == 3) echo ' selected="selected"'; ?>>Доставляется</option>
+                            <option value="3" <?php if ($order['status'] == 3) echo ' selected="selected"'; ?>>Используется</option>
                             <option value="4" <?php if ($order['status'] == 4) echo ' selected="selected"'; ?>>Закрыт</option>
                         </select>
                         <br>

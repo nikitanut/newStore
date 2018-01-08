@@ -110,7 +110,7 @@ class CartController {
                 User::register($userPhone, $userName, $userEmail);
                 $userId = User::checkUserData($userPhone);
             }
-            $adminEmail = 'nikitanut@gmail.com';
+            $adminEmail = 'prokat83@inbox.ru';
             $headers = 'From: noresponse@prokat83.ru' . "\r\n"
                     . "Content-Type: text/html; charset=ISO-8859-1\r\n";
             try {
@@ -122,10 +122,10 @@ class CartController {
                 for ($i = 0; $i < count($productsIds); $i++) {
                     $message .= ($i + 1) . '. ' . $products[$i]['name'] . ' - ' . $index_price[$productsIds[$i]] . '<br/>';
                 }
-                $message = 'Имя: ' . $userName . '<br/> Телефон: ' . $userPhone . '<br/> Адрес доставки: ' . $address . '<br/> Комментарии к заказу: ' . $userComment . '<br/> Желаемая дата доставки: ' . $date . ' <br/><br/>' . $message;
+                $message = 'Имя: ' . $userName . '<br/> Телефон: ' . $userPhone . '<br/> Адрес доставки: ' . $address 
+                        . '<br/> Комментарии к заказу: ' . $userComment . '<br/> Желаемая дата доставки: ' . $date 
+                        . ' <br/><br/>' . $message . ' <br/><br/>' . 'http://www.prokat83.ru/admin/order';
                 $subject = 'Новый заказ!';
-                /*$headers = 'From: noresponse@prokat83.ru' . "\r\n"
-                        . "Content-Type: text/html; charset=utf-8";*/
 
                 // Если заказ успешно сохранен
                 // Оповещаем администратора о новом заказе по почте   
