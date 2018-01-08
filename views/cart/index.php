@@ -122,7 +122,7 @@
 
     <script>
         jQuery(function ($) {
-            $("#applicationTelephone").mask("8(999) 999 99 99");
+            $("#applicationTelephone").mask("8(999)9999999");
         });
         $("form").submit(function () { //Перед submit
             var a = true;
