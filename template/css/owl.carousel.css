@@ -359,6 +359,11 @@
 @keyframes scaleUpTo {
   to { opacity: 0; transform: scale(1.5); }
 }
+@media only screen and (max-width: 1550px) {
+    .item h3{
+        font-size: 1.1em;
+    }
+}
 @media only screen and (max-width:1440px) and (min-width:1366px) {
 	.owl-carousel {
 		width: 80%;
