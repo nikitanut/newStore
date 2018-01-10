@@ -57,7 +57,7 @@
                     <div class="logoname">
                         <a href="/">ЦЕНТР ПРОКАТА</a></div>
                     <div class="number">Работаем с 10:00 до 20:00<br>
-                        8 (964) 299-82-64
+                        8 (964) 299-80-91
                     </div>
                     <div class="social-networks">
                         <a href="https://vk.com/prokat83" target="_blank"><img src="/upload/vk.png" alt=""></a>                    
