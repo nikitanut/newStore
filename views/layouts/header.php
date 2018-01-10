@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Центр проката г. Нарьян-Мар</title>
+        <meta name="yandex-verification" content="7c6bee438c5986d6" />
         <link href="/template/css/style.css" rel="stylesheet" type="text/css" media="all" />
         <link rel="shortcut icon" href="/upload/logo.png" type="image/x-icon">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>        
@@ -56,7 +57,7 @@
                     </div>
                     <div class="logoname">
                         <a href="/">ЦЕНТР ПРОКАТА</a></div>
-                    <div class="number">Работаем с 10:00 до 20:00<br>
+                    <div class="number">Работаем с 10:00 до 21:00<br>
                         8 (964) 299-80-91
                     </div>
                     <div class="social-networks">
